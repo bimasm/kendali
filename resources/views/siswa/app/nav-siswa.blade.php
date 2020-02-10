@@ -40,8 +40,8 @@
 				</ul>
 
 				<ul class="right hide-on-med-and-down">
-					<li><a href="#!" class="rb-text-1 dropdown-trigger" data-target='dropdown1'>
-						<i class="material-icons right rb-text-1">account_circle</i>{{ Auth::guard('siswa')->user()->nama }}</a>
+					<li><a href="#!" class="grey-text text-darken-1 dropdown-trigger" data-target='dropdown1'>
+						<i class="material-icons right grey-text text-darken-1">account_circle</i>{{ Auth::guard('siswa')->user()->nama }}</a>
 					</li>
 				</ul>
 
