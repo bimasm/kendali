@@ -14,7 +14,7 @@ Route::get('/admin', function() {
 })->middleware('auth:admin');
 
 Route::get('/siswa', function() {
-  return view('siswa');
+  return view('siswa.dashboard-siswa');
 })->middleware('auth:siswa');
 
 Route::get('/adminsekolah', function() {
