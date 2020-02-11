@@ -41,7 +41,7 @@
 
   @yield('app-admin')
 
-  <footer class="page-footer rb-color-1">
+  <footer class="page-footer rb-trans">
     <div class="footer-copyright">
       <div class="container center">
         Rumah Belajar © Copyright 2020.All rights reserved.
@@ -93,6 +93,19 @@
 
     $(document).ready(function(){
       $('select').formSelect();
+    });
+
+    $(document).ready(function(){
+      $('.slider').slider();
+    });
+
+    $(document).ready(function(){
+      $('.collapsible').collapsible();
+    });
+
+    document.addEventListener('DOMContentLoaded', function() {
+      var elems = document.querySelectorAll('.collapsible');
+      var instances = M.Collapsible.init(elems, options);
     });
   </script>
 

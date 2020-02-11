@@ -51,14 +51,6 @@ Dashboard - Siswa
 		<div class="divider"></div>
 		<br>
 		<div class="row">
-			{{-- <div class="col s12 m12 l2">
-				<div class="collection">
-					<a href="#!" class="collection-item active">Semua</a>
-					<a href="#!" class="collection-item">Kelas</a>
-					<a href="#!" class="collection-item">Ujian & Tugas</a>
-					<a href="#!" class="collection-item">Pengetahuan</a>
-				</div>
-			</div> --}}
 			<div class="col s12 m12 l12">
 				<div class="row">
 

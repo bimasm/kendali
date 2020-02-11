@@ -5,7 +5,7 @@
  */
 
 
-.materialize-red {
+ .materialize-red {
     background-color: #e51c23 !important
 }
 
@@ -4153,7 +4153,7 @@ nav .brand-logo {
     position: absolute;
     color: #fff;
     display: inline-block;
-    font-size: 2.1rem;
+    font-size: 2rem;
     padding: 0
 }
 
@@ -4215,7 +4215,11 @@ nav ul li {
 }
 
 nav ul li.active {
-    font-weight: 1000
+    font-weight: 600;
+    border-bottom: 4px solid #d77f51;
+    height: 70px;
+    border-bottom-right-radius: 3px;
+    border-bottom-left-radius: 3px;
 }
 
 nav ul a {
@@ -4769,8 +4773,8 @@ small {
 }
 
 .card .card-action {
-    background-color: inherit;
-    /*border-top: 1px solid rgba(160, 160, 160, 0.2);*/
+    /*background-color: inherit;*/
+    border-top: 1px solid rgba(160, 160, 160, 0.2);
     position: relative;
     padding: 16px 24px
 }
@@ -5523,7 +5527,7 @@ body.keyboard-focused .dropdown-content li:focus {
  * https://github.com/fians/Waves/blob/master/LICENSE
  */
 
-.waves-effect {
+ .waves-effect {
     position: relative;
     cursor: pointer;
     display: inline-block;
