@@ -5,7 +5,9 @@ Detail Tugas - Guru
 @endsection
 
 @section('nav-siswa')
+@foreach($data as $dt)
 @include('guru.app.nav-guru')
+@endforeach
 @endsection
 
 @section('app-guru')

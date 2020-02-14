@@ -26,7 +26,8 @@ class GuruController extends Controller
 
 	public function Guru_Tugas_Detail()
 	{
-		return view('guru.tugas-guru-detail');
+		$data=Pelajaran::all();
+		return view('guru.tugas-guru-detail', compact('data'));
 	}
 
 	public function Guru_SemuaUjian()
