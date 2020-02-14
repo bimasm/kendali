@@ -39,18 +39,18 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('GuruKelas','GuruTugas','GuruUjian','GuruDiskusi','GuruSiswa'))
+				@if(request()->routeIs('DetailKelas','GuruTugas','GuruUjian','GuruDiskusi','GuruSiswa'))
 
 				<div style="padding:0 50px;">
 					<ul class="center">
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'GuruKelas'
+							'DetailKelas'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruKelas')}}" class="rb-text-1">Materi</a>
+							<a href="{{route('GuruKelas',$dt->id)}}" class="rb-text-1">Materi</a>
 						</li>
 						<li class="menu-kelas
 						{{ (request()->routeIs(

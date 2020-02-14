@@ -49,42 +49,42 @@ return [
 
         'admin' => [
           'driver' => 'session',
-          'provider' => 'admin',
+          'provider' => 'admins',
         ],
 
         'admin-api' => [
             'driver' => 'token',
-            'provider' => 'admin',
+            'provider' => 'admins',
         ],
 
         'adminsekolah' => [
           'driver' => 'session',
-          'provider' => 'adminsekolah',
+          'provider' => 'adminsekolahs',
         ],
 
         'adminsekolah-api' => [
             'driver' => 'token',
-            'provider' => 'adminsekolah',
+            'provider' => 'adminsekolahs',
         ],
 
         'guru' => [
           'driver' => 'session',
-          'provider' => 'guru',
+          'provider' => 'gurus',
         ],
 
         'guru-api' => [
             'driver' => 'token',
-            'provider' => 'guru',
+            'provider' => 'gurus',
         ],
 
         'siswa' => [
           'driver' => 'session',
-          'provider' => 'siswa',
+          'provider' => 'siswas',
         ],
 
         'siswa-api' => [
             'driver' => 'token',
-            'provider' => 'siswa',
+            'provider' => 'siswas',
         ],
     ],
 
@@ -106,22 +106,22 @@ return [
     */
 
     'providers' => [
-        'admin' => [
+        'admins' => [
             'driver' => 'eloquent',
             'model' => App\Admin::class,
         ],
 
-        'adminsekolah' => [
+        'adminsekolahs' => [
             'driver' => 'eloquent',
             'model' => App\Adminsekolah::class,
         ],
 
-        'guru' => [
+        'gurus' => [
             'driver' => 'eloquent',
             'model' => App\Guru::class,
         ],
 
-        'siswa' => [
+        'siswas' => [
             'driver' => 'eloquent',
             'model' => App\Siswa::class,
         ],

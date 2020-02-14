@@ -33,12 +33,14 @@ Dashboard - Guru
 			<div class="col s12 m12 l12">
 				<div class="row">
 
+
+					@foreach($data as $dt)
 					<div class="col s12 m12 l4">
 						<div class="card cont-dash white">
 							<div class="cont-head">
-								<a href="{{route('GuruKelas')}}">
+								<a href="{{route('GuruKelas')}}/detail/{{ $dt->id }}">
 									<span class="card-title">
-										<i class="cont-title-icon material-icons center">menu_book</i> Fisika
+										<i class="cont-title-icon material-icons center">menu_book</i> {{$dt->pelajaran}}
 									</span>
 								</a>
 								<span style="float: right;">
@@ -47,7 +49,7 @@ Dashboard - Guru
 							</div>
 
 							<div class="card-content grey-text text-darken-2 con-card-cont-guru">
-								<p>Dibuat pada Jan 26 2020</p>
+								<p>Dibuat pada {{$dt->created_at}}</p>
 							</div>
 						</div>
 
@@ -56,6 +58,7 @@ Dashboard - Guru
 							<li><a class="menu-kelas-guru-dash" href="#!"><i class="material-icons">delete</i>Hapus</a></li>
 						</ul>
 					</div>
+					@endforeach
 
 				</div>
 			</div>
@@ -66,11 +69,11 @@ Dashboard - Guru
 <div id="modal-add-kelas" class="modal">
 	<div class="modal-content">
 		<div class="row">
-			<form action="" method="">
+			<form action="{{ route('addpelajaran') }}" method="post">
 				@csrf
 				<div class="col s12 m12 l12">
 					<div class="input-field">
-						<input id="last_name" type="text" class="validate">
+						<input id="last_name" type="text" name="pelajaran" class="validate">
 						<label for="last_name">Nama Kelas</label>
 					</div>
 				</div>

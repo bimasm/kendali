@@ -5,7 +5,9 @@ Kelas - Guru
 @endsection
 
 @section('nav-guru')
+@foreach($data as $dt)
 @include('guru.app.nav-guru')
+@endforeach
 @endsection
 
 @section('app-guru')
@@ -13,7 +15,9 @@ Kelas - Guru
 	<div class="container" style="margin-top: 1em">
 		<div class="row">
 			<div class="col s12 m12 l6 fot-card-left">
-				<h4>Kelas Fisika \ Materi</h4>
+				@foreach($data as $dt)
+				<h4>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h4>
+				@endforeach
 			</div>
 			<div class="col s12 m12 l6 fot-card-right">
 				<div class="con-head-guru">
@@ -37,13 +41,13 @@ Kelas - Guru
 		<div class="row">
 			<div class="col s12 m12 l12">
 				<div class="row">
-
+					@foreach($materi as $mt)
 					<div class="col s12 m12 l12">
 						<div class="card cont-dash white">
 							<ul class="collapsible materi-cont-siswa">
 								<li>
 									<div class="collapsible-header materi-cont-siswa-he">
-										<i class="material-icons materi-icon-siswa">menu_book</i>Gaya
+										<i class="material-icons materi-icon-siswa">menu_book</i>{{ $mt->materi }}
 
 										<span style="float: right; right: 20px; position: absolute;">
 											<a class="btn-floating btn-flat materi-icon-det">
@@ -55,17 +59,18 @@ Kelas - Guru
 									<div class="collapsible-body materi-cont-siswa-bo">
 										<h6><b>File</b></h6>
 										<blockquote>
+											@foreach($mt->komponen as $k)
 											<div class="row">
 												<table class="highlight">
 													<tbody>
 														<tr>
-															<td>Fisika dasar</td>
+															<td>{{ $k->judul }}</td>
 															<td class="center">
-																<a href="#!" class="materi-item-siswa">
+																<a href="{{ route('welcome') }}/file/{{ $k->file }}" class="materi-item-siswa" target="_blank">
 																	<div class="card cont-file white">
 																		<div class="materi-item-cont-siswa">
 																			<i class="material-icons icon center">description</i> 
-																			<span class="text">Fisika</span>
+																			<span class="text">{{ $k->file }}</span>
 																		</div>
 																	</div>
 																</a>
@@ -80,13 +85,14 @@ Kelas - Guru
 													</tbody>
 												</table>
 											</div>
+											@endforeach
 
 											<a href="#modal-add-file" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
 										</blockquote>
 
 										<br>
 
-										<h6><b>Latihan Soal</b></h6>
+										{{-- <h6><b>Latihan Soal</b></h6>
 										<blockquote>
 											<table class="highlight">
 												<tbody>
@@ -105,17 +111,18 @@ Kelas - Guru
 													</tr>
 												</tbody>
 											</table>
-										</blockquote>
+										</blockquote> --}}
 									</div>
 
 								</li>
 							</ul>
 
 							<div class="card-action">
-								<b>Dibuat : </b>23 Juni 2020 16:30
+								<b>Dibuat : </b>{{ $mt->created_at }}
 							</div>
 						</div>
 					</div>
+					@endforeach
 
 				</div>
 			</div>
@@ -127,11 +134,14 @@ Kelas - Guru
 	<div class="container" style="width: 60%">
 		<div class="card cont-dash white">
 			<div class="card-content grey-text text-darken-2 con-card-cont">
-				<form action="" method="">
+				<form action="{{ route('addmateri') }}" method="post">
 					@csrf
 					<div class="col s12 m12 l8 fot-card-left">
 						<div class="input-field">
-							<input id="last_name" type="text" class="validate">
+							@foreach($data as $dt)
+							<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+							@endforeach
+							<input id="last_name" type="text" name="materi" class="validate">
 							<label for="last_name">Judul Materi</label>
 						</div>
 					</div>
@@ -182,15 +192,15 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
-
+@foreach($materi as $mt)
 <div id="modal-add-file" class="modal">
 	<div class="modal-content">
 		<div class="row">
-			<form action="" method="">
+			<form action="{{ route('addfilemateri') }}" method="post" enctype="multipart/form-data">
 				@csrf
 				<div class="col s12 m12 l12 fot-card-left">
 					<div class="input-field">
-						<input id="last_name" type="text" class="validate">
+						<input id="last_name" type="text" name="judul" class="validate">
 						<label for="last_name">Judul Materi</label>
 					</div>
 				</div>
@@ -200,10 +210,16 @@ Kelas - Guru
 						<div class="file-field input-field col s12">
 							<div class="btn-up btn no-shads">
 								<i class="material-icons">add_circle</i>
-								<input type="file" multiple>
+								<input type="file" name="filemateri" multiple>
 							</div>
 							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" placeholder="File Materi">
+								@foreach($data as $dt)
+								<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+								@endforeach
+								
+								<input type="hidden" name="id_materi" value="{{ $mt->id }}">
+								
+								<input class="file-path validate" type="text" placeholder="File Materi harus pdf">
 							</div>
 						</div>
 					</div>
@@ -215,7 +231,7 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
-
+@endforeach
 <div id="modal-hapus" class="modal m-hapus">
 	<div class="modal-content">
 		<div class="row">

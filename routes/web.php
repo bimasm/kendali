@@ -2,7 +2,7 @@
 
 Route::get('/', function () {
 	return view('welcome');
-});
+})->name('welcome');
 
 // hanya untuk tamu yg belum auth
 Route::get('/login', 'LoginController@getLogin')->middleware('guest');
@@ -53,9 +53,13 @@ Route::get('/adminsekolah', function() {
 
 //-- START ----------------------------------------------------------------------------- Guru
 
-Route::get('/guru', function() {
-	return view('guru.dashboard-guru');
-})->middleware('auth:guru')->name('GuruDashboard');
+Route::get('/guru', 'GuruController@index')->middleware('auth:guru')->name('GuruDashboard');
+
+Route::post('/guru/addkelas', 'GuruActionController@addpelajaran')->middleware('auth:guru')->name('addpelajaran');
+
+Route::post('/guru/addmateri', 'GuruActionController@addmateri')->middleware('auth:guru')->name('addmateri');
+
+Route::post('/guru/addfilemateri', 'GuruActionController@addfilemateri')->middleware('auth:guru')->name('addfilemateri');
 
 Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
 ->name('GuruSemuaTugas')->middleware('auth:guru');
@@ -66,8 +70,10 @@ Route::get('/guru/tugas-detail', 'GuruController@Guru_Tugas_Detail')
 Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
 ->name('GuruSemuaUjian')->middleware('auth:guru');
 
-Route::get('/guru/kelas', 'GuruController@Guru_Kelas')
+Route::get('/guru/kelas/', 'GuruController@Guru_Kelas')
 ->name('GuruKelas')->middleware('auth:guru');
+Route::get('/guru/kelas/detail/{id}', 'GuruController@Detail_Kelas')
+->name('DetailKelas')->middleware('auth:guru');
 
 Route::get('/guru/tugas', 'GuruController@Guru_Tugas')
 ->name('GuruTugas')->middleware('auth:guru');

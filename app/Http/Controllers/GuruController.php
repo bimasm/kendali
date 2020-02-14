@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Auth;
+use App\Pelajaran;
+use App\Materi;
+use App\Komponenmateri;
 
 class GuruController extends Controller
 {
+	public function index()
+	{
+		$guru=Auth::guard('guru')->user()->id;
+        $data=Pelajaran::where('id_guru', $guru)->get();
+
+		return view('guru.dashboard-guru', compact('data'));
+	}
 
 	public function Guru_SemuaTugas()
 	{
@@ -22,8 +33,18 @@ class GuruController extends Controller
 		return view('guru.semuaujian-guru');
 	}
 
+	public function Detail_Kelas($id)
+	{
+		$data=Pelajaran::where('id',$id)->get();
+        $materi = Materi::with('komponen.materi')->orderBy('id','desc')->get();
+        
+        
+        
+		return view('guru.kelas-guru', compact('data','materi'));
+	}
 	public function Guru_Kelas()
 	{
+		
 		return view('guru.kelas-guru');
 	}
 
