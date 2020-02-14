@@ -97,4 +97,7 @@ Route::get('/guru/rekap-nilai/detail', 'GuruController@Guru_RekapNilai_Detail')
 Route::get('/guru/setting', 'GuruController@Guru_Setting')
 ->name('GuruSetting')->middleware('auth:guru');
 
+Route::get('/guru/diskusi/detail/', 'GuruController@Guru_Diskusi_Detail')
+->name('GuruDiskusiDetail')->middleware('auth:guru');
+
 //-- END ----------------------------------------------------------------------------- Guru

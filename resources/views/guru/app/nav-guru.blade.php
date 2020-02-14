@@ -39,7 +39,7 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail'))
+				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
 
 				<div style="padding:0 50px;">
 					<ul class="center">
@@ -73,7 +73,8 @@
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'DiskusiKelas'
+							'DiskusiKelas',
+							'GuruDiskusiDetail'
 
 							)) ? 'active' : '' }}
 							">
@@ -110,12 +111,13 @@
 		<li class=" 
 		{{ (request()->routeIs(
 
-			'GuruDashboard',
-			'GuruKelas',
-			'GuruTugas',
-			'GuruUjian',
-			'GuruSiswa',
-			'GuruTugasDetail'
+			'DetailKelas',
+			'TugasKelas',
+			'UjianKelas',
+			'DiskusiKelas',
+			'SiswaKelas',
+			'GuruTugasDetail',
+			'GuruDiskusiDetail'
 
 			)) ? 'active' : '' }}
 			">

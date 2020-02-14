@@ -84,7 +84,7 @@ Diskusi - Guru
 												<a href="#modal-tugas-hapus" class="waves-effect waves-light btn modal-trigger red darken-2"><i class="material-icons left">delete</i>Hapus</a>	
 											</div>
 											<div class="col s12 m12 l6 fot-card-right">
-												<a href="{{route('GuruTugasDetail')}}" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">arrow_forward</i>Masuk</a>
+												<a href="{{route('GuruDiskusiDetail')}}" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">arrow_forward</i>Masuk</a>
 											</div>
 										</div>
 									</div>
