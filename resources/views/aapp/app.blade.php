@@ -6,7 +6,7 @@
   <title>@yield('title')</title>
 
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1.0"/>
-
+  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/materialize.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/animation.css')}}">
@@ -34,20 +34,21 @@
 
   @yield('nav-siswa')
   @yield('app-siswa')
-
+  
+  @yield('nav-guru')
   @yield('app-guru')
 
   @yield('app-admin-sekolah')
 
   @yield('app-admin')
 
-  <footer class="page-footer rb-trans">
+  {{-- <footer class="page-footer rb-trans">
     <div class="footer-copyright">
       <div class="container center">
         Rumah Belajar © Copyright 2020.All rights reserved.
       </div>
     </div>
-  </footer>
+  </footer> --}}
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
   <script type="text/javascript" src="{{asset('asset/js/materialize.min.js')}}"></script>
@@ -106,6 +107,16 @@
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.collapsible');
       var instances = M.Collapsible.init(elems, options);
+    });
+
+    $(document).ready(function(){
+      $('.modal').modal();
+    });
+    $(document).ready(function(){
+      $('.datepicker').datepicker();
+    });
+    $(document).ready(function(){
+      $('.timepicker').timepicker();
     });
   </script>
 

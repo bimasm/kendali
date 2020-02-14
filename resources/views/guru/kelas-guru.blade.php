@@ -1,0 +1,335 @@
+@extends('aapp.app')
+
+@section('title')
+Kelas - Guru
+@endsection
+
+@section('nav-guru')
+@include('guru.app.nav-guru')
+@endsection
+
+@section('app-guru')
+<section>
+	<div class="container" style="margin-top: 1em">
+		<div class="row">
+			<div class="col s12 m12 l6 fot-card-left">
+				<h4>Kelas Fisika \ Materi</h4>
+			</div>
+			<div class="col s12 m12 l6 fot-card-right">
+				<div class="con-head-guru">
+					<div id="tab2">
+						<a onclick="myDetail()" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">add</i>Materi Baru</a>
+					</div>
+
+					<div id="detail2" style="display: none">
+						<a onclick="myClose()" class="waves-effect waves-light btn rb-color-2"><i class="material-icons left">arrow_back</i>Kembali</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+</section>
+<br>
+
+<section id="tab">
+	<div class="container" style="width: 60%">
+		<div class="row">
+			<div class="col s12 m12 l12">
+				<div class="row">
+
+					<div class="col s12 m12 l12">
+						<div class="card cont-dash white">
+							<ul class="collapsible materi-cont-siswa">
+								<li>
+									<div class="collapsible-header materi-cont-siswa-he">
+										<i class="material-icons materi-icon-siswa">menu_book</i>Gaya
+
+										<span style="float: right; right: 20px; position: absolute;">
+											<a class="btn-floating btn-flat materi-icon-det">
+												<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+											</a>
+										</span>
+									</div>
+
+									<div class="collapsible-body materi-cont-siswa-bo">
+										<h6><b>File</b></h6>
+										<blockquote>
+											<div class="row">
+												<table class="highlight">
+													<tbody>
+														<tr>
+															<td>Fisika dasar</td>
+															<td class="center">
+																<a href="#!" class="materi-item-siswa">
+																	<div class="card cont-file white">
+																		<div class="materi-item-cont-siswa">
+																			<i class="material-icons icon center">description</i> 
+																			<span class="text">Fisika</span>
+																		</div>
+																	</div>
+																</a>
+															</td>
+
+															<td class="center">
+																<a href="#modal-edit" class="btn-floating btn waves-effect waves-light blue darken-1 modal-trigger"><i class="material-icons">edit</i></a>
+
+																<a href="#modal-hapus" class="btn-floating btn waves-effect waves-light modal-trigger red"><i class="material-icons">delete</i></a>
+															</td>
+														</tr>
+													</tbody>
+												</table>
+											</div>
+
+											<a href="#modal-add-file" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
+										</blockquote>
+
+										<br>
+
+										<h6><b>Latihan Soal</b></h6>
+										<blockquote>
+											<table class="highlight">
+												<tbody>
+													<tr>
+														<td>Nama Latihan</td>
+														<td>90 menit</td>
+														<td>50 soal</td>
+														<td>10 Siswa Mencoba</td>
+														<td class="center">
+															<a href="#modal-latso-edit" class="btn-floating btn waves-effect waves-light blue darken-1 modal-trigger"><i class="material-icons">edit</i></a>
+
+															<a href="#modal-latso-hapus" class="btn-floating btn waves-effect waves-light red modal-trigger"><i class="material-icons">delete</i></a>
+
+															<a class="waves-effect btn-flat grey-text text-darken-1"><i class="material-icons right">arrow_forward</i>Mulai</a>
+														</td>
+													</tr>
+												</tbody>
+											</table>
+										</blockquote>
+									</div>
+
+								</li>
+							</ul>
+
+							<div class="card-action">
+								<b>Dibuat : </b>23 Juni 2020 16:30
+							</div>
+						</div>
+					</div>
+
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+
+<section id="detail" style="display: none">
+	<div class="container" style="width: 60%">
+		<div class="card cont-dash white">
+			<div class="card-content grey-text text-darken-2 con-card-cont">
+				<form action="" method="">
+					@csrf
+					<div class="col s12 m12 l8 fot-card-left">
+						<div class="input-field">
+							<input id="last_name" type="text" class="validate">
+							<label for="last_name">Judul Materi</label>
+						</div>
+					</div>
+					<div class="input-field col s12 center">
+						<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+</section>
+
+<div id="modal-edit" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 m12 l8 fot-card-left">
+					<div class="input-field">
+						<input id="last_name" type="text" class="validate in-jud" value="Judul Tugas">
+						<label for="last_name">Judul Materi</label>
+					</div>
+				</div>
+				<div class="col s12 m12 l4 fot-card-right">
+					<h5>kelas</h5>
+				</div>
+				<div class="col s12 m12 l12">
+					<hr>
+					<br>
+				</div>
+				<div class="row" style="padding: 0 60px;">
+					<div class="row">
+						<div class="file-field input-field col s12">
+							<div class="btn-up btn no-shads">
+								<i class="material-icons">add_circle</i>
+								<input type="file" multiple>
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text" placeholder="File Materi">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="input-field col s12 center">
+					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modal-add-file" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 m12 l12 fot-card-left">
+					<div class="input-field">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Judul Materi</label>
+					</div>
+				</div>
+
+				<div class="row" style="padding: 0 60px;">
+					<div class="row">
+						<div class="file-field input-field col s12">
+							<div class="btn-up btn no-shads">
+								<i class="material-icons">add_circle</i>
+								<input type="file" multiple>
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text" placeholder="File Materi">
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="input-field col s12 center">
+					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modal-hapus" class="modal m-hapus">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 center">
+					<h5>Apakah anda yakin ?</h5>
+					<p>Hapus Judul Materi</p>
+				</div>
+				<div class="input-field col s12 center">
+					<a class="waves-effect waves-light btn red darken-2"><i class="material-icons right">delete</i>Hapus</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modal-latso-hapus" class="modal m-hapus">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 center">
+					<h5>Apakah anda yakin ?</h5>
+					<p>Hapus Judul Latihan Soal</p>
+				</div>
+				<div class="input-field col s12 center">
+					<a class="waves-effect waves-light btn red darken-2"><i class="material-icons right">delete</i>Hapus</a>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+
+<div id="modal-latso-edit" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 m12 l8 fot-card-left">
+					<div class="input-field">
+						<input id="last_name" type="text" class="validate in-jud" value="Judul Latihan Soal">
+						<label for="last_name">Judul Latihan Soal</label>
+					</div>
+				</div>
+				<div class="col s12 m12 l4 fot-card-right">
+					<h5>kelas</h5>
+				</div>
+				<div class="col s12 m12 l12">
+					<hr>
+					<br>
+				</div>
+
+				<div class="row" style="padding: 0 60px;">
+					<div class="row">
+						<div class="input-field col s12">
+							<i class="material-icons prefix">timer</i>
+							<input type="text" class="datepicker">
+							<label for="textarea1">Durasi</label>
+						</div>
+						<div class="file-field input-field col s12">
+							<div class="btn-up btn no-shads">
+								<i class="material-icons">add_circle</i>
+								<input type="file" multiple>
+							</div>
+							<div class="file-path-wrapper">
+								<input class="file-path validate" type="text" placeholder="File Latihan Soal">
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<div class="input-field col s12 center">
+					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
+@endsection
+
+@section('js-plus')
+<script type="text/javascript">
+	function myDetail() {
+		var x = document.getElementById("detail");
+		var y = document.getElementById("tab");
+
+		var i = document.getElementById("detail2");
+		var j = document.getElementById("tab2");
+
+
+		if (x.style.display === "none" || i.style.display === "none") {
+			x.style.display = "block";
+			y.style.display = "none";
+
+			i.style.display = "block";
+			j.style.display = "none";
+		}
+	}
+
+	function myClose() {
+		var x = document.getElementById("detail");
+		var y = document.getElementById("tab");
+
+		var i = document.getElementById("detail2");
+		var j = document.getElementById("tab2");
+
+		if (x.style.display === "block" || i.style.display === "block") {
+			x.style.display = "none";
+			y.style.display = "block";
+
+			i.style.display = "none";
+			j.style.display = "block";
+		}
+	}
+</script>
+@endsection

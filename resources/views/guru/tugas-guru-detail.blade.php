@@ -1,14 +1,14 @@
 @extends('aapp.app')
 
 @section('title')
-Tugas - Siswa
+Detail Tugas - Guru
 @endsection
 
 @section('nav-siswa')
-@include('siswa.app.nav-siswa')
+@include('guru.app.nav-guru')
 @endsection
 
-@section('app-siswa')
+@section('app-guru')
 
 <section class="head-cont-tugas-siswa">
 	<div class="container">

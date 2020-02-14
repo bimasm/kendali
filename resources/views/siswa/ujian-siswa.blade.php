@@ -46,7 +46,7 @@ Ujian - Siswa
 									</div>
 
 									<div class="collapsible-body materi-cont-siswa-bo">
-										<h6>Detail Ujian</h6>
+										<h6><b>Detail Ujian</b></h6>
 										<blockquote>
 											<div class="row">
 												<div class="col s12 m12 l12">

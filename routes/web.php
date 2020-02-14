@@ -51,6 +51,34 @@ Route::get('/adminsekolah', function() {
 	return view('adminsekolah');
 })->middleware('auth:adminsekolah');
 
+//-- START ----------------------------------------------------------------------------- Guru
+
 Route::get('/guru', function() {
-	return view('guru');
-})->middleware('auth:guru');
+	return view('guru.dashboard-guru');
+})->middleware('auth:guru')->name('GuruDashboard');
+
+Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
+->name('GuruSemuaTugas')->middleware('auth:guru');
+
+Route::get('/guru/tugas-detail', 'GuruController@Guru_Tugas_Detail')
+->name('GuruTugasDetail')->middleware('auth:guru');
+
+Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
+->name('GuruSemuaUjian')->middleware('auth:guru');
+
+Route::get('/guru/kelas', 'GuruController@Guru_Kelas')
+->name('GuruKelas')->middleware('auth:guru');
+
+Route::get('/guru/tugas', 'GuruController@Guru_Tugas')
+->name('GuruTugas')->middleware('auth:guru');
+
+Route::get('/guru/ujian', 'GuruController@Guru_Ujian')
+->name('GuruUjian')->middleware('auth:guru');
+
+Route::get('/guru/diskusi', 'GuruController@Guru_Diskusi')
+->name('GuruDiskusi')->middleware('auth:guru');
+
+Route::get('/guru/siswa', 'GuruController@Guru_Siswa')
+->name('GuruSiswa')->middleware('auth:guru');
+
+//-- END ----------------------------------------------------------------------------- Guru

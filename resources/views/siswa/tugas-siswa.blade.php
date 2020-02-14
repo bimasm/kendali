@@ -51,12 +51,14 @@ Tugas - Siswa
 										<br>
 										<div class="divider"></div>
 										<br>
-										<h6>Detail Tugas</h6>
+										<h6><b>Detail Tugas</b></h6>
 										<blockquote>
-											<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+											<div class="tugas-text">
+												<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+											</div>
 										</blockquote>
 										<br>
-										<h6>Pekerjaan Anda</h6>
+										<h6><b>Pekerjaan Anda</b></h6>
 										<blockquote>
 											Belum ada file
 										</blockquote>
@@ -92,12 +94,14 @@ Tugas - Siswa
 									</div>
 
 									<div class="collapsible-body materi-cont-siswa-bo">
-										<h6>Detail Tugas</h6>
+										<h6><b>Detail Tugas</b></h6>
 										<blockquote>
-											<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+											<div class="tugas-text">
+												<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+											</div>
 										</blockquote>
 										<br>
-										<h6>Pekerjaan Anda</h6>
+										<h6><b>Pekerjaan Anda</b></h6>
 										<blockquote>
 											<div class="row">
 												<div class="col s12 m12 l6">
@@ -111,7 +115,6 @@ Tugas - Siswa
 													</a>
 												</div>
 											</div>
-											<h6>Dikerja : 24 June 2020 | 23:59</h6>
 										</blockquote>
 										<br>
 										<div class="row">

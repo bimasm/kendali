@@ -1,5 +1,11 @@
 /*css tambahan*/
 
+body {
+	font-family: 'Roboto', sans-serif !important;
+	line-height: 1.25rem !important;
+	color: rgba(0,0,0,0.87);
+}
+
 /*colortext*/
 .rb-text-1 {
 	color: #9e312f !important;
@@ -17,6 +23,11 @@
 .rb-trans {
 	background-color: transparent !important;
 }
+
+.rb-text-3{
+	color: #3c4043 !important;
+}
+
 
 /*font*/
 h3 h5 {
@@ -397,6 +408,10 @@ input.valid.reg[type=text]:not(.browser-default):focus {
 	padding: 10px 24px 24px 24px !important;
 }
 
+.con-card-cont-guru {
+	padding: 24px 24px 24px 24px !important;
+}
+
 .cont-title-icon {
 	color: #757575;
 	background-color: #eeeeee;
@@ -719,4 +734,75 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 }
 
 
+.tugas-text {
+	color: #5f6368;
+	line-height: 1.5rem;
+	font-weight: 400;
+	letter-spacing: .025em;
+}
 
+.menu-kelas-guru-dash {
+	color: #9e312f !important;
+}
+
+.fot-card-left {
+	text-align: left;
+}
+
+.fot-card-right {
+	text-align: right;
+}
+
+.n-bor {
+	border: 0 !important;
+}
+
+
+@media only screen and (max-width: 600px) {
+	.fot-card-left {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.fot-card-right {
+		text-align: center;
+	}
+}
+
+.in-jud {
+	font-size: 30px !important;
+}
+
+.m-hapus {
+	top: 30% !important;
+	width: 35% !important;
+}
+
+.m-ed.modal-overlay {
+	background: #fff !important;
+}
+
+input.in-jud[type=text]:not(.browser-default),
+input.valid.in-jud[type=text]:not(.browser-default){
+	border: 0;
+	box-shadow: 0 0 0 0;
+}
+
+.btn-flat-rb {
+	color: #757575;
+	background-color: transparent;
+	box-shadow: none;
+	border-radius: 30px;
+	border: 1px solid #e0e0e0;
+	transition: 0.2s all;
+}
+
+.btn-flat-rb:hover {
+	background-color: #f5f5f5;
+	box-shadow: none;
+	border: 1px solid transparent;
+}
+
+.con-head-guru {
+	margin: 25px 0;
+}
