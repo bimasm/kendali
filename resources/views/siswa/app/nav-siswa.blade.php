@@ -39,18 +39,18 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('SiswaKelas','SiswaUjian','SiswaDiskusi','SiswaDiskusiDetail','SiswaTugas','SiswaTugasDetail'))
+				@if(request()->routeIs('KelasSiswa','SiswaUjian','SiswaDiskusi','SiswaDiskusiDetail','SiswaTugas','SiswaTugasDetail'))
 
 				<div style="padding:0 50px;">
 					<ul class="center">
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
-							'SiswaKelas'
+							'KelasSiswa'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('SiswaKelas')}}" class="rb-text-1">Materi</a>
+							<a href="{{route('KelasSiswa')}}" class="rb-text-1">Materi</a>
 						</li>
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
@@ -156,7 +156,7 @@
 		<li class="
 		{{ (request()->routeIs(
 
-			'SiswaKelas',
+			'KelasSiswa',
 			'SiswaUjian',
 			'SiswaDiskusi',
 			'SiswaDiskusiDetail',
@@ -165,7 +165,7 @@
 
 			)) ? 'active' : '' }}
 			">
-			<a href="{{route('SiswaKelas')}}"><i class="material-icons">menu_book</i>Biologi</a>
+			<a href="{{route('KelasSiswa')}}"><i class="material-icons">menu_book</i>Biologi</a>
 		</li>
 		<li><a href="#!"><i class="material-icons">menu_book</i>Fisika</a></li>
 		<li><a href="#!"><i class="material-icons">menu_book</i>Matematika</a></li>

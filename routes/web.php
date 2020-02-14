@@ -19,7 +19,7 @@ Route::get('/siswa', function() {
 })->middleware('auth:siswa')->name('SiswaDashboard');
 
 Route::get('/siswa/kelas', 'SiswaController@Siswa_Kelas')
-->name('SiswaKelas')->middleware('auth:siswa');
+->name('KelasSiswa')->middleware('auth:siswa');
 
 Route::get('/siswa/ujian', 'SiswaController@Siswa_ujian')
 ->name('SiswaUjian')->middleware('auth:siswa');
