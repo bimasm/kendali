@@ -14,7 +14,7 @@ class GuruController extends Controller
 	public function index()
 	{
 		$guru=Auth::guard('guru')->user()->id;
-        $data=Pelajaran::where('id_guru', $guru)->get();
+		$data=Pelajaran::where('id_guru', $guru)->get();
 
 		return view('guru.dashboard-guru', compact('data'));
 	}
@@ -23,8 +23,8 @@ class GuruController extends Controller
 	{
 		return view('guru.semuatugas-guru');
 	}
-    
-    public function Guru_Tugas_Detail()
+
+	public function Guru_Tugas_Detail()
 	{
 		return view('guru.tugas-guru-detail');
 	}
@@ -37,10 +37,10 @@ class GuruController extends Controller
 	public function Detail_Kelas($id)
 	{
 		$data=Pelajaran::where('id',$id)->get();
-        $materi = Materi::with('komponen.materi')->orderBy('id','desc')->get();
-        
-        
-        
+		$materi = Materi::with('komponen.materi')->orderBy('id','desc')->get();
+
+
+
 		return view('guru.kelas-guru', compact('data','materi'));
 	}
 	
@@ -54,7 +54,7 @@ class GuruController extends Controller
 		return view('guru.tugas-guru', compact('data','tugas'));
 	}
 
- 
+
 	public function Guru_Ujian($id)
 	{
 		$data=Pelajaran::where('id',$id)->get();
@@ -75,7 +75,16 @@ class GuruController extends Controller
 
 	public function Guru_RekapNilai()
 	{
-
 		return view('guru.rekapnilai-guru');
+	}
+
+	public function Guru_RekapNilai_Detail()
+	{
+		return view('guru.rekapnilai-detail-guru');
+	}
+
+	public function Guru_Setting()
+	{
+		return view('guru.setting-guru');
 	}
 }

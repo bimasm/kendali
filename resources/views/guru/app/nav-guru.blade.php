@@ -39,7 +39,7 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas'))
+				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail'))
 
 				<div style="padding:0 50px;">
 					<ul class="center">
@@ -101,27 +101,6 @@
 
 			</div>
 
-			{{-- @if(request()->routeIs('SiswaKelas'))
-			<div class="nav-content nav-mobile-kelas">
-				<div style="padding:0 50px;">
-					<ul class="center">
-						<li class="active">
-							<a href="#!" class="rb-text-1">Materi</a>
-						</li>
-						<li class="">
-							<a href="#!" class="rb-text-1">Ujian</a>
-						</li>
-						<li class="">
-							<a href="#!" class="rb-text-1">Diskusi</a>
-						</li>
-						<li class="">
-							<a href="#!" class="rb-text-1">Tugas</a>
-						</li>
-					</ul>
-				</div>
-			</div>
-			@endif --}}
-
 		</div>
 	</nav>
 </div>
@@ -135,7 +114,8 @@
 			'GuruKelas',
 			'GuruTugas',
 			'GuruUjian',
-			'GuruSiswa'
+			'GuruSiswa',
+			'GuruTugasDetail'
 
 			)) ? 'active' : '' }}
 			">
@@ -162,14 +142,27 @@
 			">
 			<a href="{{route('GuruSemuaUjian')}}"><i class="material-icons">event_note</i>Ujian</a>
 		</li>
-		<li class="">
-			<a href=""><i class="material-icons">insert_chart_outlined</i>Rekap Nilai</a>
+		<li class="
+		{{ (request()->routeIs(
+
+			'GuruRekapNilai',
+			'GuruRekapNilaiDetail'
+
+			)) ? 'active' : '' }}
+			">
+			<a href="{{route('GuruRekapNilai')}}"><i class="material-icons">insert_chart_outlined</i>Rekap Nilai</a>
 		</li>
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<br>
-		<li class="">
-			<a href=""><i class="material-icons">settings</i>Setting</a>
+		<li class="
+		{{ (request()->routeIs(
+
+			'GuruSetting'
+
+			)) ? 'active' : '' }}
+			">
+			<a href="{{route('GuruSetting')}}"><i class="material-icons">settings</i>Setting</a>
 		</li>
 		<li><a href="/logout"><i class="material-icons">power_settings_new</i>Logout</a></li>
 		<br>

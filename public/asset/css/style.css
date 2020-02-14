@@ -806,3 +806,11 @@ input.valid.in-jud[type=text]:not(.browser-default){
 .con-head-guru {
 	margin: 25px 0;
 }
+
+.no-bor {
+	border: 0 !important;
+}
+
+.con-nilai-tab {
+	margin: 40px 0;
+}

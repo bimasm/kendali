@@ -88,4 +88,13 @@ Route::get('/guru/diskusi/kelas/{id}', 'GuruController@Guru_Diskusi')
 Route::get('/guru/siswa/kelas/{id}', 'GuruController@Guru_Siswa')
 ->name('SiswaKelas')->middleware('auth:guru');
 
+Route::get('/guru/rekap-nilai', 'GuruController@Guru_RekapNilai')
+->name('GuruRekapNilai')->middleware('auth:guru');
+
+Route::get('/guru/rekap-nilai/detail', 'GuruController@Guru_RekapNilai_Detail')
+->name('GuruRekapNilaiDetail')->middleware('auth:guru');
+
+Route::get('/guru/setting', 'GuruController@Guru_Setting')
+->name('GuruSetting')->middleware('auth:guru');
+
 //-- END ----------------------------------------------------------------------------- Guru
