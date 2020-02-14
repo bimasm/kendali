@@ -46,4 +46,9 @@ class GuruController extends Controller
 	{
 		return view('guru.siswa-guru');
 	}
+
+	public function Guru_RekapNilai()
+	{
+		return view('guru.rekapnilai-guru');
+	}
 }

@@ -10,6 +10,23 @@ Dashboard - Guru
 
 @section('app-guru')
 <section>
+	<div class="container" style="margin-top: 1em">
+		<div class="row">
+			<div class="col s12 m12 l6 fot-card-left">
+				<h4>Kelas</h4>
+			</div>
+			<div class="col s12 m12 l6 fot-card-right">
+				<div class="con-head-guru">
+					<div id="tab2">
+						<a href="#modal-add-kelas" class="modal-trigger waves-effect waves-light btn rb-color-2"><i class="material-icons right">add</i>Kelas Baru</a>
+					</div>
+				</div>
+			</div>
+		</div>
+		<div class="divider"></div>
+	</div>
+</section>
+<section>
 	<div class="container" style="width: 75%">
 		<br>
 		<div class="row">
@@ -40,43 +57,29 @@ Dashboard - Guru
 						</ul>
 					</div>
 
-					<div class="col s12 m12 l4">
-						<div class="card cont-dash white">
-							<div class="cont-head">
-								<span class="card-title">
-									<i class="cont-title-icon material-icons center">menu_book</i> Fisika
-								</span>
-								<span style="float: right;">
-									<a class="btn-floating btn-flat waves-effect cont-det-back"><i class="cont-det-icon material-icons">more_vert</i></a>
-								</span>
-							</div>
-
-							<div class="card-content grey-text text-darken-2 con-card-cont-guru">
-								<p>Dibuat pada Jan 26 2020</p>
-							</div>
-						</div>
-					</div>
-
-					<div class="col s12 m12 l4">
-						<div class="card cont-dash white">
-							<div class="cont-head">
-								<span class="card-title">
-									<i class="cont-title-icon material-icons center">menu_book</i> Fisika
-								</span>
-								<span style="float: right;">
-									<a class="btn-floating btn-flat waves-effect cont-det-back"><i class="cont-det-icon material-icons">more_vert</i></a>
-								</span>
-							</div>
-
-							<div class="card-content grey-text text-darken-2 con-card-cont-guru">
-								<p>Dibuat pada Jan 26 2020</p>
-							</div>
-						</div>
-					</div>
-
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
+<div id="modal-add-kelas" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<form action="" method="">
+				@csrf
+				<div class="col s12 m12 l12">
+					<div class="input-field">
+						<input id="last_name" type="text" class="validate">
+						<label for="last_name">Nama Kelas</label>
+					</div>
+				</div>
+
+				<div class="input-field col s12 center">
+					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
 @endsection
