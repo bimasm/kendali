@@ -38,7 +38,7 @@ Dashboard - Guru
 					<div class="col s12 m12 l4">
 						<div class="card cont-dash white">
 							<div class="cont-head">
-								<a href="{{route('GuruKelas')}}/detail/{{ $dt->id }}">
+								<a href="{{route('DetailKelas',$dt->id) }}">
 									<span class="card-title">
 										<i class="cont-title-icon material-icons center">menu_book</i> {{$dt->pelajaran}}
 									</span>

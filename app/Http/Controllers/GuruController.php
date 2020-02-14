@@ -7,6 +7,7 @@ use Auth;
 use App\Pelajaran;
 use App\Materi;
 use App\Komponenmateri;
+use App\Tugaskelas;
 
 class GuruController extends Controller
 {
@@ -42,34 +43,39 @@ class GuruController extends Controller
         
 		return view('guru.kelas-guru', compact('data','materi'));
 	}
-	public function Guru_Kelas()
+	
+	
+
+	public function Guru_Tugas($id)
 	{
-		
-		return view('guru.kelas-guru');
+		$data=Pelajaran::where('id',$id)->get();
+		$tugas=Tugaskelas::where('id_pelajaran',$id)->get();
+
+		return view('guru.tugas-guru', compact('data','tugas'));
 	}
 
-	public function Guru_Tugas()
+ 
+	public function Guru_Ujian($id)
 	{
-		return view('guru.tugas-guru');
+		$data=Pelajaran::where('id',$id)->get();
+		return view('guru.ujian-guru', compact('data'));
 	}
 
-	public function Guru_Ujian()
+	public function Guru_Diskusi($id)
 	{
-		return view('guru.ujian-guru');
+		$data=Pelajaran::where('id',$id)->get();
+		return view('guru.diskusi-guru', compact('data'));
 	}
 
-	public function Guru_Diskusi()
+	public function Guru_Siswa($id)
 	{
-		return view('guru.diskusi-guru');
-	}
-
-	public function Guru_Siswa()
-	{
-		return view('guru.siswa-guru');
+		$data=Pelajaran::where('id',$id)->get();
+		return view('guru.siswa-guru', compact('data'));
 	}
 
 	public function Guru_RekapNilai()
 	{
+
 		return view('guru.rekapnilai-guru');
 	}
 }

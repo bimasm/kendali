@@ -70,21 +70,22 @@ Route::get('/guru/tugas-detail', 'GuruController@Guru_Tugas_Detail')
 Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
 ->name('GuruSemuaUjian')->middleware('auth:guru');
 
-Route::get('/guru/kelas/', 'GuruController@Guru_Kelas')
-->name('GuruKelas')->middleware('auth:guru');
+
 Route::get('/guru/kelas/detail/{id}', 'GuruController@Detail_Kelas')
 ->name('DetailKelas')->middleware('auth:guru');
 
-Route::get('/guru/tugas', 'GuruController@Guru_Tugas')
-->name('GuruTugas')->middleware('auth:guru');
 
-Route::get('/guru/ujian', 'GuruController@Guru_Ujian')
-->name('GuruUjian')->middleware('auth:guru');
+Route::get('/guru/tugas/kelas/{id}', 'GuruController@Guru_Tugas')
+->name('TugasKelas')->middleware('auth:guru');
 
-Route::get('/guru/diskusi', 'GuruController@Guru_Diskusi')
-->name('GuruDiskusi')->middleware('auth:guru');
+Route::get('/guru/ujian/kelas/{id}', 'GuruController@Guru_Ujian')
+->name('UjianKelas')->middleware('auth:guru');
 
-Route::get('/guru/siswa', 'GuruController@Guru_Siswa')
-->name('GuruSiswa')->middleware('auth:guru');
+
+Route::get('/guru/diskusi/kelas/{id}', 'GuruController@Guru_Diskusi')
+->name('DiskusiKelas')->middleware('auth:guru');
+
+Route::get('/guru/siswa/kelas/{id}', 'GuruController@Guru_Siswa')
+->name('SiswaKelas')->middleware('auth:guru');
 
 //-- END ----------------------------------------------------------------------------- Guru

@@ -39,7 +39,7 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('DetailKelas','GuruTugas','GuruUjian','GuruDiskusi','GuruSiswa'))
+				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas'))
 
 				<div style="padding:0 50px;">
 					<ul class="center">
@@ -50,43 +50,43 @@
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruKelas',$dt->id)}}" class="rb-text-1">Materi</a>
+							<a href="{{route('DetailKelas',$dt->id)}}" class="rb-text-1">Materi</a>
 						</li>
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'GuruTugas'
+							'TugasKelas'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruTugas')}}" class="rb-text-1">Tugas</a>
+							<a href="{{route('TugasKelas',$dt->id)}}" class="rb-text-1">Tugas</a>
 						</li>
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'GuruUjian'
+							'UjianKelas'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruUjian')}}" class="rb-text-1">Ujian</a>
+							<a href="{{route('UjianKelas',$dt->id)}}" class="rb-text-1">Ujian</a>
 						</li>
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'GuruDiskusi'
+							'DiskusiKelas'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruDiskusi')}}" class="rb-text-1">Diskusi</a>
+							<a href="{{route('DiskusiKelas',$dt->id)}}" class="rb-text-1">Diskusi</a>
 						</li>
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'GuruSiswa'
+							'SiswaKelas'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('GuruSiswa')}}" class="rb-text-1">Siswa</a>
+							<a href="{{route('SiswaKelas',$dt->id)}}" class="rb-text-1">Siswa</a>
 						</li>
 					</ul>
 				</div>
