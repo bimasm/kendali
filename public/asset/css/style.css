@@ -184,6 +184,10 @@ h3 h5 {
 	margin-top: 50px;
 }
 
+.head-cont-tugas-siswa-plus {
+	margin-top: 50px;
+}
+
 .head-at-tugas-siswa > h6 {
 	margin: 0.766667rem 0 !important;
 }
@@ -199,6 +203,10 @@ h3 h5 {
 
 	.head-cont-tugas-siswa {
 		margin-top: 30px;
+	}
+
+	.head-cont-tugas-siswa-plus {
+		margin-top: 100px;
 	}
 }
 
@@ -517,6 +525,10 @@ h3 h5 {
 	display: none;
 }
 
+.second-navbar-rb {
+	margin: 0 400px;
+}
+
 @media only screen and (max-width: 600px) {
 	.menu-kelas {
 		width: 72px;
@@ -528,6 +540,10 @@ h3 h5 {
 
 	.nav-title-rb {
 		position: relative !important; 
+	}
+
+	.second-navbar-rb {
+		margin: 0 20px;
 	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- NAVBAR */

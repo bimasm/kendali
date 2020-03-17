@@ -41,7 +41,7 @@
 
 				@if(request()->routeIs('KelasSiswa','SiswaUjian','SiswaDiskusi','SiswaDiskusiDetail','SiswaTugas','SiswaTugasDetail'))
 
-				<div style="padding:0 50px;">
+				<div class="second-navbar-rb">
 					<ul class="center">
 						<li class="menu-kelas 
 						{{ (request()->routeIs(

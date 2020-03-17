@@ -9,59 +9,44 @@ Diskusi - Siswa
 @endsection
 
 @section('app-siswa')
-<section>
+
+{{-- START ================================================================================ HEADER --}}
+<section class="head-cont-tugas-siswa-plus">
 	<div class="container">
-		<h4>Diskusi Gaya</h4>
+		<div class="row valign-wrapper-rb">
+			<div class="col s12 m12 l6 head-title-tugas-siswa">
+				<h5>Forum Diskusi</h5>
+			</div>
+			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
+				<h6>Gaya</h6>
+				<div class="divider"></div>
+				<h6>Heri, 23 Juni 2020</h6>
+			</div>
+		</div>
+		<br>
 		<div class="divider"></div>
 		<br>
 	</div>
 </section>
+{{-- END ================================================================================ HEADER --}}
 
+{{-- START ================================================================================ CONTENT --}}
 <section>
-	<div class="container">
+	<div class="container container-75" style="margin-bottom: 100px">
 		<div class="row">
-			
+
+			{{-- START ================================================================================ CHAT --}}
 			<div class="col s12 m12 l9">
-				
 				<ul class="collection" style="border: 0">
 					<li class="collection-item avatar">
 						<i class="material-icons circle">person</i>
-						{{-- <img src="images/yuna.jpg" alt="" class="circle"> --}}
 						<span class="title">Nama Akun</span>
 						<p><b>12 June, 15:00</b></p>
+						<br>
 						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaa
+							tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes tes
 						</p>
-						<a href="#!" class="secondary-content"></a>
-					</li>
-					<li class="collection-item avatar">
-						<i class="material-icons circle">person</i>
-						<span class="title">Nama Akun</span>
-						<p><b>12 June, 15:00</b></p>
-						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaa
-						</p>
-						<a href="#!" class="secondary-content"></a>
-					</li>
-					<li class="collection-item avatar">
-						<i class="material-icons circle">person</i>
-						<span class="title">Nama Akun</span>
-						<p><b>12 June, 15:00</b></p>
-						<p>
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
-							aaaaaaaaaaa
-						</p>
+						<br>
 						<a href="#!" class="secondary-content"></a>
 					</li>
 				</ul>
@@ -83,13 +68,13 @@ Diskusi - Siswa
 						</form>
 					</div>
 				</div>
-
 			</div>
-			<div class="col s12 m12 l3 bar-chat">
+			{{-- END ================================================================================ CHAT --}}
 
+			{{-- START ================================================================================ BAR USER --}}
+			<div class="col s12 m12 l3 bar-chat">
 				<ul class="collection">
 					<li class="collection-item avatar">
-						{{-- <img src="images/yuna.jpg" alt="" class="circle"> --}}
 						<i class="material-icons circle">person</i>
 						<span class="title">Nama Akun</span>
 						<p>Guru</p>
@@ -102,9 +87,12 @@ Diskusi - Siswa
 						<a href="#!" class="secondary-content"></a>
 					</li>
 				</ul>
-
 			</div>
+			{{-- END ================================================================================ BAR USER --}}
+
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ CONTENT --}}
+
 @endsection

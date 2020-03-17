@@ -10,7 +10,8 @@ Tugas - Siswa
 
 @section('app-siswa')
 
-<section class="head-cont-tugas-siswa">
+{{-- START ================================================================================ HEADER --}}
+<section class="head-cont-tugas-siswa-plus">
 	<div class="container">
 		<div class="row valign-wrapper-rb">
 			<div class="col s12 m12 l6 head-title-tugas-siswa">
@@ -28,10 +29,13 @@ Tugas - Siswa
 		<br>
 	</div>
 </section>
+{{-- END ================================================================================ HEADER --}}
 
-<section style="margin-top: 5px">
-	<div class="container">
+{{-- START ================================================================================ CONTENT --}}
+<section>
+	<div class="container container-75" style="margin-bottom: 100px">
 		<div class="row">
+
 			<div class="col s12 m12 l8">
 				<blockquote>
 					<h6><b>Heri, 23 June 2020 | 15:30</b></h6>
@@ -96,6 +100,7 @@ Tugas - Siswa
 					</div>
 				</div>
 			</div>
+
 		</div>
 	</div>
 </section>
