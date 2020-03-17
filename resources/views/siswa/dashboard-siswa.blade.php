@@ -173,4 +173,22 @@ Dashboard - Siswa
 		</div>
 	</div>
 </section>
+
+<div id="modal-add-kelas" class="modal">
+	<div class="modal-content">
+		<div class="row">
+			<h5>Tambah Kelas</h5>
+			<form action="" method="post">
+				@csrf
+				<div class="input-field col s12">
+          			<input id="kode-kelas" type="text" class="validate" name="kode-kelas">
+          			<label for="kode-kelas">Kode Kelas</label>
+        		</div>
+        		<div class="input-field col s12 right-align">
+        			<button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>submit</button>
+        		</div>
+			</form>
+		</div>
+	</div>
+</div>
 @endsection

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pelajaran;
 use App\Materi;
 use App\Komponenmateri;
+use App\Tugaskelas;
 use Illuminate\Support\Str;
 use Auth;
 
@@ -34,6 +35,22 @@ class GuruActionController extends Controller
         // dd($x);
         $x->save();
         return redirect('/guru/kelas/detail/'.$request->id_pelajaran);
+  }
+  public function addtugas(Request $request)
+  {
+      
+        $x = new Tugaskelas();
+        $x->id_pelajaran=$request->id_pelajaran;
+        $x->judul=$request->judul;
+        $x->tugas=$request->tugas;
+        $tgl=$request->tgl;
+        $jam=$request->jam;
+        $date=$tgl.' '.$jam;
+        $x->deadline=$date;
+        
+        // dd($x);
+        $x->save();
+        return redirect('/guru/tugas/kelas/'.$request->id_pelajaran);
   }
   public function addfilemateri(Request $request)
   {

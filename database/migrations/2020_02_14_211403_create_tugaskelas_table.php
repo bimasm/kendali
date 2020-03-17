@@ -19,7 +19,9 @@ class CreateTugaskelasTable extends Migration
             $table->foreign('id_pelajaran')->references('id')->on('pelajaran')
             ->onDelete('cascade')
             ->onUpdate('cascade');
+            $table->string('judul');
             $table->string('tugas');
+            $table->string('deadline');
             $table->timestamps();
         });
     }

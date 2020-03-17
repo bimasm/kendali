@@ -87,6 +87,11 @@
 				@endif
 
 				<ul class="right hide-on-med-and-down">
+					@if(request()->routeIs('SiswaDashboard'))
+					<li>
+						<a class="waves-effect waves-light btn modal-trigger" href="#modal-add-kelas"><i class="material-icons right">add</i>Tambah Kelas</a>
+					</li>
+					@endif
 					<li><a href="#!" class="grey-text text-darken-1 dropdown-trigger" data-target='dropdown1'>
 						<i class="material-icons right grey-text text-darken-1">account_circle</i>{{ Auth::guard('siswa')->user()->nama }}</a>
 					</li>

@@ -112,12 +112,25 @@
     $(document).ready(function(){
       $('.modal').modal();
     });
+
+    var currYear = (new Date()).getFullYear();
+
+$(document).ready(function() {
+  $(".datepicker").datepicker({
+    defaultDate: new Date(currYear-5,1,31),
+    // setDefaultDate: new Date(2000,01,31),
+
+    format: "yyyy-mm-dd"    
+  });
+});
+
+
     $(document).ready(function(){
-      $('.datepicker').datepicker();
+      $('.timepicker').timepicker({
+         timeFormat: 'h:mm p'
+      });
     });
-    $(document).ready(function(){
-      $('.timepicker').timepicker();
-    });
+
   </script>
 
   @yield('js-plus')

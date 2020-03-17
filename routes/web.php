@@ -61,6 +61,8 @@ Route::post('/guru/addmateri', 'GuruActionController@addmateri')->middleware('au
 
 Route::post('/guru/addfilemateri', 'GuruActionController@addfilemateri')->middleware('auth:guru')->name('addfilemateri');
 
+Route::post('/guru/addtugas', 'GuruActionController@addtugas')->middleware('auth:guru')->name('addtugas');
+
 Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
 ->name('GuruSemuaTugas')->middleware('auth:guru');
 

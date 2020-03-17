@@ -39,6 +39,7 @@ Tugas - Guru
 	<div class="container" style="width: 60%">
 		<div class="row">
 			<div class="col s12 m12 l12">
+				@foreach($tugas as $tg)
 				<div class="row">
 
 					<div class="col s12 m12 l12">
@@ -46,9 +47,9 @@ Tugas - Guru
 							<ul class="collapsible materi-cont-siswa">
 								<li>
 									<div class="collapsible-header materi-cont-siswa-he">
-										<i class="material-icons materi-icon-siswa">assignment</i>Judul Tugas
+										<i class="material-icons materi-icon-siswa">assignment</i>{{ $tg->judul }}
 										<span class="cont-text-con">
-											<span class="cont-text">Fisika</span>
+											
 											<a class="btn-floating btn-flat materi-icon-det">
 												<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
 											</a>
@@ -60,7 +61,7 @@ Tugas - Guru
 										<h6><b>Detail Tugas</b></h6>
 										<blockquote>
 											<div class="tugas-text">
-												<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+												<p>{{ $tg->tugas }}</p>
 											</div>
 										</blockquote>
 										<br>
@@ -96,11 +97,11 @@ Tugas - Guru
 
 							<div class="card-action">
 								<div class="row" style="margin: 0">
-									<div class="col s12 m12 l6 fot-card-left">
+									{{-- <div class="col s12 m12 l6 fot-card-left">
 										Dibuat : 26 Jan 2020, 14:30
-									</div>
+									</div> --}}
 									<div class="col s12 m12 l6 fot-card-right">
-										Jatuh tempo : 27 Jan 2020, 14:30
+										Deadline : {{ $tg->deadline }}
 									</div>
 								</div>
 							</div>
@@ -108,6 +109,7 @@ Tugas - Guru
 					</div>
 
 				</div>
+				@endforeach
 			</div>
 		</div>
 	</div>
@@ -117,28 +119,31 @@ Tugas - Guru
 	<div class="container" style="width: 60%">
 		<div class="card cont-dash white">
 			<div class="card-content grey-text text-darken-2 con-card-cont">
-				<form action="" method="">
+				<form action="{{ route('addtugas') }}" method="post">
 					@csrf
 					<div class="col s12 m12 l12 fot-card-left">
 						<div class="input-field">
-							<input id="last_name" type="text" class="validate">
+							<input id="last_name" type="text" name="judul" class="validate">
 							<label for="last_name">Judul Tugas</label>
 						</div>
 					</div>
 					<div class="row" style="padding: 0 60px;">
 						<div class="input-field col s12">
-							<textarea id="textarea1" class="materialize-textarea"></textarea>
+							<textarea id="textarea1" name="tugas" class="materialize-textarea"></textarea>
 							<label for="textarea1">Deskripsi Soal</label>
 						</div>
+						@foreach($data as $dt)
+				<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+				@endforeach
 						<div class="row">
 							<div class="input-field col s6">
 								<i class="material-icons prefix">date_range</i>
-								<input type="text" class="datepicker">
+								<input type="text" name="tgl" class="datepicker">
 								<label for="textarea1">Tanggal Jatuh Tempo</label>
 							</div>
 							<div class="input-field col s6">
 								<i class="material-icons prefix">access_time</i>
-								<input type="text" class="timepicker">
+								<input type="text" name="jam" class="timepicker">
 								<label for="textarea1">Waktu Jatuh Tempo</label>
 							</div>
 						</div>
@@ -188,6 +193,7 @@ Tugas - Guru
 						</div>
 					</div>
 				</div>
+				
 				<div class="input-field col s12 center">
 					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
 				</div>
