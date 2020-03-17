@@ -35,7 +35,7 @@
 						<a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-up rb-text-1"><i class="material-icons">menu</i></a>
 					</li>
 					<li>
-						<a href="#!" class="brand-logo rb-text-1" style="position: relative; padding-right: 100px;">Kendali Belajar</a>
+						<a href="#!" class="brand-logo rb-text-1" style="position: relative;">Kendali Belajar</a>
 					</li>
 				</ul>
 

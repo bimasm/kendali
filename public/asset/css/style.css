@@ -56,6 +56,74 @@ h3 h5 {
 /*--- END -------------------------------------------------------------------------------------------------- COLOR */
 
 /*--- START -------------------------------------------------------------------------------------------------- CONTAINER */
+.container-75 {
+	width: 75%;
+}
+
+.container-75-head {
+	width: 75%;
+	margin-top: 50px;
+}
+
+.container-60 {
+	width: 60%;
+}
+
+.container-60-t {
+	width: 60%;
+	margin-top: -100px !important;
+}
+
+.cont-text-con {
+	font-size: 18px; 
+	color: #757575;
+	float: right; 
+	right: 90px; 
+	position: absolute
+}
+
+.cont-icon-con {
+	float: right; 
+	right: 30px; 
+	position: absolute
+}
+
+@media only screen and (max-width: 600px) {
+	.container-75 {
+		width: 95%;
+	}
+
+	.container-75-head {
+		width: 100%;
+		margin-top: 50px;
+	}
+
+	.container-60-t {
+		width: 95%;
+		margin-top: -100px !important;
+	}
+
+	.container-60 {
+		width: 95%;
+	}
+
+	.cont-text-con {
+		font-size: 15px;
+		color: #757575;
+		float: right;
+		left: 80px;
+		right: 90px;
+		position: absolute;
+		top: 43px;
+	}
+
+	.cont-icon-con {
+		float: right; 
+		right: 15px; 
+		position: absolute
+	}
+}
+
 .container-page {
 	margin-top: 50px;
 }
@@ -130,7 +198,7 @@ h3 h5 {
 	}
 
 	.head-cont-tugas-siswa {
-		margin-top: 120px;
+		margin-top: 30px;
 	}
 }
 
@@ -174,12 +242,6 @@ h3 h5 {
 
 .ya:hover .cont-set > .cont-head {
 	border-bottom: 1px solid #e26342;
-}
-
-.cont-text-con {
-	float: right; 
-	right: 20px; 
-	position: absolute
 }
 
 .fot-card-left {
@@ -323,14 +385,14 @@ h3 h5 {
 .materi-cont-siswa {
 	border: 0 !important;
 	box-shadow: none !important;
-	background-color: transparent !important;
+	/*background-color: transparent !important;*/
 	margin: 0px !important;
 }
 
 .materi-cont-siswa-he {
 	border: 0 !important;
 	transition: .5s all;
-	line-height: 50px !important;
+	line-height: 2.5;
 	font-size: 20px;
 	background-color: transparent !important;
 }
@@ -341,6 +403,7 @@ h3 h5 {
 
 .materi-icon-det {
 	background-color: #fff !important;
+	-ms-transform: rotate(0deg); /* IE 9 */
 	transform: rotate(0deg);
 	transition: all 0.3s;
 }
@@ -382,6 +445,37 @@ h3 h5 {
 @media only screen and (max-width: 600px) {
 	.bar-chat {
 		display: none;
+	}
+
+	.materi-cont-siswa-he {
+		border: 0 !important;
+		transition: .5s all;
+		line-height: 1.5;
+		font-size: 20px;
+		background-color: transparent !important;
+	}
+
+	.materi-cont-siswa-he.materi {
+		border: 0 !important;
+		transition: .5s all;
+		line-height: 2.5;
+		font-size: 20px;
+		background-color: transparent !important;
+	}
+
+	.materi-cont-siswa > li.active > .materi-cont-siswa-he.done {
+		padding-bottom: 35px;
+	}
+
+	.materi-cont-siswa {
+		border: 0 !important;
+		box-shadow: none !important;
+		/*background-color: transparent !important;*/
+		margin: 0px !important;
+	}
+
+	.materi-cont-siswa.done {
+		padding-bottom: 25px
 	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- CARD */
@@ -696,6 +790,7 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 .carousel-slider.dash {
 	height: 300px !important;
 	border-radius: 10px;
+	margin-top:30px
 }
 
 .car-dash.carousel-item  {
@@ -762,6 +857,7 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 }
 
 .materi-cont-siswa > li.active > div > span > a.materi-icon-det {
+	-ms-transform: rotate(180deg); /* IE 9 */
 	transform: rotate(180deg);
 }
 /*--- END -------------------------------------------------------------------------------------------------- LIST */
@@ -783,4 +879,16 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 
 .underline:hover {
 	border-bottom: 4px solid #c95e33;
+}
+
+.card-content > .sub-titile {
+	font-size: 18px;
+	font-weight: 580;
+}
+
+.icon-edit {
+	float: right; 
+	top: 13px; 
+	position: absolute; 
+	right: 20px
 }
