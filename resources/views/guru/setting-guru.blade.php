@@ -10,17 +10,14 @@ Setting - Guru
 
 @section('app-guru')
 
+{{-- START ================================================================================ HEADER --}}
 <section class="head-cont-tugas-siswa">
 	<div class="container">
-		<div class="row {{-- valign-wrapper-rb --}}">
+		<div class="row">
 			<div class="col s12 m12 l6 head-title-tugas-siswa">
 				<h5>Setting Akun</h5>
-				{{-- <h6>Pelajaran Biologi</h6> --}}
 			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa {{-- valign --}}">
-				{{-- <h6>1 Tugas belum dikerjakan</h6>
-				<div class="divider"></div>
-				<h6>1 Ujian belum dikerjakan</h6> --}}
+			<div class="col s12 m12 l6 head-at-tugas-siswa">
 			</div>
 		</div>
 		<br>
@@ -28,9 +25,11 @@ Setting - Guru
 		<br>
 	</div>
 </section>
+{{-- END ================================================================================ HEADER --}}
 
-<section style="margin: 60px 0">
-	<div class="container" style="width: 60%">
+{{-- START ================================================================================ CONTENT --}}
+<section>
+	<div class="container container-60" style="margin-bottom: 100px">
 		<div class="row">
 			<div class="col s12 m12 l12">
 				
@@ -41,7 +40,7 @@ Setting - Guru
 							<span class="card-title">
 								<h6>Profile Anda</h6>
 							</span>
-							<span style="float: right; top: 13px; position: absolute; right: 20px">
+							<span class="icon-edit">
 								<a id="clicker" class="btn-floating btn-flat waves-effect cont-det-back">
 									<i class="cont-det-icon material-icons" style="display: block">edit</i>
 								</a>
@@ -52,22 +51,24 @@ Setting - Guru
 
 							<form action="" method="">
 								@csrf
-								<div class="input-field" style="margin-top: 2em">
-									<input disabled value="{{ Auth::guard('guru')->user()->nama }}" id="Nama_Lengkap" type="text" class="set validate" name="nama_lengkap">
-									<label for="Nama_Lengkap">Nama Lengkap</label>
-								</div>
-								<div class="input-field" style="margin-top: 2em">
-									<input disabled value="{{ Auth::guard('guru')->user()->password }}" id="Password" type="password" class="set validate" name="password">
-									<label for="Password">Password</label>
-								</div>
-								<div class="input-field" style="margin-top: 2em">
-									<input disabled value="SDN 1 Gendoh" id="Sekolah" type="text" class="set validate" name="sekolah">
-									<label for="Sekolah">Sekolah</label>
-								</div>
+								<div class="row">
+									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
+										<input disabled value="{{ Auth::guard('guru')->user()->nama }}" id="Nama_Lengkap" type="text" class="set validate" name="nama_lengkap">
+										<label for="Nama_Lengkap">Nama Lengkap</label>
+									</div>
+									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
+										<input disabled value="{{ Auth::guard('guru')->user()->password }}" id="Password" type="password" class="set validate" name="password">
+										<label for="Password">Password</label>
+									</div>
+									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
+										<input disabled value="SDN 1 Gendoh" id="Sekolah" type="text" class="set validate" name="sekolah">
+										<label for="Sekolah">Sekolah</label>
+									</div>
 
-								<div id="save" class="input-field right-align" style="display: none">
-									<a id="cancel" href="#!" class="waves-effect waves-light btn-flat">Cancel</a>
-									<button type="submit" class="waves-effect waves-light btn rb-color-2">Simpan</button>
+									<div id="save" class="input-field right-align" style="display: none">
+										<a id="cancel" href="#!" class="waves-effect waves-light btn-flat">Cancel</a>
+										<button type="submit" class="waves-effect waves-light btn rb-color-2">Simpan</button>
+									</div>
 								</div>	
 							</form>
 
@@ -81,6 +82,7 @@ Setting - Guru
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ CONTENT --}}
 @endsection
 
 @section('js-plus')

@@ -9,8 +9,9 @@ Semua Ujian - Guru
 @endsection
 
 @section('app-guru')
-<section>
-	<div class="container" style="margin-top: 1em">
+{{-- START ================================================================================ HEADER --}}
+<section class="head-cont-tugas-siswa">
+	<div class="container container-75">
 		<div class="row">
 			<div class="col s12 m12 l6">
 				<h4>Semua Ujian</h4>
@@ -22,10 +23,14 @@ Semua Ujian - Guru
 		<div class="divider"></div>
 	</div>
 </section>
+{{-- END ================================================================================ HEADER --}}
+
+{{-- START ================================================================================ CONTENT --}}
 <section>
-	<div class="container" style="width: 75%">
+	<div class="container container-75" style="margin-bottom: 100px">
 		<br>
 		<div class="row">
+			{{-- START ================================================================================ BAR KELAS --}}
 			<div class="col s12 m12 l4">
 				<div class="collection n-bor">
 					<h5>Kelas</h5>
@@ -36,6 +41,9 @@ Semua Ujian - Guru
 					<a href="#!" class="collection-item n-bor">Alvin</a>
 				</div>
 			</div>
+			{{-- END ================================================================================ BAR KELAS --}}
+
+			{{-- START ================================================================================ LIST UJIAN --}}
 			<div class="col s12 m12 l8">
 				<div class="row">
 
@@ -43,16 +51,21 @@ Semua Ujian - Guru
 						<div class="card cont-dash white">
 							<ul class="collapsible materi-cont-siswa">
 								<li>
+									{{-- START ======================================================================== HEAD TITILE --}}
 									<div class="collapsible-header materi-cont-siswa-he">
 										<i class="material-icons materi-icon-siswa">list_alt</i>Judul Ujian
 										<span class="cont-text-con">
-											<span class="cont-text">Fisika</span>
+											Fisika
+										</span>
+										<span class="cont-icon-con">
 											<a class="btn-floating btn-flat materi-icon-det">
 												<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
 											</a>
 										</span>
 									</div>
+									{{-- END ======================================================================== HEAD TITILE --}}
 
+									{{-- START ======================================================================== BODY UJIAN --}}
 									<div class="collapsible-body materi-cont-siswa-bo">
 										<h6><b>Detail Ujian</b></h6>
 										<blockquote>
@@ -105,6 +118,7 @@ Semua Ujian - Guru
 											</div>
 										</div>
 									</div>
+									{{-- END ======================================================================== BODY UJIAN --}}
 
 								</li>
 							</ul>
@@ -124,10 +138,14 @@ Semua Ujian - Guru
 
 				</div>
 			</div>
+			{{-- END ================================================================================ LIST UJIAN --}}
+
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ CONTENT --}}
 
+{{-- START ================================================================================ EDIT UJIAN --}}
 <div id="modal-tugas-edit" class="modal">
 	<div class="modal-content">
 		<div class="row">
@@ -147,7 +165,7 @@ Semua Ujian - Guru
 					<br>
 				</div>
 
-				<div class="row" style="padding: 0 60px;">
+				<div class="row con-form-60">
 					<div class="input-field col s12">
 						<select>
 							<option value="" disabled selected>Pilih Jenis Ujian</option>
@@ -162,12 +180,12 @@ Semua Ujian - Guru
 						<input type="text" class="datepicker">
 						<label for="textarea1">Durasi</label>
 					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s12 m12 l6">
 						<i class="material-icons prefix">date_range</i>
 						<input type="text" class="datepicker">
 						<label for="textarea1">Tanggal Jatuh Tempo</label>
 					</div>
-					<div class="input-field col s6">
+					<div class="input-field col s12 m12 l6">
 						<i class="material-icons prefix">access_time</i>
 						<input type="text" class="timepicker">
 						<label for="textarea1">Waktu Jatuh Tempo</label>
@@ -190,7 +208,9 @@ Semua Ujian - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ EDIT UJIAN --}}
 
+{{-- START ================================================================================ HAPUS UJIAN --}}
 <div id="modal-tugas-hapus" class="modal m-hapus">
 	<div class="modal-content">
 		<div class="row">
@@ -207,4 +227,5 @@ Semua Ujian - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ HAPUS UJIAN --}}
 @endsection

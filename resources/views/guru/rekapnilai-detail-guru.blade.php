@@ -9,11 +9,12 @@ Detail Rekap Nilai - Guru
 @endsection
 
 @section('app-guru')
-<section>
-	<div class="container" style="margin-top: 1em">
+{{-- START ================================================================================ HEADER --}}
+<section class="head-cont-tugas-siswa">
+	<div class="container container-75">
 		<div class="row">
 			<div class="col s12 m12 l6 fot-card-left">
-				<h4>Detail Rekap Nilai</h4>
+				<h4>Semua Tugas</h4>
 			</div>
 			<div class="col s12 m12 l6 fot-card-right">
 				<h5>Fisika</h5>
@@ -22,9 +23,14 @@ Detail Rekap Nilai - Guru
 		<div class="divider"></div>
 	</div>
 </section>
+{{-- END ================================================================================ HEADER --}}
+
+{{-- START ================================================================================ CONTENT --}}
 <section>
-	<div class="container" style="width: 60%">
+	<div class="container container-60" style="margin-bottom: 100px">
 		<div class="row">
+
+			{{-- START ================================================================================ BAR TIPE --}}
 			<div class="col s12">
 				<ul class="tabs">
 					<li class="tab col s4"><a class="active" href="#semua">Semua Tipe</a></li>
@@ -32,6 +38,9 @@ Detail Rekap Nilai - Guru
 					<li class="tab col s4"><a href="#ujian">Ujian</a></li>
 				</ul>
 			</div>
+			{{-- END ================================================================================ BAR TIPE --}}
+
+			{{-- START ================================================================================ SEMUA TIPE --}}
 			<div id="semua" class="col s12">
 				<div class="con-nilai-tab">
 					<div class="row">
@@ -59,6 +68,9 @@ Detail Rekap Nilai - Guru
 					</div>
 				</div>
 			</div>
+			{{-- START ================================================================================ SEMUA TIPE --}}
+
+			{{-- START ================================================================================ TIPE TUGAS --}}
 			<div id="tugas" class="col s12">
 				<div class="con-nilai-tab">
 					<div class="row">
@@ -75,7 +87,7 @@ Detail Rekap Nilai - Guru
 								<tbody>
 									<tr>
 										<td>Ivan Priyambudi</td>
-										<td>Ulangan Gerak Jatuh Bebas</td>
+										<td>Ulangan Gerak Jatuh Bebas H</td>
 										<td>80 / 100</td>
 									</tr>
 								</tbody>
@@ -84,6 +96,9 @@ Detail Rekap Nilai - Guru
 					</div>
 				</div>
 			</div>
+			{{-- END ================================================================================ TIPE TUGAS --}}
+
+			{{-- START ================================================================================ TIPE ULANGAN HARIAN --}}
 			<div id="ujian" class="col s12">
 				<div class="con-nilai-tab">
 					<div class="row">
@@ -111,8 +126,11 @@ Detail Rekap Nilai - Guru
 					</div>
 				</div>
 			</div>
+			{{-- END ================================================================================ TIPE ULANGAN HARIAN --}}
 			
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ CONTENT --}}
+
 @endsection
