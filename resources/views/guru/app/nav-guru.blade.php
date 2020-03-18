@@ -41,7 +41,7 @@
 
 				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
 
-				<div style="padding:0 50px;">
+				<div class="second-navbar-rb">
 					<ul class="center">
 						<li class="menu-kelas
 						{{ (request()->routeIs(
@@ -80,7 +80,7 @@
 							">
 							<a href="{{route('DiskusiKelas',$dt->id)}}" class="rb-text-1">Diskusi</a>
 						</li>
-						<li class="menu-kelas
+						{{-- <li class="menu-kelas
 						{{ (request()->routeIs(
 
 							'SiswaKelas'
@@ -88,7 +88,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaKelas',$dt->id)}}" class="rb-text-1">Siswa</a>
-						</li>
+						</li> --}}
 					</ul>
 				</div>
 

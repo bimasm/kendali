@@ -11,14 +11,17 @@ Kelas - Guru
 @endsection
 
 @section('app-guru')
-<section>
-	<div class="container" style="margin-top: 1em">
+
+{{-- START ================================================================================ HEADER --}}
+<section class="head-cont-tugas-guru">
+	<div class="container container-75">
 		<div class="row">
 			<div class="col s12 m12 l6 fot-card-left">
 				@foreach($data as $dt)
 				<h4>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h4>
 				@endforeach
 			</div>
+
 			<div class="col s12 m12 l6 fot-card-right">
 				<div class="con-head-guru">
 					<div id="tab2">
@@ -35,64 +38,67 @@ Kelas - Guru
 	</div>
 </section>
 <br>
+{{-- END ================================================================================ HEADER --}}
 
+{{-- START ================================================================================ CONTENT --}}
 <section id="tab">
-	<div class="container" style="width: 60%">
+	<div class="container container-60" style="margin-bottom: 100px">
 		<div class="row">
+
+			@foreach($materi as $mt)
 			<div class="col s12 m12 l12">
-				<div class="row">
-					@foreach($materi as $mt)
-					<div class="col s12 m12 l12">
-						<div class="card cont-dash white">
-							<ul class="collapsible materi-cont-siswa">
-								<li>
-									<div class="collapsible-header materi-cont-siswa-he">
-										<i class="material-icons materi-icon-siswa">menu_book</i>{{ $mt->materi }}
+				<div class="card cont-dash white">
+					<ul class="collapsible materi-cont-siswa">
+						<li>
+							{{-- START ==================================================================== HEAD TITLE --}}
+							<div class="collapsible-header materi-cont-siswa-he materi">
+								<i class="material-icons materi-icon-siswa">menu_book</i>{{ $mt->materi }}
 
-										<span style="float: right; right: 20px; position: absolute;">
-											<a class="btn-floating btn-flat materi-icon-det">
-												<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
-											</a>
-										</span>
+								<span class="cont-icon-con">
+									<a class="btn-floating btn-flat materi-icon-det">
+										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+									</a>
+								</span>
+							</div>
+							{{-- END ==================================================================== HEAD TITLE --}}
+
+							{{-- START ==================================================================== BODY MATERI --}}
+							<div class="collapsible-body materi-cont-siswa-bo">
+								<h6><b>File</b></h6>
+								<blockquote>
+									@foreach($mt->komponen as $k)
+									<div class="row">
+										<table class="highlight">
+											<tbody>
+												<tr>
+													<td>{{ $k->judul }}</td>
+													<td class="center">
+														<a href="{{ route('welcome') }}/file/{{ $k->file }}" class="materi-item-siswa" target="_blank">
+															<div class="card cont-file white">
+																<div class="materi-item-cont-siswa">
+																	<i class="material-icons icon center">description</i> 
+																	<span class="text">{{ $k->file }}</span>
+																</div>
+															</div>
+														</a>
+													</td>
+
+													<td class="center">
+														<a href="#modal-edit" class="btn-floating btn waves-effect waves-light blue darken-1 modal-trigger"><i class="material-icons">edit</i></a>
+
+														<a href="#modal-hapus" class="btn-floating btn waves-effect waves-light modal-trigger red"><i class="material-icons">delete</i></a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
 									</div>
+									@endforeach
 
-									<div class="collapsible-body materi-cont-siswa-bo">
-										<h6><b>File</b></h6>
-										<blockquote>
-											@foreach($mt->komponen as $k)
-											<div class="row">
-												<table class="highlight">
-													<tbody>
-														<tr>
-															<td>{{ $k->judul }}</td>
-															<td class="center">
-																<a href="{{ route('welcome') }}/file/{{ $k->file }}" class="materi-item-siswa" target="_blank">
-																	<div class="card cont-file white">
-																		<div class="materi-item-cont-siswa">
-																			<i class="material-icons icon center">description</i> 
-																			<span class="text">{{ $k->file }}</span>
-																		</div>
-																	</div>
-																</a>
-															</td>
+									<a href="#modal-add-file" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
+								</blockquote>
 
-															<td class="center">
-																<a href="#modal-edit" class="btn-floating btn waves-effect waves-light blue darken-1 modal-trigger"><i class="material-icons">edit</i></a>
-
-																<a href="#modal-hapus" class="btn-floating btn waves-effect waves-light modal-trigger red"><i class="material-icons">delete</i></a>
-															</td>
-														</tr>
-													</tbody>
-												</table>
-											</div>
-											@endforeach
-
-											<a href="#modal-add-file" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
-										</blockquote>
-
-										<br>
-
-										{{-- <h6><b>Latihan Soal</b></h6>
+								<br>
+								{{-- <h6><b>Latihan Soal</b></h6>
 										<blockquote>
 											<table class="highlight">
 												<tbody>
@@ -112,26 +118,26 @@ Kelas - Guru
 												</tbody>
 											</table>
 										</blockquote> --}}
-									</div>
-
-								</li>
-							</ul>
-
-							<div class="card-action">
-								<b>Dibuat : </b>{{ $mt->created_at }}
 							</div>
-						</div>
-					</div>
-					@endforeach
+							{{-- END ==================================================================== BODY MATERI --}}
+						</li>
+					</ul>
 
+					<div class="card-action">
+						<b>Dibuat : </b>{{ $mt->created_at }}
+					</div>
 				</div>
 			</div>
+			@endforeach
+
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ CONTENT --}}
 
+{{-- START ================================================================================ ADD MATERI --}}
 <section id="detail" style="display: none">
-	<div class="container" style="width: 60%">
+	<div class="container container-60" style="margin-bottom: 100px">
 		<div class="card cont-dash white">
 			<div class="card-content grey-text text-darken-2 con-card-cont">
 				<form action="{{ route('addmateri') }}" method="post">
@@ -153,7 +159,9 @@ Kelas - Guru
 		</div>
 	</div>
 </section>
+{{-- END ================================================================================ ADD MATERI --}}
 
+{{-- START ================================================================================ EDIT MATERI --}}
 <div id="modal-edit" class="modal">
 	<div class="modal-content">
 		<div class="row">
@@ -192,6 +200,9 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ EDIT MATERI --}}
+
+{{-- START ================================================================================ ADD FILE MATERI --}}
 @foreach($materi as $mt)
 <div id="modal-add-file" class="modal">
 	<div class="modal-content">
@@ -232,6 +243,9 @@ Kelas - Guru
 	</div>
 </div>
 @endforeach
+{{-- END ================================================================================ ADD FILE MATERI --}}
+
+{{-- START ================================================================================ HAPUS MATERI --}}
 <div id="modal-hapus" class="modal m-hapus">
 	<div class="modal-content">
 		<div class="row">
@@ -248,7 +262,9 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ HAPUS MATERI --}}
 
+{{-- START ================================================================================ HAPUS LATSO MATERI --}}
 <div id="modal-latso-hapus" class="modal m-hapus">
 	<div class="modal-content">
 		<div class="row">
@@ -265,7 +281,9 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ HAPUS LATSO MATERI --}}
 
+{{-- START ================================================================================ EDIT LATSO MATERI --}}
 <div id="modal-latso-edit" class="modal">
 	<div class="modal-content">
 		<div class="row">
@@ -311,6 +329,8 @@ Kelas - Guru
 		</div>
 	</div>
 </div>
+{{-- END ================================================================================ HAPUS LATSO MATERI --}}
+
 @endsection
 
 @section('js-plus')

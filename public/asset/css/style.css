@@ -56,6 +56,10 @@ h3 h5 {
 /*--- END -------------------------------------------------------------------------------------------------- COLOR */
 
 /*--- START -------------------------------------------------------------------------------------------------- CONTAINER */
+.con-form-60 {
+	padding: 0 60px;
+}
+
 .container-75 {
 	width: 75%;
 }
@@ -89,6 +93,10 @@ h3 h5 {
 }
 
 @media only screen and (max-width: 600px) {
+	.con-form-60 {
+		padding: 0;
+	}
+
 	.container-75 {
 		width: 95%;
 	}
@@ -188,6 +196,10 @@ h3 h5 {
 	margin-top: 50px;
 }
 
+.head-cont-tugas-guru {
+	margin-top: 30px;
+}
+
 .head-at-tugas-siswa > h6 {
 	margin: 0.766667rem 0 !important;
 }
@@ -206,6 +218,10 @@ h3 h5 {
 	}
 
 	.head-cont-tugas-siswa-plus {
+		margin-top: 100px;
+	}
+
+	.head-cont-tugas-guru {
 		margin-top: 100px;
 	}
 }
@@ -543,7 +559,7 @@ h3 h5 {
 	}
 
 	.second-navbar-rb {
-		margin: 0 20px;
+		margin: 0 22px;
 	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- NAVBAR */
