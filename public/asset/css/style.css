@@ -542,7 +542,15 @@ h3 h5 {
 }
 
 .second-navbar-rb {
-	margin: 0 400px;
+	margin: 0 350px;
+}
+
+.second-navbar-rb-mb {
+	display: block;
+}
+
+.second-navbar-rb-mb-2 {
+	display: none;
 }
 
 @media only screen and (max-width: 600px) {
@@ -560,6 +568,14 @@ h3 h5 {
 
 	.second-navbar-rb {
 		margin: 0 22px;
+	}
+
+	.second-navbar-rb-mb {
+		display: none;
+	}
+
+	.second-navbar-rb-mb-2 {
+		display: block;
 	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- NAVBAR */

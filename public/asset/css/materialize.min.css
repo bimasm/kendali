@@ -5238,7 +5238,7 @@ button.btn-floating {
     right: 23px;
     bottom: 23px;
     padding-top: 15px;
-    margin-bottom: 0;
+    margin-bottom: 3em;
     z-index: 997
 }
 

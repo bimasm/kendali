@@ -80,7 +80,7 @@
 							">
 							<a href="{{route('DiskusiKelas',$dt->id)}}" class="rb-text-1">Diskusi</a>
 						</li>
-						{{-- <li class="menu-kelas
+						<li class="menu-kelas second-navbar-rb-mb
 						{{ (request()->routeIs(
 
 							'SiswaKelas'
@@ -88,7 +88,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaKelas',$dt->id)}}" class="rb-text-1">Siswa</a>
-						</li> --}}
+						</li>
 					</ul>
 				</div>
 
@@ -170,3 +170,11 @@
 		<br>
 	</div>
 </ul>
+
+@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
+<div class="fixed-action-btn second-navbar-rb-mb-2">
+	<a href="{{route('SiswaKelas',$dt->id)}}" class="btn-floating btn-large red">
+		<i class="large material-icons">supervised_user_circle</i>
+	</a>
+</div>
+@endif
