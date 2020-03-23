@@ -7,6 +7,8 @@ Route::get('/', function () {
 // hanya untuk tamu yg belum auth
 Route::get('/login', 'LoginController@getLogin')->middleware('guest');
 Route::post('/login', 'LoginController@postLogin');
+Route::post('/regis', 'LoginController@register')->name('regis');
+
 Route::get('/logout', 'LoginController@logout');
 
 Route::get('/admin', function() {
@@ -14,12 +16,14 @@ Route::get('/admin', function() {
 })->middleware('auth:admin');
 
 //-- START ----------------------------------------------------------------------------- Siswa
-Route::get('/siswa', function() {
-	return view('siswa.dashboard-siswa');
-})->middleware('auth:siswa')->name('SiswaDashboard');
+Route::get('/siswa', 'SiswaController@index')
+->name('SiswaDashboard')->middleware('auth:siswa');
 
-Route::get('/siswa/kelas', 'SiswaController@Siswa_Kelas')
-->name('KelasSiswa')->middleware('auth:siswa');
+Route::post('/siswa/join', 'SiswaActionController@join')
+->name('JoinKelasSiswa')->middleware('auth:siswa');
+
+Route::get('/siswa/kelas/{id}', 'SiswaController@Detail_Kelas')
+->name('DetailKelasSiswa')->middleware('auth:siswa');
 
 Route::get('/siswa/ujian', 'SiswaController@Siswa_ujian')
 ->name('SiswaUjian')->middleware('auth:siswa');
@@ -47,9 +51,62 @@ Route::get('/siswa/setting', 'SiswaController@Siswa_Setting')
 
 //-- END ----------------------------------------------------------------------------- Siswa
 
-Route::get('/adminsekolah', function() {
-	return view('adminsekolah');
-})->middleware('auth:adminsekolah');
+//-- START ----------------------------------------------------------------------------- Admin Sekolah
+
+Route::get('/adminsekolah', 'AdminSekolahController@index')
+->name('AdminSekolahDashboard')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas', 'AdminSekolahController@Kelas_Admin_Sekolah')
+->name('AdminSekolahKelas')->middleware('auth:adminsekolah');
+
+//-- START --------------------------------------------------------- Detail Kelas
+Route::get('/adminsekolah/kelas/detail-kelas-materi', 'AdminSekolahController@DetailKelas_Materi_Admin_Sekolah')
+->name('AdminSekolahDetailKelasMateri')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-tugas', 'AdminSekolahController@DetailKelas_Tugas_Admin_Sekolah')
+->name('AdminSekolahDetailKelasTugas')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-ujian', 'AdminSekolahController@DetailKelas_Ujian_Admin_Sekolah')
+->name('AdminSekolahDetailKelasUjian')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-diskusi', 'AdminSekolahController@DetailKelas_Diskusi_Admin_Sekolah')
+->name('AdminSekolahDetailKelasDiskusi')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-siswa', 'AdminSekolahController@DetailKelas_Siswa_Admin_Sekolah')
+->name('AdminSekolahDetailKelasSiswa')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-informasi', 'AdminSekolahController@DetailKelas_Informasi_Admin_Sekolah')
+->name('AdminSekolahDetailKelasInformasi')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-tugas/detail-tugas', 'AdminSekolahController@DetailTugas_Admin_Sekolah')
+->name('AdminSekolahDetailTugas')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-tugas/detail-ujian', 'AdminSekolahController@DetailUjian_Admin_Sekolah')
+->name('AdminSekolahDetailUjian')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/kelas/detail-kelas-tugas/detail-diskusi', 'AdminSekolahController@DetailDiskusi_Admin_Sekolah')
+->name('AdminSekolahDetailDiskusi')->middleware('auth:adminsekolah');
+//-- END --------------------------------------------------------- Detail Kelas
+
+Route::get('/adminsekolah/guru', 'AdminSekolahController@Guru_Admin_Sekolah')
+->name('AdminSekolahGuru')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/siswa', 'AdminSekolahController@Siswa_Admin_Sekolah')
+->name('AdminSekolahSiswa')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/tugas', 'AdminSekolahController@Semua_Tugas_Admin_Sekolah')
+->name('AdminSekolahSemuaTugas')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/ujian', 'AdminSekolahController@Semua_Ujian_Admin_Sekolah')
+->name('AdminSekolahSemuaUjian')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/nilai', 'AdminSekolahController@Nilai_Admin_Sekolah')
+->name('AdminSekolahSemuaNilai')->middleware('auth:adminsekolah');
+
+Route::get('/adminsekolah/setting', 'AdminSekolahController@Setting_Admin_Sekolah')
+->name('AdminSekolahSemuaSetting')->middleware('auth:adminsekolah');
+
+//-- START ----------------------------------------------------------------------------- Admin Sekolah
 
 //-- START ----------------------------------------------------------------------------- Guru
 

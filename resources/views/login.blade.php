@@ -91,7 +91,7 @@ Login
                   <div id="sd" class="col s12">
                     <div class="card-content white-text">
 
-                      <form action="" method="">
+                      <form action="{{ route('regis') }}" method="post">
                         @csrf
                         <div class="row">
                           <div class="col s12">
@@ -116,11 +116,11 @@ Login
 
                             <div class="row">
                               <div class="input-field col s12 reg">
-                                <select>
+                                <select name="sekolah">
                                   <option value="" disabled selected>Pilih Sekolah</option>
-                                  <option value="1">Option 1</option>
-                                  <option value="2">Option 2</option>
-                                  <option value="3">Option 3</option>
+                                  @foreach($sd as $ds)
+                                  <option value="{{ $ds->id }}">{{ $ds->nama }}</option>
+                                  @endforeach
                                 </select>
                                 <label>Sekolah</label>
                               </div>
@@ -142,7 +142,7 @@ Login
                   <div id="smp" class="col s12">
                     <div class="card-content white-text">
 
-                      <form action="" method="">
+                      <form action="{{ route('regis') }}" method="post">
                         @csrf
                         <div class="row">
                           <div class="col s12">
@@ -167,11 +167,11 @@ Login
 
                             <div class="row">
                               <div class="input-field col s12 reg">
-                                <select>
+                                <select name="sekolah">
                                   <option value="" disabled selected>Pilih Sekolah</option>
-                                  <option value="1">Option 1</option>
-                                  <option value="2">Option 2</option>
-                                  <option value="3">Option 3</option>
+                                  @foreach($smp as $pms)
+                                  <option value="{{ $pms->id }}">{{ $pms->nama }}</option>
+                                  @endforeach
                                 </select>
                                 <label>Sekolah</label>
                               </div>
@@ -193,7 +193,7 @@ Login
                   <div id="sma" class="col s12">
                     <div class="card-content white-text">
 
-                      <form action="" method="">
+                      <form action="{{ route('regis') }}" method="post">
                         @csrf
                         <div class="row">
                           <div class="col s12">
@@ -218,11 +218,11 @@ Login
 
                             <div class="row">
                               <div class="input-field col s12 reg">
-                                <select>
+                                <select name="sekolah">
                                   <option value="" disabled selected>Pilih Sekolah</option>
-                                  <option value="1">Option 1</option>
-                                  <option value="2">Option 2</option>
-                                  <option value="3">Option 3</option>
+                                  @foreach($sma as $ams)
+                                  <option value="{{ $ams->id }}">{{ $ams->nama }}</option>
+                                  @endforeach
                                 </select>
                                 <label>Sekolah</label>
                               </div>

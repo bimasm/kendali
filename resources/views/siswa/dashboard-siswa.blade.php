@@ -61,15 +61,19 @@ Dashboard - Siswa
 	<div class="container container-75">
 		<div class="row">
 
+			@foreach($kelas as $ks)
+
 			<div class="col s12 m12 l4">
 				<div class="card cont-dash white">
 					<div class="cont-head">
 						<span class="card-title">
-							<i class="cont-title-icon material-icons center">menu_book</i> Fisika
+							<a href="siswa/kelas/{{ $ks->id }}">
+								<i class="cont-title-icon material-icons center">menu_book</i> {{ $ks->pelajaran }}
+							</a>
 						</span>
 					</div>
 					<div class="card-content grey-text text-darken-2">
-						<div class="sub-titile">Nama Guru, Jan 26</div>
+						<div class="sub-titile">{{ \App\Guru::where('id', $ks->id_guru)->value('nama') }}</div>
 						<ul class="collection no-bor">
 							<li class="collection-item">Materi<div class="secondary-content">1</div></li>
 							<li class="collection-item">Ujian<div class="secondary-content">1</div></li>
@@ -80,6 +84,8 @@ Dashboard - Siswa
 				</div>
 			</div>
 
+			@endforeach
+
 		</div>
 	</div>
 </section>
@@ -89,10 +95,10 @@ Dashboard - Siswa
 	<div class="modal-content">
 		<div class="row">
 			<h5>Tambah Kelas</h5>
-			<form action="" method="post">
+			<form action="{{route('JoinKelasSiswa')}}" method="post">
 				@csrf
 				<div class="input-field col s12">
-					<input id="kode-kelas" type="text" class="validate" name="kode-kelas">
+					<input id="kode-kelas" type="text" class="validate" name="kode">
 					<label for="kode-kelas">Kode Kelas</label>
 				</div>
 				<div class="input-field col s12 right-align">

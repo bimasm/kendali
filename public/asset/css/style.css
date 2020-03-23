@@ -23,6 +23,44 @@ h3 h5 {
 }
 /*--- END -------------------------------------------------------------------------------------------------- BODY */
 
+/*--- START ------------------------------------------------------------------------------------ BREADCUMB ---*/
+.bread-rb {
+	background-color: transparent;
+	box-shadow: none;
+}
+
+.breadcrumb.bread-rb-c {
+	color: #929292;
+	font-size: 25px;
+}
+
+.breadcrumb.bread-rb-c:last-child {
+	color: #545454;
+	font-size: 25px;
+} 
+
+.breadcrumb.bread-rb-c:before {
+	color: #929292;
+}
+
+.bread-rb-cont {
+	
+}
+
+.bread-rb-col {
+	padding:0 !important;
+}
+
+.sub-bread {
+	border-bottom: 1px solid #e0e0e0;
+	margin-bottom: 1em;
+}
+
+.sub-bread > h5 {
+	margin-top: 0
+}
+/*--- END ------------------------------------------------------------------------------------ BREADCUMB ---*/
+
 /*--- START -------------------------------------------------------------------------------------------------- COLOR */
 .rb-text-1 {
 	color: #9e312f !important;
@@ -56,6 +94,10 @@ h3 h5 {
 /*--- END -------------------------------------------------------------------------------------------------- COLOR */
 
 /*--- START -------------------------------------------------------------------------------------------------- CONTAINER */
+.con-info-kelas {
+	margin: 0 40px;
+}
+
 .con-form-60 {
 	padding: 0 60px;
 }
@@ -93,6 +135,10 @@ h3 h5 {
 }
 
 @media only screen and (max-width: 600px) {
+	.con-info-kelas {
+		margin: 0 0px;
+	}
+
 	.con-form-60 {
 		padding: 0;
 	}
@@ -276,6 +322,26 @@ h3 h5 {
 	text-align: right;
 }
 
+.cont-add-nav {
+	margin-top: 0px;
+	text-align: left;
+}
+
+.title-action {
+	text-align: right;
+}
+
+.menu-second-nav-mob {
+	border: 1px solid #e0e0e0;
+	padding-top: 5px !important;
+	border-radius: 8px;
+	margin-bottom: 25px;
+}
+
+.menu-second-nav-mob > .select-wrapper input.select-dropdown {
+	border: 0
+}
+
 @media only screen and (max-width: 600px) {
 	.fot-card-left {
 		text-align: center;
@@ -284,6 +350,20 @@ h3 h5 {
 
 	.fot-card-right {
 		text-align: center;
+	}
+
+	.cont-add-nav {
+		margin-top: 15px;
+		text-align: center;
+	}
+
+	.title-action {
+		text-align: center;
+	}
+
+	.nav-second-bor{
+		border-bottom: 1px solid #e0e0e0;
+		margin-bottom: 30px;
 	}
 }
 
@@ -299,9 +379,23 @@ h3 h5 {
 .con-nilai-tab {
 	margin: 40px 0;
 }
+
+
 /*--- END -------------------------------------------------------------------------------------------------- CONTAINER */
 
 /*--- START -------------------------------------------------------------------------------------------------- CARD */
+.card-dash-admin {
+	box-shadow: none; 
+	padding: 24px 0;
+	padding-bottom: 0; 
+	padding-top: 0; 
+	margin-top: 0
+}
+
+.card-dash-admin > table.highlight > tbody > tr > td {
+	padding: 15px 30px;
+}
+
 .card-fitur {
 	border-radius: 10px;
 	box-shadow: 0 5px 40px rgba(0, 0, 0, 0.05);
@@ -406,6 +500,21 @@ h3 h5 {
 	border-bottom: 1px solid #e0e0e0;
 }
 
+.cont-head-2 {
+	padding: 0; 
+	border-bottom: 1px solid #e0e0e0;
+}
+
+.cont-head-3 {
+	padding:0; 
+	border-bottom: 0;
+}
+
+.card-panel-2 {
+	box-shadow: none; 
+	padding: 10px 40px
+}
+
 .materi-cont-siswa {
 	border: 0 !important;
 	box-shadow: none !important;
@@ -435,6 +544,16 @@ h3 h5 {
 .materi-icon-siswa {
 	background: #eeeeee;
 	width: 50px !important;
+	height: 50px !important;
+	border-radius: 50%;
+	line-height: 50px;
+	font-size: 25px;
+	color: #757575;
+}
+
+.materi-icon-siswa-nob {
+	background: transparent;
+	width: 30px !important;
 	height: 50px !important;
 	border-radius: 50%;
 	line-height: 50px;
@@ -501,6 +620,10 @@ h3 h5 {
 	.materi-cont-siswa.done {
 		padding-bottom: 25px
 	}
+
+	.card-dash-admin > table.highlight > tbody > tr > td {
+		padding: 15px 10px;
+	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- CARD */
 
@@ -526,7 +649,7 @@ h3 h5 {
 }
 
 .con-leftbar{
-	padding: 50px 10px 0 0;
+	padding: 50px 10px 50px 0;
 }
 
 .menu-kelas {
@@ -553,7 +676,23 @@ h3 h5 {
 	display: none;
 }
 
+.second-nav-menu {
+	display: block;
+}
+
+.second-nav-menu-mobile {
+	display: none;
+}
+
 @media only screen and (max-width: 600px) {
+	.second-nav-menu {
+		display: none;
+	}
+
+	.second-nav-menu-mobile {
+		display: block;
+	}
+
 	.menu-kelas {
 		width: 72px;
 	}
@@ -908,7 +1047,42 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 	-ms-transform: rotate(180deg); /* IE 9 */
 	transform: rotate(180deg);
 }
+
+.secondary-content-2 {
+	float: right;
+	color: #545454;
+	font-weight: 600
+}
 /*--- END -------------------------------------------------------------------------------------------------- LIST */
+
+/*--- START -------------------------------------------------------------------------------------------------- SCROLL */
+/* width */
+::-webkit-scrollbar {
+	width: 8px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	background: #fff; 
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	background: #eeeeee;
+	border-radius: 10px;
+	transition: 0.5s all; 
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+	background: #e0e0e0 ; 
+}
+/*--- END -------------------------------------------------------------------------------------------------- SCROLL */
+
+.no-mar {
+	margin:0;
+}
+
 .n-bor {
 	border: 0 !important;
 }
@@ -939,4 +1113,10 @@ input.set[type=text]:not(.browser-default):focus:not([readonly])+label{
 	top: 13px; 
 	position: absolute; 
 	right: 20px
+}
+
+.search-cont {
+	background-color: #e0e0e0;
+	padding: 2px;
+	border-radius: 12px;
 }

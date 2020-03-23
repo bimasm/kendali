@@ -6555,7 +6555,7 @@ textarea.materialize-textarea+label:after,
 }
 
 .input-field input[type=search]:focus:not(.browser-default) {
-    background-color: #fff;
+    background-color: transparent;
     border: 0;
     -webkit-box-shadow: none;
     box-shadow: none;
@@ -6577,7 +6577,7 @@ textarea.materialize-textarea+label:after,
 .input-field input[type=search] ~ .mdi-navigation-close,
 .input-field input[type=search] ~ .material-icons {
     position: absolute;
-    top: 0;
+    top: -0.4rem;
     right: 1rem;
     color: transparent;
     cursor: pointer;

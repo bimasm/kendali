@@ -135,10 +135,10 @@
 			">
 			<a href="{{route('SiswaDashboard')}}"><i class="material-icons">dashboard</i>Dashboard</a>
 		</li>
-		<li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li>
+		{{-- <li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li> --}}
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
-		<li><a class="subheader">Kelas Anda</a></li>
+		{{-- <li><a class="subheader">Kelas Anda</a></li>
 		<li class="
 		{{ (request()->routeIs(
 
@@ -173,11 +173,11 @@
 			<a href="{{route('KelasSiswa')}}"><i class="material-icons">menu_book</i>Biologi</a>
 		</li>
 		<li><a href="#!"><i class="material-icons">menu_book</i>Fisika</a></li>
-		<li><a href="#!"><i class="material-icons">menu_book</i>Matematika</a></li>
+		<li><a href="#!"><i class="material-icons">menu_book</i>Matematika</a></li> --}}
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<br>
-		<li class="
+		{{-- <li class="
 		{{ (request()->routeIs(
 
 			'SiswaSetting'
@@ -185,7 +185,7 @@
 			)) ? 'active' : '' }}
 			">
 			<a href="{{route('SiswaSetting')}}"><i class="material-icons">settings</i>Setting</a>
-		</li>
+		</li> --}}
 		<li><a href="/logout"><i class="material-icons">power_settings_new</i>Logout</a></li>
 		<br>
 	</div>

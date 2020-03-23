@@ -5,13 +5,20 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Admin;
 use App\User;
+use App\Sekolah;
+use App\Siswa;
 use Auth;
+use Illuminate\Support\Facades\Hash;
 
 class LoginController extends Controller
 {
   public function getLogin()
   {
-    return view('login');
+    $sd=Sekolah::where('jenjang','SD')->get();
+    $smp=Sekolah::where('jenjang','SMP')->get();
+    $sma=Sekolah::where('jenjang','SMA')->get();
+
+    return view('login',compact('sd','smp','sma'));
   }
 
   public function postLogin(Request $request)
@@ -30,7 +37,7 @@ class LoginController extends Controller
       return redirect()->intended('/guru');
 
     } else{
-    	return redirect('/login');
+      return redirect('/login');
     }
 
   }
@@ -53,4 +60,15 @@ class LoginController extends Controller
     return redirect('/login');
 
   }
+  public function register(Request $request){
+    $x=new Siswa();
+    $x->id_sekolah=$request->input('sekolah');
+    $x->nama=$request->input('nama');
+    $x->email=$request->input('email');
+    $x->password=Hash::make($request->input('password'));
+    $x->save();
+    return redirect('/login');
+  }
 }
+
+

@@ -17,8 +17,10 @@ Kelas - Siswa
 				<li>
 					<img class="slider-kelas-siswa" src="{{asset('asset/img/kelas/header/head.jpg')}}">
 					<div class="caption center-align slider-kelas-siswa-c">
-						<h3>Kelas Biologi / Materi</h3>
-						<h5 class="light grey-text text-lighten-3">Heri</h5>
+						@foreach($data as $dt)
+						<h3>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h3>
+						<h5 class="light grey-text text-lighten-3">{{ \App\Guru::where('id', $dt->id_guru)->value('nama') }}</h5>
+						@endforeach
 					</div>
 				</li>
 			</ul>
@@ -33,12 +35,13 @@ Kelas - Siswa
 		<div class="row">
 
 			{{-- START ================================================================================ CARD MATERI --}}
+			@foreach($materi as $mt)
 			<div class="col s12 m12 l12">
 				<div class="card cont-dash white">
 					<ul class="collapsible materi-cont-siswa">
 						<li>
 							<div class="collapsible-header materi-cont-siswa-he materi">
-								<i class="material-icons materi-icon-siswa">people_alt</i>Forum Gaya
+								<i class="material-icons materi-icon-siswa">people_alt</i>{{ $mt->materi }}
 								<span class="cont-icon-con">
 									<a class="btn-floating btn-flat materi-icon-det">
 										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
@@ -49,42 +52,26 @@ Kelas - Siswa
 								<h6><b>Materi</b></h6>
 								<blockquote>
 									<div class="row">
+
+										@foreach( $mt->komponen as $k)
 										<div class="col s12 m12 l6">
-											<a href="#!" class="materi-item-siswa">
+											<a href="{{ route('welcome')}}/file/{{ $k->file}}" class="materi-item-siswa">
 												<div class="card cont-file white">
 													<div class="materi-item-cont-siswa">
 														<i class="material-icons icon center">description</i> 
-														<span class="text">Fisika</span>
+														<span class="text">{{ $k->file }}</span>
 													</div>
 												</div>
 											</a>
 										</div>
-										<div class="col s12 m12 l6">
-											<a href="#!" class="materi-item-siswa">
-												<div class="card cont-file white">
-													<div class="materi-item-cont-siswa">
-														<i class="material-icons icon center">movie</i> 
-														<span class="text">Fisika</span>
-													</div>
-												</div>
-											</a>
-										</div>
-										<div class="col s12 m12 l6">
-											<a href="#!" class="materi-item-siswa">
-												<div class="card cont-file white">
-													<div class="materi-item-cont-siswa">
-														<i class="material-icons icon center">tab</i> 
-														<span class="text">Fisika</span>
-													</div>
-												</div>
-											</a>
-										</div>
+										@endforeach
+
 									</div>
 								</blockquote>
 
 								<br>
 
-								<h6><b>Latihan Soal</b></h6>
+								{{-- <h6><b>Latihan Soal</b></h6>
 								<blockquote>
 									<table>
 										<tbody>
@@ -114,15 +101,16 @@ Kelas - Siswa
 											</tr>
 										</tbody>
 									</table>
-								</blockquote>
+								</blockquote> --}}
 							</div>
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>Heri</b>, 23 Juni 2020
+						<b>Heri</b>, {{ $mt->created_at }}
 					</div>
 				</div>
 			</div>
+			@endforeach
 			{{-- END ================================================================================ CARD MATERI --}}
 
 		</div>

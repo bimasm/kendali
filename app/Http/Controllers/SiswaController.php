@@ -3,12 +3,25 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Pelajaran;
+use App\Relation;
+use App\Materi;
+use Auth;
 
 class SiswaController extends Controller
 {
-    public function Siswa_Kelas()
+    public function index(){
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+        return view('siswa.dashboard-siswa', compact('kelas'));
+    }
+
+    public function Detail_Kelas($id)
     {
-    	return view('siswa.kelas-siswa');
+        $data=Pelajaran::where('id',$id)->get();
+        $materi = Materi::with('komponen.materi')->where('id_pelajaran', $id)->orderBy('id','desc')->get();
+
+        return view('siswa.kelas-siswa',compact('data','materi'));
     }
 
     public function Siswa_Ujian()
