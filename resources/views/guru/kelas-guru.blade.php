@@ -124,7 +124,7 @@ Kelas - Guru
 					</ul>
 
 					<div class="card-action">
-						<b>Dibuat : </b>{{ $mt->created_at }}
+						<b>Dibuat : </b>{{ date('j F Y', strtotime($mt->created_at)) }}, {{ date('H:i', strtotime($mt->created_at)) }}
 					</div>
 				</div>
 			</div>

@@ -9,6 +9,7 @@ use App\Pelajaran;
 use App\Materi;
 use App\Komponenmateri;
 use App\Tugaskelas;
+use App\Jawabantugas;
 
 class GuruController extends Controller
 {
@@ -25,10 +26,13 @@ class GuruController extends Controller
 		return view('guru.semuatugas-guru');
 	}
 
-	public function Guru_Tugas_Detail()
+	public function Guru_Tugas_Detail($id)
 	{
-		$data=Pelajaran::all();
-		return view('guru.tugas-guru-detail', compact('data'));
+		$data=Pelajaran::where('id',$id)->get();
+		$tugas=Tugaskelas::where('id',$id)->get();
+		$jawaban=Jawabantugas::where('id',$id)->get();
+
+		return view('guru.tugas-guru-detail', compact('data','tugas','jawaban'));
 	}
 
 	public function Guru_SemuaUjian()

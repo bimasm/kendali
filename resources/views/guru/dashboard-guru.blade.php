@@ -49,7 +49,7 @@ Dashboard - Guru
 					</div>
 
 					<div class="card-content grey-text text-darken-2 con-card-cont-guru">
-						<p>Dibuat pada {{$dt->created_at}}</p>
+						<p>Dibuat pada {{ date('j F Y', strtotime($dt->created_at)) }}, {{ date('H:i', strtotime($dt->created_at)) }}</p>
 					</div>
 				</div>
 

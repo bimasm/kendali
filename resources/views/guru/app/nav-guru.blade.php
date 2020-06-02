@@ -55,7 +55,8 @@
 						<li class="menu-kelas
 						{{ (request()->routeIs(
 
-							'TugasKelas'
+							'TugasKelas',
+							'GuruTugasDetail'
 
 							)) ? 'active' : '' }}
 							">

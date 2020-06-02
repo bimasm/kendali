@@ -1,26 +1,29 @@
 @extends('aapp.app')
 
 @section('title')
-Detail Tugas - Guru
+@foreach($tugas as $tg)
+{{ $tg->judul }} - Guru
+@endforeach
 @endsection
 
-@section('nav-siswa')
+@section('nav-guru')
 @foreach($data as $dt)
 @include('guru.app.nav-guru')
 @endforeach
 @endsection
 
 @section('app-guru')
+@foreach($tugas as $tg)
 
 <section class="head-cont-tugas-siswa">
 	<div class="container">
 		<div class="row valign-wrapper-rb">
 			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Judul Tugas</h5>
-				<h6>Pelajaran Biologi</h6>
+				<h5>{{ $tg->judul }}</h5>
+				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => $tg->id_pelajaran])->value('pelajaran')}}</h6>
 			</div>
 			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>Batas pengumpulan : 24 June 2020 | 23:59</h6>
+				<h6>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }} | {{ date('H:i', strtotime($tg->deadline)) }}</h6>
 			</div>
 		</div>
 		<br>
@@ -32,17 +35,17 @@ Detail Tugas - Guru
 <section style="margin-top: 5px">
 	<div class="container">
 		<div class="row">
-			<div class="col s12 m12 l8">
+			<div class="col s12 m12 l7">
 				<blockquote>
-					<h6><b>Dibuat : 23 June 2020 | 15:30</b></h6>
+					<h6><b>Dibuat : {{ date('j F Y', strtotime($tg->created_at)) }} | {{ date('H:i', strtotime($tg->created_at)) }}</b></h6>
 					<div class="tugas-text">
 						<p>
-							Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA
+							{{ $tg->tugas }}
 						</p>
 					</div>
 				</blockquote>
 			</div>
-			<div class="col s12 m12 l4">
+			<div class="col s12 m12 l5">
 				<div class="card cont-dash white">
 					<div class="cont-head">
 						<span class="card-title">
@@ -52,12 +55,14 @@ Detail Tugas - Guru
 					<div class="card-content grey-text text-darken-2 con-card-cont">
 						<table class="highlight">
 							<tbody>
+								@foreach($jawaban as $jw)
 								<tr>
-									<td>Ivan Priyambudi</td>
+									<td>{{ \App\Siswa::where(['id' => $jw->id_siswa])->value('nama')}}</td>
 									<td>
-										<a href="#modal-tugas-det" class="modal-trigger btn-floating btn-flat waves-effect cont-det-back"><i class="cont-det-icon material-icons">arrow_forward</i></a>
+										<a href="#modal-tugas-det-{{$jw->id}}" class="modal-trigger btn-floating btn-flat waves-effect cont-det-back"><i class="cont-det-icon material-icons">arrow_forward</i></a>
 									</td>
 								</tr>
+								@endforeach
 							</tbody>
 						</table>
 					</div>
@@ -67,17 +72,19 @@ Detail Tugas - Guru
 		</div>
 	</div>
 </section>
+@endforeach
 
-<div id="modal-tugas-det" class="modal">
-	<div class="modal-content" style="max-height: calc(115vh - 210px);overflow-y: auto !important;">
+@foreach($jawaban as $jw)
+<div id="modal-tugas-det-{{$jw->id}}" class="modal">
+	<div class="modal-content" style="max-height: calc(115vh - 210px);overflow-y: auto !important; background-color: #fff">
 		<div class="row">
 			<div class="col s12 m12 l8 fot-card-left">
-				<h5>Judul Tugas</h5>
-				<h6>Fisika</h6>
+				<h5>{{ \App\Tugaskelas::where(['id' => $jw->id_tugas])->value('judul') }}</h5>
+				<h6>{{ \App\Pelajaran::where(['id' => \App\Tugaskelas::where(['id' => $jw->id_tugas])->value('id_pelajaran')])->value('pelajaran')}}</h6>
 			</div>
 			<div class="col s12 m12 l4 fot-card-right">
-				<h5>Ivan Priyambudi</h5>
-				<h6>Sabtu, 21 Juni 2020 | 14:50</h6>
+				<h5>{{ \App\Siswa::where(['id' => $jw->id_siswa])->value('nama') }}</h5>
+				<h6>{{ date('j F Y', strtotime($jw->created_at)) }} | {{ date('H:i', strtotime($jw->created_at)) }}</h6>
 			</div>
 			<div class="col s12 m12 l12">
 				<br>
@@ -85,33 +92,22 @@ Detail Tugas - Guru
 				<br>
 			</div>
 			<div class="col s12 m12 l12">
-				<h6><b>File Tugas</b></h6>
+				<h6><b>Jawaban</b></h6>
 				<blockquote>
-					<div class="row">
-						<div class="col s12 m12 l4">
-							<a href="#!" class="materi-item-siswa">
-								<div class="card cont-file white">
-									<div class="materi-item-cont-siswa">
-										<i class="material-icons icon center">description</i> 
-										<span class="text">Fisika</span>
-									</div>
-								</div>
-							</a>
-						</div>
-					</div>
+					{!! $jw->jawaban !!}
 				</blockquote>
 				<br>
-				<h6><b>Deskripsi Tugas</b></h6>
+{{-- 				<h6><b>Deskripsi Tugas</b></h6>
 				<blockquote>
 					<p>Tidak ada deskripsi</p>
-				</blockquote>
+				</blockquote> --}}
 			</div>
-			<div class="col s12 m12 l12">
+{{-- 			<div class="col s12 m12 l12">
 				<br>
 				<div class="divider"></div>
 				<br>
-			</div>
-			<div class="col s12 m12 l12">
+			</div> --}}
+{{-- 			<div class="col s12 m12 l12">
 				<form>
 					@csrf
 					<div class="input-field col s12">
@@ -122,8 +118,10 @@ Detail Tugas - Guru
 						<a class="waves-effect waves-light btn"><i class="material-icons right">send</i>Submit</a>
 					</div>
 				</form>
-			</div>
+			</div> --}}
 		</div>
 	</div>
 </div>
+@endforeach
+
 @endsection

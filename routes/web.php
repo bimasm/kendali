@@ -124,7 +124,7 @@ Route::post('/guru/addtugas', 'GuruActionController@addtugas')->middleware('auth
 Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
 ->name('GuruSemuaTugas')->middleware('auth:guru');
 
-Route::get('/guru/tugas-detail/', 'GuruController@Guru_Tugas_Detail')
+Route::get('/guru/tugas-detail/{id}', 'GuruController@Guru_Tugas_Detail')
 ->name('GuruTugasDetail')->middleware('auth:guru');
 
 Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
