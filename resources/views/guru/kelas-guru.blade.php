@@ -94,7 +94,7 @@ Kelas - Guru
 									</div>
 									@endforeach
 
-									<a href="#modal-add-file" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
+									<a href="#modal-add-file{{ $mt->id }}" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
 								</blockquote>
 
 								<br>
@@ -204,7 +204,7 @@ Kelas - Guru
 
 {{-- START ================================================================================ ADD FILE MATERI --}}
 @foreach($materi as $mt)
-<div id="modal-add-file" class="modal">
+<div id="modal-add-file{{ $mt->id }}" class="modal">
 	<div class="modal-content">
 		<div class="row">
 			<form action="{{ route('addfilemateri') }}" method="post" enctype="multipart/form-data">

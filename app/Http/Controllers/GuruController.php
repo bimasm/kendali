@@ -35,7 +35,7 @@ class GuruController extends Controller
 	{
 		return view('guru.semuaujian-guru');
 	}
-
+ 
 	public function Detail_Kelas($id)
 	{
 		$data=Pelajaran::where('id',$id)->get();
