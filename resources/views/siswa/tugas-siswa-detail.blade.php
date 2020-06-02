@@ -36,7 +36,7 @@ Tugas - Siswa
 	<div class="container container-75" style="margin-bottom: 100px">
 		<div class="row">
 
-			<div class="col s12 m12 l8">
+			<div class="col s12 m12 l12">
 				<blockquote>
 					<h6><b>Heri, 23 June 2020 | 15:30</b></h6>
 					<div class="tugas-text">
@@ -46,51 +46,18 @@ Tugas - Siswa
 					</div>
 				</blockquote>
 			</div>
-			<div class="col s12 m12 l4">
-				<div class="card cont-dash white">
+			<div class="col s12 m12 l12">
+				<div class="card cont-dash white" style="margin-top: 3rem">
 					<div class="cont-head">
 						<span class="card-title">
-							<h6>Upload tugas</h6>
+							<h6>Tulis Jawaban di sini</h6>
 						</span>
 					</div>
-					<div class="card-content grey-text text-darken-2 con-card-cont">
-						<a href="#!" class="materi-item-siswa">
-							<div class="card cont-file white">
-								<div class="materi-item-cont-siswa">
-									<i class="material-icons icon center">description</i> 
-									<span class="text">Nama File Tugas</span>
-								</div>
-							</div>
-						</a>
-						<form action="#">
-							<div class="file-field input-field">
-								<div class="btn-up btn no-shads">
-									<i class="material-icons">add_circle</i>
-									<input type="file" multiple>
-								</div>
-								<div class="file-path-wrapper">
-									<input class="file-path validate" type="text" placeholder="Unggah File Tugas di sini">
-								</div>
-							</div>
-						</form>
-						<div class="center">
-							<a class="waves-effect btn-flat grey-text text-darken-1"><i class="material-icons right">send</i>Submit</a>
-						</div>
-					</div>
-				</div>
-
-				<div class="card cont-dash white">
-					<div class="cont-head">
-						<span class="card-title">
-							<h6>Tulis pesan untuk tugas</h6>
-						</span>
-					</div>
-					<div class="card-content grey-text text-darken-2 con-card-cont">
+					<div class="card-content grey-text text-darken-2 con-card-cont" style="padding: 0 !important">
 						<form action="" method="POST">
 							@csrf
-							<div class="input-field">
-								<textarea id="textarea1" class="chat materialize-textarea"></textarea>
-								<label for="textarea1">Deskripsi Tugas</label>
+							<div class="input-field" style="margin-top: 0">
+								<textarea id="full-featured-non-premium" name="konten"></textarea>
 							</div>
 
 							<div class="input-field center">
@@ -104,4 +71,41 @@ Tugas - Siswa
 		</div>
 	</div>
 </section>
+@endsection
+
+@section('js-plus')
+<script src="https://cdnjs.cloudflare.com/ajax/libs/tinymce/5.2.1/tinymce.min.js"></script>
+
+<script>
+
+	$('.chips-placeholder').chips({
+		placeholder: 'Tambahkan tag',
+		secondaryPlaceholder: '+Tag',
+	});
+
+	$('.chips-autocomplete').chips({
+		autocompleteOptions: {
+			data: {
+				'Apple': null,
+				'Microsoft': null,
+				'Google': null
+			},
+			limit: Infinity,
+			minLength: 1
+		}
+	});
+
+	tinymce.init({
+		selector: 'textarea#full-featured-non-premium',
+		height: 500,
+		menubar: false,
+
+		plugins: 'preview paste importcss searchreplace autolink autosave save directionality code visualblocks visualchars fullscreen link template codesample charmap hr pagebreak nonbreaking anchor toc insertdatetime advlist lists textpattern charmap emoticons',
+
+		toolbar: 'undo redo | bold italic underline strikethrough | fontselect fontsizeselect formatselect | alignleft aligncenter alignright alignjustify | outdent indent |  numlist bullist | forecolor backcolor removeformat | | charmap emoticons | preview | link',
+
+		content_css: '{{asset('asset/css/tyni.css')}}',
+	});
+
+</script>
 @endsection

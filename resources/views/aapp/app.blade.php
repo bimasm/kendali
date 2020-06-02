@@ -9,12 +9,14 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
-  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTables-select.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/materialize.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/animation.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/font-awesome/css/font-awesome.min.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/datatable.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable-Button.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable-Select.css')}}">
 
 
   @yield('css-plus')
@@ -56,9 +58,13 @@
   </footer> --}}
 
   <script type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  <script type="text/javascript" src="{{asset('asset/js/materialize.min.js')}}"></script>
+
   <script type="text/javascript" src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
   <script type="text/javascript" src="https://cdn.datatables.net/select/1.3.1/js/dataTables.select.min.js"></script>
-  <script type="text/javascript" src="{{asset('asset/js/materialize.min.js')}}"></script>
+  <script type="text/javascript" src="https://cdn.datatables.net/buttons/1.6.1/js/dataTables.buttons.min.js"></script>
+  <script type="text/javascript" src="{{asset('asset/js/dataTables.checkboxes.js')}}"></script>
 
   <script>
     $(document).ready(function() {

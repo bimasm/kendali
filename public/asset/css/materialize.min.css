@@ -5665,7 +5665,7 @@ body.keyboard-focused .dropdown-content li:focus {
     width: 55%;
     margin: auto;
     overflow-y: auto;
-    border-radius: 2px;
+    border-radius: 8px;
     will-change: top, opacity
 }
 

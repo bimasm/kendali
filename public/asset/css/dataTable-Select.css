@@ -1,6 +1,6 @@
 table.dataTable tbody>tr.selected,
 table.dataTable tbody>tr>.selected {
-    background-color: rgba(242, 242, 242, 0.5);
+    background-color: #f3fde8
 }
 
 table.dataTable.stripe tbody>tr.odd.selected,

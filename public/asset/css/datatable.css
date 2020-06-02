@@ -212,3 +212,13 @@ table.dataTable thead .sorting_desc_disabled {
         margin-top: 0.5em
     }
 }
+
+td.details-control {
+    width: 40px;
+    background: url("https://raw.githubusercontent.com/ivanpriyambudi/img-dataTable/master/open.png") no-repeat center center;
+    cursor: pointer;
+}
+tr.shown td.details-control {
+    width: 40px;
+    background: url("https://raw.githubusercontent.com/ivanpriyambudi/img-dataTable/master/close.png") no-repeat center center;
+}

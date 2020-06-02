@@ -1,28 +1,31 @@
+
 {
-  "guru": [
-    [
-      "1",
-      "1202170035",
-      "Ivan Priyambudi",
-      "L",
-      "21 Juni 2020",
-      "3 Kelas"
-    ],
-    [
-      "2",
-      "1202170035",
-      "Bima Susila Mukti",
-      "L",
-      "21 Juni 2020",
-      "3 Kelas"
-    ],
-    [
-      "3",
-      "1202170035",
-      "Mario Adiwinata",
-      "L",
-      "21 Juni 2020",
-      "3 Kelas"
-    ]
+  "data": [
+
+  {
+    "id": "1",
+    "nip": "1202170035",
+    "nama": "Ivan Priyambudi",
+    "jk": "L",
+    "cretaed_at": "21 Juni 2020",
+    "kelas_count": "3 kelas"
+  },
+  {
+    "id": "2",
+    "nip": "1202170036",
+    "nama": "Ivan Priyambudi",
+    "jk": "L",
+    "cretaed_at": "21 Juni 2020",
+    "kelas_count": "3 kelas"
+  },
+  {
+    "id": "3",
+    "nip": "1202170035",
+    "nama": "Ivan Priyambudi",
+    "jk": "L",
+    "cretaed_at": "21 Juni 2020",
+    "kelas_count": "3 kelas"
+  }
+
   ]
 }
