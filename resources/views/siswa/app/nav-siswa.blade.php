@@ -39,20 +39,20 @@
 					</li>
 				</ul>
 
-				@if(request()->routeIs('KelasSiswa','SiswaUjian','SiswaDiskusi','SiswaDiskusiDetail','SiswaTugas','SiswaTugasDetail'))
+				@if(request()->routeIs('DetailKelasSiswa','SiswaUjian','SiswaDiskusi','SiswaDiskusiDetail','SiswaTugas','SiswaTugasDetail'))
 
 				<div class="second-navbar-rb">
 					<ul class="center">
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
-							'KelasSiswa'
+							'DetailKelasSiswa'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('KelasSiswa')}}" class="rb-text-1">Materi</a>
+							<a href="{{ route('DetailKelasSiswa',$dt->id) }}" class="rb-text-1">Materi</a>
 						</li>
-						<li class="menu-kelas 
+						{{-- <li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaUjian'
@@ -60,8 +60,8 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaUjian')}}" class="rb-text-1">Ujian</a>
-						</li>
-						<li class="menu-kelas 
+						</li> --}}
+						{{-- <li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaDiskusi',
@@ -70,7 +70,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaDiskusi')}}" class="rb-text-1">Diskusi</a>
-						</li>
+						</li> --}}
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
@@ -79,7 +79,7 @@
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('SiswaTugas')}}" class="rb-text-1">Tugas</a>
+							<a href="{{route('SiswaTugas',$dt->id)}}" class="rb-text-1">Tugas</a>
 						</li>
 					</ul>
 				</div>
@@ -99,7 +99,7 @@
 
 			</div>
 
-			{{-- @if(request()->routeIs('SiswaKelas'))
+			@if(request()->routeIs('DetailKelasSiswa',1))
 			<div class="nav-content nav-mobile-kelas">
 				<div style="padding:0 50px;">
 					<ul class="center">
@@ -118,7 +118,7 @@
 					</ul>
 				</div>
 			</div>
-			@endif --}}
+			@endif
 
 		</div>
 	</nav>
@@ -138,7 +138,7 @@
 		{{-- <li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li> --}}
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
-		{{-- <li><a class="subheader">Kelas Anda</a></li>
+		<li><a class="subheader">Kelas Anda</a></li>
 		<li class="
 		{{ (request()->routeIs(
 
@@ -161,7 +161,7 @@
 		<li class="
 		{{ (request()->routeIs(
 
-			'KelasSiswa',
+			
 			'SiswaUjian',
 			'SiswaDiskusi',
 			'SiswaDiskusiDetail',
@@ -170,10 +170,10 @@
 
 			)) ? 'active' : '' }}
 			">
-			<a href="{{route('KelasSiswa')}}"><i class="material-icons">menu_book</i>Biologi</a>
+			<a href=""><i class="material-icons">menu_book</i>Biologi</a>
 		</li>
 		<li><a href="#!"><i class="material-icons">menu_book</i>Fisika</a></li>
-		<li><a href="#!"><i class="material-icons">menu_book</i>Matematika</a></li> --}}
+		<li><a href="#!"><i class="material-icons">menu_book</i>Matematika</a></li>
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<br>

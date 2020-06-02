@@ -5,7 +5,9 @@ Tugas - Siswa
 @endsection
 
 @section('nav-siswa')
+@foreach($data as $dt)
 @include('siswa.app.nav-siswa')
+@endforeach
 @endsection
 
 @section('app-siswa')
@@ -17,8 +19,10 @@ Tugas - Siswa
 				<li>
 					<img class="slider-kelas-siswa" src="{{asset('asset/img/kelas/header/head.jpg')}}">
 					<div class="caption center-align slider-kelas-siswa-c">
-						<h3>Kelas Biologi / Tugas</h3>
-						<h5 class="light grey-text text-lighten-3">Heri</h5>
+						@foreach($data as $dt)
+						<h3>Kelas {{ \App\Pelajaran::where(['id' => $dt->id])->value('pelajaran') }} / Tugas</h3>
+						<h5 class="light grey-text text-lighten-3">{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $dt->id])->value('id_guru')])->value('nama') }}</h5>
+						@endforeach
 					</div>
 				</li>
 			</ul>
@@ -33,12 +37,13 @@ Tugas - Siswa
 		<div class="row">
 
 			{{-- START ================================================================================ CARD BELUM DIKERJAKAN --}}
+			@foreach($data as $dt)
 			<div class="col s12 m12 l12">
 				<div class="card cont-dash white">
 					<ul class="collapsible materi-cont-siswa">
 						<li>
 							<div class="collapsible-header materi-cont-siswa-he">
-								<i class="material-icons materi-icon-siswa">assignment</i>Gaya
+								<i class="material-icons materi-icon-siswa">assignment</i>{{ $dt->judul }}
 								<span class="cont-text-con">
 									Belum dikerjakan
 								</span>
@@ -49,43 +54,44 @@ Tugas - Siswa
 								</span>
 							</div>
 							<div class="collapsible-body materi-cont-siswa-bo">
-								<h6>Batas pengumpulan : 24 June 2020 | 23:59</h6>
+								<h6>Batas pengumpulan : {{ $dt->deadline }}</h6>
 								<br>
 								<div class="divider"></div>
 								<br>
 								<h6><b>Detail Tugas</b></h6>
 								<blockquote>
 									<div class="tugas-text">
-										<p>Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA</p>
+										<p>{{ $dt->tugas }}</p>
 									</div>
 								</blockquote>
-								<br>
+								{{-- <br>
 								<h6><b>Pekerjaan Anda</b></h6>
 								<blockquote>
 									Belum ada file
-								</blockquote>
+								</blockquote> --}}
 								<br>
 								<div class="row">
 									<div class="col s12 m12 l12 center">
-										<a href="{{route('SiswaTugasDetail')}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Detail Tugas</a>
+										<a href="{{route('SiswaTugasDetail',$dt->id)}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Detail Tugas</a>
 									</div>
 								</div>
 							</div>
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>Heri</b>, 23 Juni 2020
+						<b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $dt->id])->value('id_guru')])->value('nama') }}</b>, {{ $dt->created_at }}
 					</div>
 				</div>
 			</div>
+			@endforeach
 			{{-- END ================================================================================ CARD BELUM DIKERJAKAN --}}
 
 			{{-- START ================================================================================ CARD PERNAH DIKERJAKAN --}}
-			<div class="col s12 m12 l12">
+			{{-- <div class="col s12 m12 l12">
 				<div class="card cont-dash white">
-					<ul class="collapsible materi-cont-siswa done">{{-- Jika pernah ditambahkan done pada class --}}
+					<ul class="collapsible materi-cont-siswa done">
 						<li>
-							<div class="collapsible-header materi-cont-siswa-he done">{{-- Jika pernah ditambahkan done pada class --}}
+							<div class="collapsible-header materi-cont-siswa-he done">
 								<i class="material-icons materi-icon-siswa">assignment</i>Gaya
 								<span class="cont-text-con">
 									Dikerjakan, 23 June 2020 | 15:30
@@ -132,7 +138,7 @@ Tugas - Siswa
 						<b>Heri</b>, 23 Juni 2020
 					</div>
 				</div>
-			</div>
+			</div> --}}
 			{{-- END ================================================================================ CARD PERNAH DIKERJAKAN --}}
 
 		</div>

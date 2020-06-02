@@ -34,10 +34,10 @@ Route::get('/siswa/diskusi', 'SiswaController@Siswa_Diskusi')
 Route::get('/siswa/diskusi/detail', 'SiswaController@Siswa_Diskusi_detail')
 ->name('SiswaDiskusiDetail')->middleware('auth:siswa');
 
-Route::get('/siswa/tugas', 'SiswaController@Siswa_Tugas')
+Route::get('/siswa/tugas/{id}', 'SiswaController@Siswa_Tugas')
 ->name('SiswaTugas')->middleware('auth:siswa');
 
-Route::get('/siswa/tugas/detail', 'SiswaController@Siswa_Tugas_detail')
+Route::get('/siswa/tugas/detail/{id}', 'SiswaController@Siswa_Tugas_detail')
 ->name('SiswaTugasDetail')->middleware('auth:siswa');
 
 Route::get('/siswa/tugas-ujian', 'SiswaController@Siswa_Semua_TugasUjian')

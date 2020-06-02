@@ -5,23 +5,26 @@ Tugas - Siswa
 @endsection
 
 @section('nav-siswa')
+@foreach($data as $dt)
 @include('siswa.app.nav-siswa')
+@endforeach
 @endsection
 
 @section('app-siswa')
 
 {{-- START ================================================================================ HEADER --}}
+@foreach($data as $dt)
 <section class="head-cont-tugas-siswa-plus">
 	<div class="container">
 		<div class="row valign-wrapper-rb">
 			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Judul Tugas</h5>
-				<h6>Pelajaran Biologi</h6>
+				<h5>{{ $dt->judul }}</h5>
+				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => $dt->id])->value('pelajaran') }}</h6>
 			</div>
 			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
 				<h6>Anda Belum mengerjakan tugas ini</h6>
 				<div class="divider"></div>
-				<h6>Batas pengumpulan : 24 June 2020 | 23:59</h6>
+				<h6>Batas pengumpulan : {{ $dt->deadline }}</h6>
 			</div>
 		</div>
 		<br>
@@ -38,14 +41,15 @@ Tugas - Siswa
 
 			<div class="col s12 m12 l12">
 				<blockquote>
-					<h6><b>Heri, 23 June 2020 | 15:30</b></h6>
+					<h6><b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $dt->id])->value('id_guru')])->value('nama') }}, {{ $dt->created_at }}</b></h6>
 					<div class="tugas-text">
 						<p>
-							Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA
+							{{ $dt->tugas }}
 						</p>
 					</div>
 				</blockquote>
 			</div>
+			@endforeach
 			<div class="col s12 m12 l12">
 				<div class="card cont-dash white" style="margin-top: 3rem">
 					<div class="cont-head">

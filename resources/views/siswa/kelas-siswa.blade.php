@@ -5,7 +5,9 @@ Kelas - Siswa
 @endsection
 
 @section('nav-siswa')
+@foreach($data as $dt)
 @include('siswa.app.nav-siswa')
+@endforeach
 @endsection
 
 @section('app-siswa')

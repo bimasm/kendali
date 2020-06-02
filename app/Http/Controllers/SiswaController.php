@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Pelajaran;
 use App\Relation;
 use App\Materi;
+use App\Tugaskelas;
 use Auth;
 
 class SiswaController extends Controller
@@ -39,14 +40,16 @@ class SiswaController extends Controller
     	return view('siswa.diskusi-siswa-detail');
     }
 
-    public function Siswa_Tugas()
+    public function Siswa_Tugas($id)
     {
-    	return view('siswa.tugas-siswa');
+        $data=Tugaskelas::where('id_pelajaran',$id)->get();
+    	return view('siswa.tugas-siswa', compact('data'));
     }
 
-    public function Siswa_Tugas_detail()
+    public function Siswa_Tugas_detail($id)
     {
-    	return view('siswa.tugas-siswa-detail');
+         $data=Tugaskelas::where('id',$id)->get();
+    	return view('siswa.tugas-siswa-detail',compact('data'));
     }
 
     public function Siswa_Semua_TugasUjian()
