@@ -43,7 +43,7 @@
 
 				<div class="second-navbar-rb">
 					<ul class="center">
-						{{-- <li class="menu-kelas 
+						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'KelasSiswa'
@@ -51,7 +51,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('KelasSiswa')}}" class="rb-text-1">Materi</a>
-						</li> --}}
+						</li>
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
