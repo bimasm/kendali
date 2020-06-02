@@ -48,6 +48,7 @@ Route::get('/siswa/rekap-nilai', 'SiswaController@Siswa_RekapNilai')
 
 Route::get('/siswa/setting', 'SiswaController@Siswa_Setting')
 ->name('SiswaSetting')->middleware('auth:siswa');
+Route::post('/siswa/tugas/detail/jawab', 'SiswaActionController@jawabtugas')->middleware('auth:siswa')->name('jawabtugas');
 
 //-- END ----------------------------------------------------------------------------- Siswa
 

@@ -19,10 +19,16 @@ Tugas - Siswa
 		<div class="row valign-wrapper-rb">
 			<div class="col s12 m12 l6 head-title-tugas-siswa">
 				<h5>{{ $dt->judul }}</h5>
-				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => $dt->id])->value('pelajaran') }}</h6>
+				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => \App\Tugaskelas::where('id', $dt->id)->value('id_pelajaran')])->value('pelajaran') }}</h6>
 			</div>
 			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>Anda Belum mengerjakan tugas ini</h6>
+				<h6>
+					@if(\App\Jawabantugas::where('id_tugas', $dt->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
+					Anda sudah mengerjakan
+					@else
+					Anda belum mengerjakan
+					@endif
+				</h6>
 				<div class="divider"></div>
 				<h6>Batas pengumpulan : {{ $dt->deadline }}</h6>
 			</div>
@@ -49,7 +55,7 @@ Tugas - Siswa
 					</div>
 				</blockquote>
 			</div>
-			@endforeach
+			
 			<div class="col s12 m12 l12">
 				<div class="card cont-dash white" style="margin-top: 3rem">
 					<div class="cont-head">
@@ -58,14 +64,16 @@ Tugas - Siswa
 						</span>
 					</div>
 					<div class="card-content grey-text text-darken-2 con-card-cont" style="padding: 0 !important">
-						<form action="" method="POST">
+						<form action="{{ route('jawabtugas') }}" method="POST">
 							@csrf
+							<input type="hidden" name="tugas" value="{{ $dt->id }}">
+							@endforeach
 							<div class="input-field" style="margin-top: 0">
-								<textarea id="full-featured-non-premium" name="konten"></textarea>
+								<textarea id="full-featured-non-premium" name="jawaban"></textarea>
 							</div>
 
 							<div class="input-field center">
-								<a class="waves-effect btn-flat grey-text text-darken-1"><i class="material-icons right">send</i>Submit</a>
+								<button type="submit" class="waves-effect btn-flat grey-text text-darken-1"><i class="material-icons right">send</i>Submit</button>
 							</div>
 						</form>
 					</div>
