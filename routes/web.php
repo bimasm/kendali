@@ -37,7 +37,7 @@ Route::get('/siswa/diskusi/detail', 'SiswaController@Siswa_Diskusi_detail')
 Route::get('/siswa/tugas/{id}', 'SiswaController@Siswa_Tugas')
 ->name('SiswaTugas')->middleware('auth:siswa');
 
-Route::get('/siswa/tugas/detail/{id}', 'SiswaController@Siswa_Tugas_detail')
+Route::get('/siswa/tugas/{id}/detail/{id_tgs}', 'SiswaController@Siswa_Tugas_detail')
 ->name('SiswaTugasDetail')->middleware('auth:siswa');
 
 Route::get('/siswa/tugas-ujian', 'SiswaController@Siswa_Semua_TugasUjian')
@@ -48,7 +48,9 @@ Route::get('/siswa/rekap-nilai', 'SiswaController@Siswa_RekapNilai')
 
 Route::get('/siswa/setting', 'SiswaController@Siswa_Setting')
 ->name('SiswaSetting')->middleware('auth:siswa');
-Route::post('/siswa/tugas/detail/jawab', 'SiswaActionController@jawabtugas')->middleware('auth:siswa')->name('jawabtugas');
+
+Route::post('/siswa/tugas/detail/jawab', 'SiswaActionController@jawabtugas')
+->name('jawabtugas')->middleware('auth:siswa');
 
 //-- END ----------------------------------------------------------------------------- Siswa
 
@@ -111,15 +113,20 @@ Route::get('/adminsekolah/setting', 'AdminSekolahController@Setting_Admin_Sekola
 
 //-- START ----------------------------------------------------------------------------- Guru
 
-Route::get('/guru', 'GuruController@index')->middleware('auth:guru')->name('GuruDashboard');
+Route::get('/guru', 'GuruController@index')
+->name('GuruDashboard')->middleware('auth:guru');
 
-Route::post('/guru/addkelas', 'GuruActionController@addpelajaran')->middleware('auth:guru')->name('addpelajaran');
+Route::post('/guru/addkelas', 'GuruActionController@addpelajaran')
+->name('addpelajaran')->middleware('auth:guru');
 
-Route::post('/guru/addmateri', 'GuruActionController@addmateri')->middleware('auth:guru')->name('addmateri');
+Route::post('/guru/addmateri', 'GuruActionController@addmateri')
+->name('addmateri')->middleware('auth:guru');
 
-Route::post('/guru/addfilemateri', 'GuruActionController@addfilemateri')->middleware('auth:guru')->name('addfilemateri');
+Route::post('/guru/addfilemateri', 'GuruActionController@addfilemateri')
+->name('addfilemateri')->middleware('auth:guru');
 
-Route::post('/guru/addtugas', 'GuruActionController@addtugas')->middleware('auth:guru')->name('addtugas');
+Route::post('/guru/addtugas', 'GuruActionController@addtugas')
+->name('addtugas')->middleware('auth:guru');
 
 Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
 ->name('GuruSemuaTugas')->middleware('auth:guru');
@@ -130,17 +137,14 @@ Route::get('/guru/tugas-detail/{id}', 'GuruController@Guru_Tugas_Detail')
 Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
 ->name('GuruSemuaUjian')->middleware('auth:guru');
 
-
 Route::get('/guru/kelas/detail/{id}', 'GuruController@Detail_Kelas')
 ->name('DetailKelas')->middleware('auth:guru');
-
 
 Route::get('/guru/tugas/kelas/{id}', 'GuruController@Guru_Tugas')
 ->name('TugasKelas')->middleware('auth:guru');
 
 Route::get('/guru/ujian/kelas/{id}', 'GuruController@Guru_Ujian')
 ->name('UjianKelas')->middleware('auth:guru');
-
 
 Route::get('/guru/diskusi/kelas/{id}', 'GuruController@Guru_Diskusi')
 ->name('DiskusiKelas')->middleware('auth:guru');

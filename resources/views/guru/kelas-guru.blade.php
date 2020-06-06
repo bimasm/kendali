@@ -25,11 +25,11 @@ Kelas - Guru
 			<div class="col s12 m12 l6 fot-card-right">
 				<div class="con-head-guru">
 					<div id="tab2">
-						<a onclick="myDetail()" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">add</i>Materi Baru</a>
+						<a onclick="myDetail()" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons right">add</i>Materi Baru</a>
 					</div>
 
 					<div id="detail2" style="display: none">
-						<a onclick="myClose()" class="waves-effect waves-light btn rb-color-2"><i class="material-icons left">arrow_back</i>Kembali</a>
+						<a onclick="myClose()" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons left">arrow_back</i>Kembali</a>
 					</div>
 				</div>
 			</div>
@@ -152,7 +152,7 @@ Kelas - Guru
 						</div>
 					</div>
 					<div class="input-field col s12 center">
-						<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
+						<button type="submit" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons right">send</i>Submit</button>
 					</div>
 				</form>
 			</div>

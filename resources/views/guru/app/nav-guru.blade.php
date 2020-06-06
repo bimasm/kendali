@@ -1,30 +1,25 @@
 
+{{-- START /////////////////////////////////////////////////////////////////////////////////////// DROPDOWN AKUN --}}
 <div id="dropdown1" class="dropdown-content" style="width: 250px;">
-
 	<div class="drop-akun">
-
 		<div class="drop-akun-icon">
 			<i class="material-icons rb-text-1 center" style="font-size: 50px;">account_circle</i>
 		</div>
-
 		<div class="center drop-name">
 			<b><p>{{ Auth::guard('guru')->user()->nama }}</p></b>
 		</div>
-
 		<div class="center drop-dat">
-			<a href="#!"><p>Edit Profile</p></a>
+			<a href="{{route('GuruSetting')}}"><p>Edit Profile</p></a>
 		</div>
-
 	</div>
-
 	<div class="divider" tabindex="-1"></div>
-
 	<div class="center">
 		<a href="/logout" class="border-but rb-text-1 waves-effect waves-teal btn-flat">Logout</a>
 	</div>
-
 </div>
+{{-- END /////////////////////////////////////////////////////////////////////////////////////// DROPDOWN AKUN --}}
 
+{{-- START /////////////////////////////////////////////////////////////////////////////////////// NAVBAR --}}
 <div class="navbar-fixed">
 	<nav class="asu nav-extended">
 		<div class="container con-nav">
@@ -35,7 +30,7 @@
 						<a href="#" data-target="slide-out" class="sidenav-trigger show-on-medium-and-up rb-text-1"><i class="material-icons">menu</i></a>
 					</li>
 					<li>
-						<a href="#!" class="brand-logo rb-text-1" style="position: relative; padding-right: 100px;">Guru</a>
+						<a href="/guru" class="brand-logo rb-text-1" style="position: relative; padding-right: 100px;">Guru</a>
 					</li>
 				</ul>
 
@@ -106,7 +101,9 @@
 		</div>
 	</nav>
 </div>
+{{-- END /////////////////////////////////////////////////////////////////////////////////////// NAVBAR --}}
 
+{{-- START /////////////////////////////////////////////////////////////////////////////////////// LEFTBAR --}}
 <ul id="slide-out" class="sidenav">
 	<div class="con-leftbar">
 		<li class=" 
@@ -118,7 +115,8 @@
 			'DiskusiKelas',
 			'SiswaKelas',
 			'GuruTugasDetail',
-			'GuruDiskusiDetail'
+			'GuruDiskusiDetail',
+			'GuruDashboard'
 
 			)) ? 'active' : '' }}
 			">
@@ -171,6 +169,7 @@
 		<br>
 	</div>
 </ul>
+{{-- END /////////////////////////////////////////////////////////////////////////////////////// LEFTBAR --}}
 
 @if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
 <div class="fixed-action-btn second-navbar-rb-mb-2">

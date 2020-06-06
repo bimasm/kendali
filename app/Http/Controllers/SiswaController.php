@@ -22,7 +22,10 @@ class SiswaController extends Controller
         $data=Pelajaran::where('id',$id)->get();
         $materi = Materi::with('komponen.materi')->where('id_pelajaran', $id)->orderBy('id','desc')->get();
 
-        return view('siswa.kelas-siswa',compact('data','materi'));
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+        return view('siswa.kelas-siswa',compact('data','materi','kelas'));
     }
 
     public function Siswa_Ujian()
@@ -42,28 +45,47 @@ class SiswaController extends Controller
 
     public function Siswa_Tugas($id)
     {
-        $data=Tugaskelas::where('id_pelajaran',$id)->get();
-    	return view('siswa.tugas-siswa', compact('data'));
+        $data=Pelajaran::where('id',$id)->get();
+        $tugas=Tugaskelas::where('id_pelajaran',$id)->get();
+
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+        return view('siswa.tugas-siswa', compact('data','tugas','kelas'));
     }
 
-    public function Siswa_Tugas_detail($id)
+    public function Siswa_Tugas_detail($id, $id_tgs)
     {
-         $data=Tugaskelas::where('id',$id)->get();
-    	return view('siswa.tugas-siswa-detail',compact('data'));
+        $data=Pelajaran::where('id',$id)->get();
+        $tugas=Tugaskelas::where('id',$id_tgs)->get();
+
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+        return view('siswa.tugas-siswa-detail',compact('data','tugas','kelas'));
     }
 
     public function Siswa_Semua_TugasUjian()
     {
-    	return view('siswa.tugasujian-siswa-semua');
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+    	return view('siswa.tugasujian-siswa-semua', compact('kelas'));
     }
 
     public function Siswa_RekapNilai()
     {
-    	return view('siswa.rekapnilai-siswa');
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+    	return view('siswa.rekapnilai-siswa', compact('kelas'));
     }
 
     public function Siswa_Setting()
     {
-    	return view('siswa.setting-siswa');
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+    	return view('siswa.setting-siswa', compact('kelas'));
     }
 }

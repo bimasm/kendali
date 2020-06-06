@@ -108,7 +108,7 @@ Kelas - Siswa
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>Heri</b>, {{ $mt->created_at }}
+						<b>Heri</b>, {{ date('j F Y', strtotime($mt->created_at)) }}, {{ date('H:i', strtotime($mt->created_at)) }}
 					</div>
 				</div>
 			</div>

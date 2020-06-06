@@ -61,7 +61,7 @@ Setting - Guru
 										<label for="Password">Password</label>
 									</div>
 									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-										<input disabled value="SDN 1 Gendoh" id="Sekolah" type="text" class="set validate" name="sekolah">
+										<input disabled value="{{ \App\Sekolah::where(['id' => Auth::guard('guru')->user()->id_sekolah])->value('nama') }}" id="Sekolah" type="text" class="set validate" name="sekolah">
 										<label for="Sekolah">Sekolah</label>
 									</div>
 

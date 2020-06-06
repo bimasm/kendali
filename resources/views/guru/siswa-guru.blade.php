@@ -39,25 +39,50 @@ Siswa - Guru
 				<table>
 					<thead>
 						<tr>
-							<th>Nama</th>
+							<th>Nama/NIS</th>
 							<th>Jenjang</th>
-							<th>Kelas</th>
+{{-- 							<th>Kelas</th> --}}
 							<th>Status</th>
 							<th class="center">Action</th>
 						</tr>
 					</thead>
 					<tbody>
+						@foreach($data as $dt)
 						<tr>
-							<td>Ivan Priyambudi</td>
-							<td>SMP</td>
-							<td>7C</td>
+							<td>
+								{{ 
+									\App\Siswa::where(['id' => 
+										\App\Relation::where(['id_pelajaran' => $dt->id])
+										->value('id_siswa')])
+									->value('nama')
+								}} 
+								/ 
+								{{ 
+									\App\Siswa::where(['id' => 
+										\App\Relation::where(['id_pelajaran' => $dt->id])
+										->value('id_siswa')])
+									->value('nis')
+								}}
+							</td>
+							<td>
+								{{ 
+									\App\Sekolah::where(['id' => 
+										\App\Siswa::where(['id' => 
+											\App\Relation::where(['id_pelajaran' => $dt->id])
+											->value('id_siswa')])
+										->value('id')])
+									->value('jenjang')
+								}}
+							</td>
+							{{-- <td>7C</td> --}}
 							<td>Aktif</td>
-							{{-- <td class="center">
+{{-- 							<td class="center">
 								<a class="waves-effect waves-light blue btn">Terima</a>
 								<a class="waves-effect waves-light red btn">Tolak</a>
 								<a class="waves-effect waves-light red btn">Keluarkan</a>
 							</td> --}}
 						</tr>
+						@endforeach
 					</tbody>
 				</table>
 			</div>

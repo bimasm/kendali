@@ -37,15 +37,19 @@ Tugas - Siswa
 		<div class="row">
 
 			{{-- START ================================================================================ CARD BELUM DIKERJAKAN --}}
-			@foreach($data as $dt)
+			@foreach($tugas as $tg)
 			<div class="col s12 m12 l12">
 				<div class="card cont-dash white">
 					<ul class="collapsible materi-cont-siswa">
 						<li>
 							<div class="collapsible-header materi-cont-siswa-he">
-								<i class="material-icons materi-icon-siswa">assignment</i>{{ $dt->judul }}
+								<i class="material-icons materi-icon-siswa">assignment</i>{{ $tg->judul }}
 								<span class="cont-text-con">
+									@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
+									Sudah dikerjakan
+									@else
 									Belum dikerjakan
+									@endif
 								</span>
 								<span class="cont-icon-con">
 									<a class="btn-floating btn-flat materi-icon-det">
@@ -54,14 +58,14 @@ Tugas - Siswa
 								</span>
 							</div>
 							<div class="collapsible-body materi-cont-siswa-bo">
-								<h6>Batas pengumpulan : {{ $dt->deadline }}</h6>
+								<h6>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }}, {{ date('H:i', strtotime($tg->deadline)) }}</h6>
 								<br>
 								<div class="divider"></div>
 								<br>
 								<h6><b>Detail Tugas</b></h6>
 								<blockquote>
 									<div class="tugas-text">
-										<p>{{ $dt->tugas }}</p>
+										<p>{{ $tg->tugas }}</p>
 									</div>
 								</blockquote>
 								{{-- <br>
@@ -71,15 +75,17 @@ Tugas - Siswa
 								</blockquote> --}}
 								<br>
 								<div class="row">
-									<div class="col s12 m12 l12 center">
-										<a href="{{route('SiswaTugasDetail',$dt->id)}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Detail Tugas</a>
+									<div class="col s12 m12 l12 right-align">
+										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect waves-light btn btn-flat-2-rb" style="text-transform: capitalize;">
+											<i class="material-icons right">arrow_forward</i>Detail Tugas
+										</a>
 									</div>
 								</div>
 							</div>
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $dt->id])->value('id_guru')])->value('nama') }}</b>, {{ $dt->created_at }}
+						<b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $tg->id])->value('id_guru')])->value('nama') }}</b>, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}
 					</div>
 				</div>
 			</div>

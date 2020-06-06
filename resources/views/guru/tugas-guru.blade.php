@@ -73,7 +73,7 @@ Tugas - Guru
 										<tbody>
 											<tr>
 												<th>Siswa Mengumpulkan</th>
-												<td>5 Siswa</td>
+												<td>{{ \App\Jawabantugas::where(['id_tugas' => $tg->id])->count()}} Siswa</td>
 											</tr>
 											<tr>
 												<th>Siswa Belum Mengumpulkan</th>

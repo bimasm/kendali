@@ -92,7 +92,7 @@ Dashboard - Siswa
 {{-- END ================================================================================ LIST KELAS --}}
 
 <div id="modal-add-kelas" class="modal">
-	<div class="modal-content">
+	<div class="modal-content white">
 		<div class="row">
 			<h5>Tambah Kelas</h5>
 			<form action="{{route('JoinKelasSiswa')}}" method="post">

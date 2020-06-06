@@ -45,22 +45,8 @@ class GuruController extends Controller
 		$data=Pelajaran::where('id',$id)->get();
 		$materi = Materi::with('komponen.materi')->where('id_pelajaran', $id)->orderBy('id','desc')->get();
 
-// 		$to = \Carbon\Carbon::createFromFormat('Y-m-d H:s:i', '2020-3-15 20:02:00');
-// $from = \Carbon\Carbon::now();
-// $diff_in_days = $to->diffInDays($from);
-// print_r($diff_in_days);
-// if ($to>$from) {
-// 	echo "done";
-// 	print_r($from);
-// }else{
-// 	echo "done late";
-// 	print_r($from);
-// }
-
 		return view('guru.kelas-guru', compact('data','materi'));
 	}
-	
-	
 
 	public function Guru_Tugas($id)
 	{
@@ -69,7 +55,6 @@ class GuruController extends Controller
 
 		return view('guru.tugas-guru', compact('data','tugas'));
 	}
-
 
 	public function Guru_Ujian($id)
 	{
