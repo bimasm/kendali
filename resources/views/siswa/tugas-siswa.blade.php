@@ -69,7 +69,7 @@ Tugas - Siswa
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $tg->id])->value('id_guru')])->value('nama') }}</b>, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}
+						<b>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }}, {{ date('H:i', strtotime($tg->deadline)) }}
 					</div>
 				</div>
 			</div>

@@ -48,12 +48,8 @@ Siswa - Guru
 							</td>
 							<td>
 								{{ 
-									\App\Sekolah::where(['id' => 
-										\App\Siswa::where(['id' => 
-											\App\Relation::where(['id_pelajaran' => $dt->id])
-											->value('id_siswa')])
-										->value('id')])
-									->value('jenjang')
+									\App\Sekolah::where('id', \App\Siswa::where('id', \App\Relation::where('id_pelajaran', $dt->id)->value('id_siswa'))->value('id_sekolah'))->value('jenjang')
+
 								}}
 							</td>
 							{{-- <td>7C</td> --}}

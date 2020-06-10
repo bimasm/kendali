@@ -24,9 +24,7 @@ Tugas - Siswa
 			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
 				<h6>
 					@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
-					Anda sudah mengerjakan, 
-					{{ date('j F Y', strtotime(\App\Jawabantugas::where(['id' => $tg->id])->value('created_at'))) }}, 
-					{{ date('H:i', strtotime(\App\Jawabantugas::where(['id' => $tg->id])->value('created_at'))) }}
+					Anda sudah mengerjakan pada {{ date('j F Y', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}, {{ date('H:i', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}
 					@else
 					Anda belum mengerjakan
 					@endif
@@ -49,7 +47,7 @@ Tugas - Siswa
 
 			<div class="col s12 m12 l12">
 				<blockquote>
-					<h6><b>{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $tg->id])->value('id_guru')])->value('nama') }}, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}</b></h6>
+					<h6><b>{{ \App\Guru::where('id', \App\Pelajaran::where('id', \App\Tugaskelas::where('id', $tg->id)->value('id_pelajaran'))->value('id_guru'))->value('nama') }}, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}</b></h6>
 					<div class="tugas-text">
 						<p>
 							{{ $tg->tugas }}
@@ -57,8 +55,10 @@ Tugas - Siswa
 					</div>
 				</blockquote>
 			</div>
-			
-			<div class="col s12 m12 l12">
+			@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
+					
+					@else
+					<div class="col s12 m12 l12">
 				<div class="card cont-dash white" style="margin-top: 3rem">
 					<div class="cont-head">
 						<span class="card-title">
@@ -69,7 +69,7 @@ Tugas - Siswa
 						<form action="{{ route('jawabtugas') }}" method="POST">
 							@csrf
 							<input type="hidden" name="tugas" value="{{ $tg->id }}">
-							@endforeach
+							
 							<div class="input-field" style="margin-top: 0">
 								<textarea id="full-featured-non-premium" name="jawaban">
 									{!! \App\Jawabantugas::where(['id' => $tg->id])->value('jawaban') !!}
@@ -83,6 +83,8 @@ Tugas - Siswa
 					</div>
 				</div>
 			</div>
+					@endif
+			@endforeach
 
 		</div>
 	</div>
