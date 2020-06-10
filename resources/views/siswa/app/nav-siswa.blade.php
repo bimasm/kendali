@@ -8,9 +8,9 @@
 		<div class="center drop-name">
 			<b><p>{{ Auth::guard('siswa')->user()->nama }}</p></b>
 		</div>
-		<div class="center drop-dat">
+{{-- 		<div class="center drop-dat">
 			<a href="{{route('SiswaSetting')}}"><p>Edit Profile</p></a>
-		</div>
+		</div> --}}
 	</div>
 	<div class="divider" tabindex="-1"></div>
 	<div class="center">
@@ -51,7 +51,7 @@
 							">
 							<a href="{{ route('DetailKelasSiswa',$dt->id) }}" class="rb-text-1">Materi</a>
 						</li>
-						<li class="menu-kelas 
+						{{-- <li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaUjian'
@@ -59,8 +59,8 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaUjian',$dt->id)}}" class="rb-text-1">Ujian</a>
-						</li>
-						<li class="menu-kelas 
+						</li> --}}
+						{{-- <li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaDiskusi',
@@ -69,7 +69,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('SiswaDiskusi',$dt->id)}}" class="rb-text-1">Diskusi</a>
-						</li>
+						</li> --}}
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
@@ -110,12 +110,12 @@
 						<li class="active">
 							<a href="#!" class="rb-text-1">Materi</a>
 						</li>
-						<li class="">
+						{{-- <li class="">
 							<a href="#!" class="rb-text-1">Ujian</a>
 						</li>
 						<li class="">
 							<a href="#!" class="rb-text-1">Diskusi</a>
-						</li>
+						</li> --}}
 						<li class="">
 							<a href="#!" class="rb-text-1">Tugas</a>
 						</li>
@@ -145,7 +145,7 @@
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<li><a class="subheader">Kelas Anda</a></li>
-		<li class="
+		{{-- <li class="
 		{{ (request()->routeIs(
 
 			'SiswaTugasUjianSemua'
@@ -153,8 +153,8 @@
 			)) ? 'active' : '' }}
 			">
 			<a href="{{route('SiswaTugasUjianSemua')}}"><i class="material-icons">event_note</i>Semua Tugas & Ujian</a>
-		</li>
-		<li class="
+		</li> --}}
+		{{-- <li class="
 		{{ (request()->routeIs(
 
 			'SiswaRekapNilai'
@@ -162,7 +162,7 @@
 			)) ? 'active' : '' }}
 			">
 			<a href="{{route('SiswaRekapNilai')}}"><i class="material-icons">insert_chart_outlined</i>Rekap Nilai</a>
-		</li>
+		</li> --}}
 		<br>
 		@foreach($kelas as $ks)
 		<li class="

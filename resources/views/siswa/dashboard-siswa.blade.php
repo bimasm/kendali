@@ -72,7 +72,7 @@ Dashboard - Siswa
 							</a>
 						</span>
 					</div>
-					<div class="card-content grey-text text-darken-2">
+					{{-- <div class="card-content grey-text text-darken-2">
 						<div class="sub-titile">{{ \App\Guru::where('id', $ks->id_guru)->value('nama') }}</div>
 						<ul class="collection no-bor">
 							<li class="collection-item">Materi<div class="secondary-content">1</div></li>
@@ -80,7 +80,7 @@ Dashboard - Siswa
 							<li class="collection-item">Diskusi<div class="secondary-content">1</div></li>
 							<li class="collection-item">Tugas<div class="secondary-content">1</div></li>
 						</ul>
-					</div>
+					</div> --}}
 				</div>
 			</div>
 
