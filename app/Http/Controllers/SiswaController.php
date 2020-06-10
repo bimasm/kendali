@@ -28,14 +28,22 @@ class SiswaController extends Controller
         return view('siswa.kelas-siswa',compact('data','materi','kelas'));
     }
 
-    public function Siswa_Ujian()
+    public function Siswa_Ujian($id)
     {
-    	return view('siswa.ujian-siswa');
+        $data=Pelajaran::where('id',$id)->get();
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+    	return view('siswa.ujian-siswa', compact('data','kelas'));
     }
 
-    public function Siswa_Diskusi()
+    public function Siswa_Diskusi($id)
     {
-    	return view('siswa.diskusi-siswa');
+        $data=Pelajaran::where('id',$id)->get();
+        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $kelas=Pelajaran::where('id',$siswa)->get();
+
+    	return view('siswa.diskusi-siswa', compact('data','kelas'));
     }
 
     public function Siswa_Diskusi_detail()

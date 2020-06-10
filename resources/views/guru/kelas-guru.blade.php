@@ -5,40 +5,13 @@ Kelas - Guru
 @endsection
 
 @section('nav-guru')
-@foreach($data as $dt)
 @include('guru.app.nav-guru')
-@endforeach
 @endsection
 
 @section('app-guru')
-
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-guru">
-	<div class="container container-75">
-		<div class="row">
-			<div class="col s12 m12 l6 fot-card-left">
-				@foreach($data as $dt)
-				<h4>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h4>
-				@endforeach
-			</div>
-
-			<div class="col s12 m12 l6 fot-card-right">
-				<div class="con-head-guru">
-					<div id="tab2">
-						<a onclick="myDetail()" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons right">add</i>Materi Baru</a>
-					</div>
-
-					<div id="detail2" style="display: none">
-						<a onclick="myClose()" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons left">arrow_back</i>Kembali</a>
-					</div>
-				</div>
-			</div>
-		</div>
-		<div class="divider"></div>
-	</div>
-</section>
-<br>
-{{-- END ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section id="tab">
@@ -68,11 +41,12 @@ Kelas - Guru
 								<blockquote>
 									@foreach($mt->komponen as $k)
 									<div class="row">
-										<table class="highlight">
+										<table>
 											<tbody>
 												<tr>
 													<td>{{ $k->judul }}</td>
-													<td class="center">
+
+													<td class="center" style="width: 22rem !important">
 														<a href="{{ route('welcome') }}/file/{{ $k->file }}" class="materi-item-siswa" target="_blank">
 															<div class="card cont-file white">
 																<div class="materi-item-cont-siswa">
@@ -83,10 +57,25 @@ Kelas - Guru
 														</a>
 													</td>
 
-													<td class="center">
-														<a href="#modal-edit" class="btn-floating btn waves-effect waves-light blue darken-1 modal-trigger"><i class="material-icons">edit</i></a>
+													<td class="center" style="width: 8rem !important">
+														<span style="">
+															<a class="dropdown-trigger btn-floating btn-flat waves-effect cont-det-back" data-target='dropdownmenumat{{ $k->id }}'>
+																<i class="cont-det-icon material-icons">more_vert</i>
+															</a>
+														</span>
 
-														<a href="#modal-hapus" class="btn-floating btn waves-effect waves-light modal-trigger red"><i class="material-icons">delete</i></a>
+														<ul id='dropdownmenumat{{ $k->id }}' class='dropdown-content'>
+															<li>
+																<a class="grey-text text-darken-3 modal-trigger" href="#modal-edit-materi{{ $k->id }}">
+																	<i class="material-icons">edit</i>Edit
+																</a>
+															</li>
+															<li>
+																<a class="grey-text text-darken-3 modal-trigger" href="#modal-hapus{{ $k->id }}">
+																	<i class="material-icons">delete</i>Hapus
+																</a>
+															</li>
+														</ul>
 													</td>
 												</tr>
 											</tbody>
@@ -94,7 +83,9 @@ Kelas - Guru
 									</div>
 									@endforeach
 
-									<a href="#modal-add-file{{ $mt->id }}" class="waves-effect waves-light btn rb-color-2 modal-trigger"><i class="material-icons right">add</i>File Baru</a>
+									<a href="#modal-add-file{{ $mt->id }}" class="waves-effect waves-light btn btn-flat-2-rb modal-trigger">
+										<i class="material-icons left">add</i>File Baru
+									</a>
 								</blockquote>
 
 								<br>
@@ -118,254 +109,86 @@ Kelas - Guru
 												</tbody>
 											</table>
 										</blockquote> --}}
-							</div>
-							{{-- END ==================================================================== BODY MATERI --}}
-						</li>
-					</ul>
+									</div>
+									{{-- END ==================================================================== BODY MATERI --}}
+								</li>
+							</ul>
 
-					<div class="card-action">
-						<b>Dibuat : </b>{{ date('j F Y', strtotime($mt->created_at)) }}, {{ date('H:i', strtotime($mt->created_at)) }}
+							<div class="card-action">
+								<b>Dibuat : </b>{{ date('j F Y', strtotime($mt->created_at)) }}, {{ date('H:i', strtotime($mt->created_at)) }}
+							</div>
+						</div>
+					</div>
+					@endforeach
+
+				</div>
+			</div>
+		</section>
+		{{-- END ================================================================================== CONTENT --}}
+
+		{{-- START ================================================================================ ADD MATERI --}}
+		<section id="detail" style="display: none">
+			<div class="container container-60" style="margin-bottom: 100px">
+				<div class="card cont-dash white">
+					<div class="card-content grey-text text-darken-2 con-card-cont">
+						<form action="{{ route('addmateri') }}" method="post">
+							@csrf
+							<div class="col s12 m12 l8 fot-card-left">
+								<div class="input-field">
+									@foreach($data as $dt)
+									<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+									@endforeach
+									<input id="last_name" type="text" name="materi" class="validate">
+									<label for="last_name">Judul Materi</label>
+								</div>
+							</div>
+							<div class="input-field col s12 center">
+								<button type="submit" class="waves-effect waves-light btn btn-flat-2-rb">
+									<i class="material-icons right">send</i>Submit
+								</button>
+							</div>
+						</form>
 					</div>
 				</div>
 			</div>
-			@endforeach
+		</section>
+		{{-- END ================================================================================== ADD MATERI --}}
+		@include('guru.app.modal-materi-guru')
+		@endsection
 
-		</div>
-	</div>
-</section>
-{{-- END ================================================================================ CONTENT --}}
+		@section('js-plus')
+		<script type="text/javascript">
+			function myDetail() {
+				var x = document.getElementById("detail");
+				var y = document.getElementById("tab");
 
-{{-- START ================================================================================ ADD MATERI --}}
-<section id="detail" style="display: none">
-	<div class="container container-60" style="margin-bottom: 100px">
-		<div class="card cont-dash white">
-			<div class="card-content grey-text text-darken-2 con-card-cont">
-				<form action="{{ route('addmateri') }}" method="post">
-					@csrf
-					<div class="col s12 m12 l8 fot-card-left">
-						<div class="input-field">
-							@foreach($data as $dt)
-							<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
-							@endforeach
-							<input id="last_name" type="text" name="materi" class="validate">
-							<label for="last_name">Judul Materi</label>
-						</div>
-					</div>
-					<div class="input-field col s12 center">
-						<button type="submit" class="waves-effect waves-light btn btn-flat-2-rb"><i class="material-icons right">send</i>Submit</button>
-					</div>
-				</form>
-			</div>
-		</div>
-	</div>
-</section>
-{{-- END ================================================================================ ADD MATERI --}}
-
-{{-- START ================================================================================ EDIT MATERI --}}
-<div id="modal-edit" class="modal">
-	<div class="modal-content">
-		<div class="row">
-			<form action="" method="">
-				@csrf
-				<div class="col s12 m12 l8 fot-card-left">
-					<div class="input-field">
-						<input id="last_name" type="text" class="validate in-jud" value="Judul Tugas">
-						<label for="last_name">Judul Materi</label>
-					</div>
-				</div>
-				<div class="col s12 m12 l4 fot-card-right">
-					<h5>kelas</h5>
-				</div>
-				<div class="col s12 m12 l12">
-					<hr>
-					<br>
-				</div>
-				<div class="row" style="padding: 0 60px;">
-					<div class="row">
-						<div class="file-field input-field col s12">
-							<div class="btn-up btn no-shads">
-								<i class="material-icons">add_circle</i>
-								<input type="file" multiple>
-							</div>
-							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" placeholder="File Materi">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-{{-- END ================================================================================ EDIT MATERI --}}
-
-{{-- START ================================================================================ ADD FILE MATERI --}}
-@foreach($materi as $mt)
-<div id="modal-add-file{{ $mt->id }}" class="modal">
-	<div class="modal-content">
-		<div class="row">
-			<form action="{{ route('addfilemateri') }}" method="post" enctype="multipart/form-data">
-				@csrf
-				<div class="col s12 m12 l12 fot-card-left">
-					<div class="input-field">
-						<input id="last_name" type="text" name="judul" class="validate">
-						<label for="last_name">Judul Materi</label>
-					</div>
-				</div>
-
-				<div class="row" style="padding: 0 60px;">
-					<div class="row">
-						<div class="file-field input-field col s12">
-							<div class="btn-up btn no-shads">
-								<i class="material-icons">add_circle</i>
-								<input type="file" name="filemateri" multiple>
-							</div>
-							<div class="file-path-wrapper">
-								@foreach($data as $dt)
-								<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
-								@endforeach
-								
-								<input type="hidden" name="id_materi" value="{{ $mt->id }}">
-								
-								<input class="file-path validate" type="text" placeholder="File Materi harus pdf">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-@endforeach
-{{-- END ================================================================================ ADD FILE MATERI --}}
-
-{{-- START ================================================================================ HAPUS MATERI --}}
-<div id="modal-hapus" class="modal m-hapus">
-	<div class="modal-content">
-		<div class="row">
-			<form action="" method="">
-				@csrf
-				<div class="col s12 center">
-					<h5>Apakah anda yakin ?</h5>
-					<p>Hapus Judul Materi</p>
-				</div>
-				<div class="input-field col s12 center">
-					<a class="waves-effect waves-light btn red darken-2"><i class="material-icons right">delete</i>Hapus</a>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-{{-- END ================================================================================ HAPUS MATERI --}}
-
-{{-- START ================================================================================ HAPUS LATSO MATERI --}}
-<div id="modal-latso-hapus" class="modal m-hapus">
-	<div class="modal-content">
-		<div class="row">
-			<form action="" method="">
-				@csrf
-				<div class="col s12 center">
-					<h5>Apakah anda yakin ?</h5>
-					<p>Hapus Judul Latihan Soal</p>
-				</div>
-				<div class="input-field col s12 center">
-					<a class="waves-effect waves-light btn red darken-2"><i class="material-icons right">delete</i>Hapus</a>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-{{-- END ================================================================================ HAPUS LATSO MATERI --}}
-
-{{-- START ================================================================================ EDIT LATSO MATERI --}}
-<div id="modal-latso-edit" class="modal">
-	<div class="modal-content">
-		<div class="row">
-			<form action="" method="">
-				@csrf
-				<div class="col s12 m12 l8 fot-card-left">
-					<div class="input-field">
-						<input id="last_name" type="text" class="validate in-jud" value="Judul Latihan Soal">
-						<label for="last_name">Judul Latihan Soal</label>
-					</div>
-				</div>
-				<div class="col s12 m12 l4 fot-card-right">
-					<h5>kelas</h5>
-				</div>
-				<div class="col s12 m12 l12">
-					<hr>
-					<br>
-				</div>
-
-				<div class="row" style="padding: 0 60px;">
-					<div class="row">
-						<div class="input-field col s12">
-							<i class="material-icons prefix">timer</i>
-							<input type="text" class="datepicker">
-							<label for="textarea1">Durasi</label>
-						</div>
-						<div class="file-field input-field col s12">
-							<div class="btn-up btn no-shads">
-								<i class="material-icons">add_circle</i>
-								<input type="file" multiple>
-							</div>
-							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" placeholder="File Latihan Soal">
-							</div>
-						</div>
-					</div>
-				</div>
-
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-{{-- END ================================================================================ HAPUS LATSO MATERI --}}
-
-@endsection
-
-@section('js-plus')
-<script type="text/javascript">
-	function myDetail() {
-		var x = document.getElementById("detail");
-		var y = document.getElementById("tab");
-
-		var i = document.getElementById("detail2");
-		var j = document.getElementById("tab2");
+				var i = document.getElementById("detail2");
+				var j = document.getElementById("tab2");
 
 
-		if (x.style.display === "none" || i.style.display === "none") {
-			x.style.display = "block";
-			y.style.display = "none";
+				if (x.style.display === "none" || i.style.display === "none") {
+					x.style.display = "block";
+					y.style.display = "none";
 
-			i.style.display = "block";
-			j.style.display = "none";
-		}
-	}
+					i.style.display = "block";
+					j.style.display = "none";
+				}
+			}
 
-	function myClose() {
-		var x = document.getElementById("detail");
-		var y = document.getElementById("tab");
+			function myClose() {
+				var x = document.getElementById("detail");
+				var y = document.getElementById("tab");
 
-		var i = document.getElementById("detail2");
-		var j = document.getElementById("tab2");
+				var i = document.getElementById("detail2");
+				var j = document.getElementById("tab2");
 
-		if (x.style.display === "block" || i.style.display === "block") {
-			x.style.display = "none";
-			y.style.display = "block";
+				if (x.style.display === "block" || i.style.display === "block") {
+					x.style.display = "none";
+					y.style.display = "block";
 
-			i.style.display = "none";
-			j.style.display = "block";
-		}
-	}
-</script>
-@endsection
+					i.style.display = "none";
+					j.style.display = "block";
+				}
+			}
+		</script>
+		@endsection

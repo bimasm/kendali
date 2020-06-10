@@ -51,16 +51,16 @@
 							">
 							<a href="{{ route('DetailKelasSiswa',$dt->id) }}" class="rb-text-1">Materi</a>
 						</li>
-						{{-- <li class="menu-kelas 
+						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaUjian'
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('SiswaUjian')}}" class="rb-text-1">Ujian</a>
-						</li> --}}
-						{{-- <li class="menu-kelas 
+							<a href="{{route('SiswaUjian',$dt->id)}}" class="rb-text-1">Ujian</a>
+						</li>
+						<li class="menu-kelas 
 						{{ (request()->routeIs(
 
 							'SiswaDiskusi',
@@ -68,8 +68,8 @@
 
 							)) ? 'active' : '' }}
 							">
-							<a href="{{route('SiswaDiskusi')}}" class="rb-text-1">Diskusi</a>
-						</li> --}}
+							<a href="{{route('SiswaDiskusi',$dt->id)}}" class="rb-text-1">Diskusi</a>
+						</li>
 						<li class="menu-kelas 
 						{{ (request()->routeIs(
 

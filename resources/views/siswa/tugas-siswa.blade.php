@@ -12,24 +12,8 @@ Tugas - Siswa
 
 @section('app-siswa')
 {{-- START ================================================================================ SLIDE --}}
-<section>
-	<div class="container container-75-head">
-		<div class="slider">
-			<ul class="slides slider-kelas-siswa slider-kelas-siswa-h">
-				<li>
-					<img class="slider-kelas-siswa" src="{{asset('asset/img/kelas/header/head.jpg')}}">
-					<div class="caption center-align slider-kelas-siswa-c">
-						@foreach($data as $dt)
-						<h3>Kelas {{ \App\Pelajaran::where(['id' => $dt->id])->value('pelajaran') }} / Tugas</h3>
-						<h5 class="light grey-text text-lighten-3">{{ \App\Guru::where(['id' => \App\Pelajaran::where(['id' => $dt->id])->value('id_guru')])->value('nama') }}</h5>
-						@endforeach
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-</section>
-{{-- END ================================================================================ SLIDE --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
@@ -76,7 +60,7 @@ Tugas - Siswa
 								<br>
 								<div class="row">
 									<div class="col s12 m12 l12 right-align">
-										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect waves-light btn btn-flat-2-rb" style="text-transform: capitalize;">
+										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect waves-light btn btn-flat-2-rb">
 											<i class="material-icons right">arrow_forward</i>Detail Tugas
 										</a>
 									</div>

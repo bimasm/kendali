@@ -12,24 +12,8 @@ Kelas - Siswa
 
 @section('app-siswa')
 {{-- START ================================================================================ SLIDE --}}
-<section>
-	<div class="container container-75-head">
-		<div class="slider">
-			<ul class="slides slider-kelas-siswa slider-kelas-siswa-h">
-				<li>
-					<img class="slider-kelas-siswa" src="{{asset('asset/img/kelas/header/head.jpg')}}">
-					<div class="caption center-align slider-kelas-siswa-c">
-						@foreach($data as $dt)
-						<h3>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h3>
-						<h5 class="light grey-text text-lighten-3">{{ \App\Guru::where('id', $dt->id_guru)->value('nama') }}</h5>
-						@endforeach
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-</section>
-{{-- END ================================================================================ SLIDE --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>

@@ -11,21 +11,8 @@ Setting - Guru
 @section('app-guru')
 
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa">
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Setting Akun</h5>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa">
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
@@ -82,7 +69,7 @@ Setting - Guru
 		</div>
 	</div>
 </section>
-{{-- END ================================================================================ CONTENT --}}
+{{-- END ================================================================================== CONTENT --}}
 @endsection
 
 @section('js-plus')

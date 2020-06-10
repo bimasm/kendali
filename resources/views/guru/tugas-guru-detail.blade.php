@@ -7,30 +7,15 @@
 @endsection
 
 @section('nav-guru')
-@foreach($data as $dt)
 @include('guru.app.nav-guru')
-@endforeach
 @endsection
 
 @section('app-guru')
 @foreach($tugas as $tg)
 
-<section class="head-cont-tugas-siswa">
-	<div class="container">
-		<div class="row valign-wrapper-rb">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>{{ $tg->judul }}</h5>
-				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => $tg->id_pelajaran])->value('pelajaran')}}</h6>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }} | {{ date('H:i', strtotime($tg->deadline)) }}</h6>
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
+{{-- START ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 <section style="margin-top: 5px">
 	<div class="container">

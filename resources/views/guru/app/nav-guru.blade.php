@@ -36,6 +36,7 @@
 
 				@if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
 
+				@foreach($data as $dt)
 				<div class="second-navbar-rb">
 					<ul class="center">
 						<li class="menu-kelas
@@ -87,7 +88,7 @@
 						</li>
 					</ul>
 				</div>
-
+				@endforeach
 				@endif
 
 				<ul class="right hide-on-med-and-down">
@@ -172,9 +173,11 @@
 {{-- END /////////////////////////////////////////////////////////////////////////////////////// LEFTBAR --}}
 
 @if(request()->routeIs('DetailKelas','TugasKelas','UjianKelas','DiskusiKelas','SiswaKelas','GuruTugasDetail','GuruDiskusiDetail'))
+@foreach($data as $dt)
 <div class="fixed-action-btn second-navbar-rb-mb-2">
 	<a href="{{route('SiswaKelas',$dt->id)}}" class="btn-floating btn-large red">
 		<i class="large material-icons">supervised_user_circle</i>
 	</a>
 </div>
+@endforeach
 @endif

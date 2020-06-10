@@ -5,27 +5,15 @@ Diskusi - Siswa
 @endsection
 
 @section('nav-siswa')
+@foreach($data as $dt)
 @include('siswa.app.nav-siswa')
+@endforeach
 @endsection
 
 @section('app-siswa')
 {{-- START ================================================================================ SLIDE --}}
-<section>
-	<div class="container container-75-head">
-		<div class="slider">
-			<ul class="slides slider-kelas-siswa slider-kelas-siswa-h">
-				<li>
-					<img class="slider-kelas-siswa" src="{{asset('asset/img/kelas/header/head.jpg')}}">
-					<div class="caption center-align slider-kelas-siswa-c">
-						<h3>Kelas Biologi / Diskusi</h3>
-						<h5 class="light grey-text text-lighten-3">Heri</h5>
-					</div>
-				</li>
-			</ul>
-		</div>
-	</div>
-</section>
-{{-- END ================================================================================ SLIDE --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>

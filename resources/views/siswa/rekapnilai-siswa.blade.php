@@ -10,22 +10,9 @@ Rekap Nilai - Siswa
 
 @section('app-siswa')
 
-{{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa">
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Rekap Nilai</h5>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa">
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+{{-- START ================================================================================ SLIDE --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>

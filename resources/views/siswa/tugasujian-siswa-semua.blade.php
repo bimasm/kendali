@@ -10,25 +10,9 @@ Semua Tugas & Ujian - Siswa
 
 @section('app-siswa')
 
-{{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa">
-	<div class="container">
-		<div class="row valign-wrapper-rb">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Semua Tugas & Ujian</h5>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>1 Tugas belum dikerjakan</h6>
-				<div class="divider"></div>
-				<h6>1 Ujian belum dikerjakan</h6>
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+{{-- START ================================================================================ SLIDE --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
@@ -69,7 +53,7 @@ Semua Tugas & Ujian - Siswa
 								<br>
 								<div class="row">
 									<div class="col s12 m12 l12 center">
-										<a href="{{route('SiswaTugasDetail')}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Detail Tugas</a>
+										<a href="" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Detail Tugas</a>
 									</div>
 								</div>
 

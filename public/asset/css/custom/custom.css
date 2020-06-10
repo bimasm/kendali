@@ -1,0 +1,92 @@
+
+/* START --------------------------------------------------------------------------- HEADER GURU*/
+.header-csrb {
+	margin-top: 30px;
+}
+
+.header-csrb.container {
+	width: 75%
+}
+
+.header-csrb > .row > .left {
+	text-align: left;
+}
+
+.header-csrb > .row > .right {
+	text-align: right;
+}
+
+.header-csrb > .row > .con {
+	margin: 25px 0;
+}
+
+.header-csrb-mod {
+
+}
+
+@media only screen and (max-width: 600px) {
+	.header-csrb.container {
+		width: 95%
+	}
+
+	.header-csrb-mod {
+		margin-top: 25px !important;
+	}
+
+	.header-csrb {
+		margin-top: 100px;
+	}
+
+	.header-csrb > .row > .left {
+		text-align: center;
+		margin-bottom: 10px;
+	}
+
+	.header-csrb > .row > .right {
+		text-align: center;
+	}
+}
+/* EMD ----------------------------------------------------------------------------- HEADER GURU*/
+
+.header-csrb-img {
+	margin-top: 50px;
+}
+
+.header-csrb-img.container {
+	width: 75%
+}
+
+.header-csrb-img > .slider > ul.slides {
+	border-radius: 10px;
+	height: 300px !important;
+}
+
+.header-csrb-img > .slider > ul.slides > li > img {
+	border-radius: 10px;
+}
+
+.header-csrb-img > .slider > ul.slides > li > .caption {
+	text-align: left !important;
+	top: 23% !important;
+}
+
+@media only screen and (max-width: 600px) {
+	.header-csrb-img.container {
+		width: 100%
+	}
+
+	.header-csrb-img > .slider > ul.slides {
+		border-radius: 0px;
+		height: 300px !important;
+	}
+
+	.header-csrb-img > .slider > ul.slides > li > img {
+		border-radius: 0px;
+	}
+
+	.header-csrb-img > .slider > ul.slides > li > .caption {
+		text-align: center !important;
+		top: 32% !important;
+	}
+
+}

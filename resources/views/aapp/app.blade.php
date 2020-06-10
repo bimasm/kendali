@@ -9,14 +9,20 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
+  {{-- Framework --}}
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/materialize.min.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/animation.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/style.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/font-awesome/css/font-awesome.min.css')}}">
 
+  {{-- DataTable --}}
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable-Button.css')}}">
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/dataTable-Select.css')}}">
+
+  {{-- custom --}}
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/style.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/custom.css')}}">
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/color.css')}}">
 
 
   @yield('css-plus')

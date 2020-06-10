@@ -10,20 +10,8 @@ Semua Ujian - Guru
 
 @section('app-guru')
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa">
-	<div class="container container-75">
-		<div class="row">
-			<div class="col s12 m12 l6">
-				<h4>Semua Ujian</h4>
-			</div>
-			<div class="col s12 m12 l6">
-				
-			</div>
-		</div>
-		<div class="divider"></div>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>

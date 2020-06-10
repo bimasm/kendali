@@ -5,30 +5,12 @@ Siswa - Guru
 @endsection
 
 @section('nav-guru')
-@foreach($data as $dt)
 @include('guru.app.nav-guru')
-@endforeach
 @endsection
 
 @section('app-guru')
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-guru">
-	<div class="container container-75">
-		<div class="row">
-			<div class="col s12 m12 l6 fot-card-left">
-				@foreach($data as $dt)
-				<h4>Kelas {{ $dt->pelajaran }} ( {{ $dt->kode }} )</h4>
-				@endforeach
-			</div>
-			<div class="col s12 m12 l6 fot-card-right">
-				
-			</div>
-		</div>
-		<div class="divider"></div>
-	</div>
-</section>
-<br>
-<br>
+@include('guru.app.header-guru')
 {{-- END ================================================================================ HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}

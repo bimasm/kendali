@@ -25,10 +25,10 @@ Route::post('/siswa/join', 'SiswaActionController@join')
 Route::get('/siswa/kelas/{id}', 'SiswaController@Detail_Kelas')
 ->name('DetailKelasSiswa')->middleware('auth:siswa');
 
-Route::get('/siswa/ujian', 'SiswaController@Siswa_ujian')
+Route::get('/siswa/ujian/{id}', 'SiswaController@Siswa_ujian')
 ->name('SiswaUjian')->middleware('auth:siswa');
 
-Route::get('/siswa/diskusi', 'SiswaController@Siswa_Diskusi')
+Route::get('/siswa/diskusi/{id}', 'SiswaController@Siswa_Diskusi')
 ->name('SiswaDiskusi')->middleware('auth:siswa');
 
 Route::get('/siswa/diskusi/detail', 'SiswaController@Siswa_Diskusi_detail')
@@ -161,7 +161,7 @@ Route::get('/guru/rekap-nilai/detail', 'GuruController@Guru_RekapNilai_Detail')
 Route::get('/guru/setting', 'GuruController@Guru_Setting')
 ->name('GuruSetting')->middleware('auth:guru');
 
-Route::get('/guru/diskusi/detail/', 'GuruController@Guru_Diskusi_Detail')
+Route::get('/guru/diskusi/detail/{id}', 'GuruController@Guru_Diskusi_Detail')
 ->name('GuruDiskusiDetail')->middleware('auth:guru');
 
 //-- END ----------------------------------------------------------------------------- Guru

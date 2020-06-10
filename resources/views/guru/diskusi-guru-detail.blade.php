@@ -5,19 +5,14 @@ Diskusi - Siswa
 @endsection
 
 @section('nav-guru')
-@foreach($data as $dt)
 @include('guru.app.nav-guru')
-@endforeach
 @endsection
 
 @section('app-guru')
-<section>
-	<div class="container">
-		<h4>Diskusi Gaya</h4>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
+
+{{-- START ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 <section>
 	<div class="container">

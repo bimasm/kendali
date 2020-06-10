@@ -1,0 +1,33 @@
+
+/*--- START -------------------------------------------------------------------------------------------------- TEXT COLOR */
+.rb-text-1 {
+	color: #9e312f !important;
+}
+/*--- END -------------------------------------------------------------------------------------------------- TEXT COLOR */
+
+/*--- START -------------------------------------------------------------------------------------------------- BG COLOR */
+.rb-color-1{
+	background-color: #ffdda7 !important;
+}
+
+.rb-color-2{
+	background-color: #e26342 !important;
+}
+
+.rb-trans {
+	background-color: transparent !important;
+}
+
+.rb-text-3{
+	color: #3c4043 !important;
+}
+
+.cont-text {
+	font-size: 18px; 
+	color: #757575
+}
+
+.menu-kelas-guru-dash {
+	color: #9e312f !important;
+}
+/*--- END -------------------------------------------------------------------------------------------------- BG COLOR */

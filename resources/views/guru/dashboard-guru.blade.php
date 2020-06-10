@@ -10,24 +10,8 @@ Dashboard - Guru
 
 @section('app-guru')
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-guru">
-	<div class="container container-75">
-		<div class="row valign-wrapper-rb">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h4>Kelas</h4>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<div id="tab2">
-					<a href="#modal-add-kelas" class="modal-trigger waves-effect waves-light btn rb-color-2"><i class="material-icons right">add</i>Kelas Baru</a>
-				</div>
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+@include('guru.app.header-guru')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
@@ -64,27 +48,5 @@ Dashboard - Guru
 	</div>
 </section>
 {{-- END ================================================================================ CONTENT --}}
-
-{{-- START ================================================================================ MODAL ADD KELAS BARU --}}
-<div id="modal-add-kelas" class="modal">
-	<div class="modal-content">
-		<div class="row">
-			<form action="{{ route('addpelajaran') }}" method="post">
-				@csrf
-				<div class="col s12 m12 l12">
-					<div class="input-field">
-						<input id="last_name" type="text" name="pelajaran" class="validate">
-						<label for="last_name">Nama Kelas</label>
-					</div>
-				</div>
-
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
-				</div>
-			</form>
-		</div>
-	</div>
-</div>
-{{-- END ================================================================================ MODAL ADD KELAS BARU --}}
-
+@include('guru.app.modal-dashboard-guru')
 @endsection

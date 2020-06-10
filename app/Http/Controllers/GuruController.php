@@ -89,9 +89,9 @@ class GuruController extends Controller
 		return view('guru.setting-guru');
 	}
 
-	public function Guru_Diskusi_Detail()
+	public function Guru_Diskusi_Detail($id)
 	{
-		$data=Pelajaran::all();
+		$data=Pelajaran::where('id',$id)->get();
 		return view('guru.diskusi-guru-detail', compact('data'));
 	}
 }
