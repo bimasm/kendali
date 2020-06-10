@@ -58,7 +58,7 @@
 							">
 							<a href="{{route('TugasKelas',$dt->id)}}" class="rb-text-1">Tugas</a>
 						</li>
-						<li class="menu-kelas
+						{{-- <li class="menu-kelas
 						{{ (request()->routeIs(
 
 							'UjianKelas'
@@ -66,8 +66,8 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('UjianKelas',$dt->id)}}" class="rb-text-1">Ujian</a>
-						</li>
-						<li class="menu-kelas
+						</li> --}}
+						{{-- <li class="menu-kelas
 						{{ (request()->routeIs(
 
 							'DiskusiKelas',
@@ -76,7 +76,7 @@
 							)) ? 'active' : '' }}
 							">
 							<a href="{{route('DiskusiKelas',$dt->id)}}" class="rb-text-1">Diskusi</a>
-						</li>
+						</li> --}}
 						<li class="menu-kelas second-navbar-rb-mb
 						{{ (request()->routeIs(
 
@@ -123,9 +123,9 @@
 			">
 			<a href="{{route('GuruDashboard')}}"><i class="material-icons">menu_book</i>Kelas</a>
 		</li>
-		<li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li>
+		{{-- <li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li> --}}
 		<br>
-		<li class="pad-L-10"><div class="divider"></div></li>
+		{{-- <li class="pad-L-10"><div class="divider"></div></li>
 		<li><a class="subheader">Monitoring</a></li>
 		<li class="
 		{{ (request()->routeIs(
@@ -153,7 +153,7 @@
 			)) ? 'active' : '' }}
 			">
 			<a href="{{route('GuruRekapNilai')}}"><i class="material-icons">insert_chart_outlined</i>Rekap Nilai</a>
-		</li>
+		</li> --}}
 		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<br>
