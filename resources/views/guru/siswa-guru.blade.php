@@ -23,33 +23,25 @@ Siswa - Guru
 						<tr>
 							<th>Nama/NIS</th>
 							<th>Jenjang</th>
-{{-- 							<th>Kelas</th> --}}
+							{{-- 							<th>Kelas</th> --}}
 							<th>Status</th>
 							<th class="center">Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($data as $dt)
+						@foreach($siswa as $dt)
 						<tr>
 							<td>
 								{{ 
-									\App\Siswa::where(['id' => 
-										\App\Relation::where(['id_pelajaran' => $dt->id])
-										->value('id_siswa')])
-									->value('nama')
+									\App\Siswa::where('id', $dt->id_siswa)->value('nama')
 								}} 
 								/ 
-								{{ 
-									\App\Siswa::where(['id' => 
-										\App\Relation::where(['id_pelajaran' => $dt->id])
-										->value('id_siswa')])
-									->value('nis')
-								}}
+								
 							</td>
 							<td>
 								{{ 
-									\App\Sekolah::where('id', \App\Siswa::where('id', \App\Relation::where('id_pelajaran', $dt->id)->value('id_siswa'))->value('id_sekolah'))->value('jenjang')
-
+									\App\Sekolah::where('id',\App\Siswa::where('id', $dt->id_siswa)->value('id_sekolah'))->value('jenjang')
+																		
 								}}
 							</td>
 							{{-- <td>7C</td> --}}

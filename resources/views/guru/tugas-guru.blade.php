@@ -52,7 +52,9 @@ Tugas - Guru
 											</tr>
 											<tr>
 												<th>Siswa Belum Mengumpulkan</th>
-												<td>10 Siswa</td>
+												@foreach($data as $dt)
+												<td>{{ \App\Relation::where('id_pelajaran', $dt->id)->count()-\App\Jawabantugas::where(['id_tugas' => $tg->id])->count() }} Siswa</td>
+												@endforeach
 											</tr>
 										</tbody>
 									</table>

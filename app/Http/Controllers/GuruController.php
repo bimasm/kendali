@@ -10,6 +10,7 @@ use App\Materi;
 use App\Komponenmateri;
 use App\Tugaskelas;
 use App\Jawabantugas;
+use App\Relation;
 
 class GuruController extends Controller
 {
@@ -30,7 +31,7 @@ class GuruController extends Controller
 	{
 		$data=Pelajaran::where('id',$id)->get();
 		$tugas=Tugaskelas::where('id',$id)->get();
-		$jawaban=Jawabantugas::where('id',$id)->get();
+		$jawaban=Jawabantugas::where('id_tugas',$id)->get();
 
 		return view('guru.tugas-guru-detail', compact('data','tugas','jawaban'));
 	}
@@ -71,7 +72,8 @@ class GuruController extends Controller
 	public function Guru_Siswa($id)
 	{
 		$data=Pelajaran::where('id',$id)->get();
-		return view('guru.siswa-guru', compact('data'));
+		$siswa=Relation::where('id_pelajaran',$id)->get();
+		return view('guru.siswa-guru', compact('data', 'siswa'));
 	}
 
 	public function Guru_RekapNilai()

@@ -72,7 +72,7 @@ Tugas - Siswa
 							
 							<div class="input-field" style="margin-top: 0">
 								<textarea id="full-featured-non-premium" name="jawaban">
-									{!! \App\Jawabantugas::where(['id' => $tg->id])->value('jawaban') !!}
+									
 								</textarea>
 							</div>
 
