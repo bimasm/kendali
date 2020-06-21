@@ -21,31 +21,33 @@ Siswa - Guru
 				<table>
 					<thead>
 						<tr>
-							<th>Nama/NIS</th>
-							<th>Jenjang</th>
+							<th>Nama</th>
+							<th>Tugas</th>
 							{{-- 							<th>Kelas</th> --}}
-							<th>Status</th>
+							<th>Nilai</th>
 							<th class="center">Action</th>
 						</tr>
 					</thead>
 					<tbody>
-						@foreach($siswa as $dt)
+						@foreach($nilai as $dt)
 						<tr>
 							<td>
 								{{ 
 									\App\Siswa::where('id', $dt->id_siswa)->value('nama')
 								}} 
-								/ 
+								
 								
 							</td>
 							<td>
 								{{ 
-									\App\Sekolah::where('id',\App\Siswa::where('id', $dt->id_siswa)->value('id_sekolah'))->value('jenjang')
+									\App\Tugaskelas::where('id',$dt->id_tugas)->value('judul')
 																		
 								}}
 							</td>
 							{{-- <td>7C</td> --}}
-							<td>Aktif</td>
+							<td>
+								{{ $dt->nilai }}
+							</td>
 {{-- 							<td class="center">
 								<a class="waves-effect waves-light blue btn">Terima</a>
 								<a class="waves-effect waves-light red btn">Tolak</a>

@@ -7,6 +7,7 @@ use App\Pelajaran;
 use App\Materi;
 use App\Komponenmateri;
 use App\Tugaskelas;
+use App\Jawabantugas;
 use Illuminate\Support\Str;
 use Auth;
 
@@ -71,6 +72,12 @@ class GuruActionController extends Controller
         // dd($x);
         $x->save();
         return redirect('/guru/kelas/detail/'.$request->id_pelajaran);
+  }
+  public function nilaitugas(Request $request){
+    $x=Jawabantugas::find($request->id);
+    $x->nilai=$request->nilai;
+    $x->save();
+    return redirect()->back();
   }
 
 }

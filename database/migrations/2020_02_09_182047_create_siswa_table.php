@@ -20,7 +20,7 @@ class CreateSiswaTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('nama');
-            $table->string('email',191);
+            $table->string('email',191)->unique();
             $table->string('password');
             $table->string('nis')->nullable();
             $table->timestamps();

@@ -58,7 +58,7 @@
 	</div>
 </section>
 @endforeach
-
+ 
 @foreach($jawaban as $jw)
 <div id="modal-tugas-det-{{$jw->id}}" class="modal">
 	<div class="modal-content" style="max-height: calc(115vh - 210px);overflow-y: auto !important; background-color: #fff">
@@ -82,6 +82,22 @@
 					{!! $jw->jawaban !!}
 				</blockquote>
 				<br>
+				@if($jw->nilai==null)
+				<form action="{{ route('GuruTugasNilai') }}" method="post">
+					@csrf
+					<div class="col s12 m12 l3">
+				<div class="input-field">
+						<input id="last_name" type="text" name="nilai" class="validate">
+						<label for="last_name">Nilai</label>
+					</div>
+						<input type="hidden" name="id" value="{{ $jw->id }}">
+					<button type="submit" class="waves-effect waves-light btn rb-color-2">
+						<i class="material-icons right">send</i>Input
+					</button>
+					</div>
+				</form>
+				@else
+				@endif
 {{-- 				<h6><b>Deskripsi Tugas</b></h6>
 				<blockquote>
 					<p>Tidak ada deskripsi</p>

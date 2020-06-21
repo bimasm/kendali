@@ -134,6 +134,9 @@ Route::get('/guru/semua-tugas', 'GuruController@Guru_SemuaTugas')
 Route::get('/guru/tugas-detail/{id}', 'GuruController@Guru_Tugas_Detail')
 ->name('GuruTugasDetail')->middleware('auth:guru');
 
+Route::post('/guru/tugas/nilai', 'GuruActionController@nilaitugas')
+->name('GuruTugasNilai')->middleware('auth:guru');
+
 Route::get('/guru/semua-ujian', 'GuruController@Guru_SemuaUjian')
 ->name('GuruSemuaUjian')->middleware('auth:guru');
 

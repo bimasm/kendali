@@ -73,7 +73,9 @@ class GuruController extends Controller
 	{
 		$data=Pelajaran::where('id',$id)->get();
 		$siswa=Relation::where('id_pelajaran',$id)->get();
-		return view('guru.siswa-guru', compact('data', 'siswa'));
+		$nilai=Jawabantugas::where('id_tugas', Tugaskelas::where('id_pelajaran', $id)->value('id'))->get();
+
+		return view('guru.siswa-guru', compact('data', 'siswa', 'nilai'));
 	}
 
 	public function Guru_RekapNilai()

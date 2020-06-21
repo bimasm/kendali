@@ -24,6 +24,7 @@ class CreateJawabantugasTable extends Migration
             ->onDelete('cascade')
             ->onUpdate('cascade');
             $table->string('jawaban');
+            $table->integer('nilai')->nullable();
             $table->timestamps();
         });
     }
