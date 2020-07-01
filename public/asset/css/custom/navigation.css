@@ -45,7 +45,24 @@
 
 .second-navbar-rb ul li {
 	width: 100px;
+	transition: 0s all
 }
+
+.second-navbar-rb ul li:hover {
+	background-color: var(--darkbg);
+	border-bottom: 4px solid var(--darkbg) !important;
+	height: 70px;
+}
+
+.second-navbar-rb ul li.active:hover {
+	font-weight: 600;
+	background-color: var(--colorut3);
+	border-bottom: 4px solid var(--colorut1) !important;
+	height: 70px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
 
 .second-navbar-rb ul li.active a {
 	color: var(--colorut1) !important;
