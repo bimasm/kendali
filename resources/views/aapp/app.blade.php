@@ -143,7 +143,6 @@
   });
     });
 
-
     $(document).ready(function(){
       $('.timepicker').timepicker({
        timeFormat: 'h:mm p'

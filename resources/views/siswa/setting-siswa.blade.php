@@ -18,49 +18,51 @@ Setting - Siswa
 <section>
 	<div class="container container-60" style="margin-bottom: 100px">
 
-		<div class="ya">
-			<div class="card cont-set white">
+		<div class="trigger-card-hover-border">
+			<div class="card card-hover-border">
 
-				<div class="cont-head">
-					<span class="card-title">
-						<h6>Profile Anda</h6>
-					</span>
-					<span class="icon-edit">
-						<a id="clicker" class="btn-floating btn-flat waves-effect cont-det-back">
-							<i class="cont-det-icon material-icons" style="display: block">edit</i>
+				<div class="card-header">
+					<h6>Profile Anda</h6>
+					<span>
+						<a id="clicker" class="waves-effect btn-icon-flat">
+							<i class="material-icons" style="display: block">edit</i>
 						</a>
 					</span>
 				</div>
 
-				<div class="card-content grey-text text-darken-2 con-card-cont">
-
-					<form action="" method="">
+				<div class="card-content grey-text text-darken-2 con-card-cont row">
+					<form action="" method="POST" class="col s12">
 						@csrf
 						<div class="row">
-							<div class="input-field col s12 m12 l6" style="margin-top: 2em">
-								<input disabled value="{{ Auth::guard('siswa')->user()->nama }}" id="Nama_Lengkap" type="text" class="set validate" name="nama_lengkap">
+							<div class="input-field col s6 pwh-bg">
+								<input disabled id="Nama_Lengkap" type="text" class="validate">
 								<label for="Nama_Lengkap">Nama Lengkap</label>
 							</div>
-							<div class="input-field col s12 m12 l6" style="margin-top: 2em">
-								<input disabled value="{{ Auth::guard('siswa')->user()->email }}" id="Email" type="text" class="set validate" name="email">
+							<div class="input-field col s6 pwh-bg end">
+								<input disabled id="Email" type="email" class="validate">
 								<label for="Email">Email</label>
 							</div>
 						</div>
-						<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-							<input disabled value="" id="Password" type="password" class="set validate" name="password">
-							<label for="Password">Password</label>
+						<div class="row">
+							<div class="input-field col s12 pwh-bg">
+								<input disabled id="Password" type="password" class="validate">
+								<label for="Password">Password</label>
+							</div>
 						</div>
-						<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-							<input disabled value="SDN 1 Gendoh" id="Sekolah" type="text" class="set validate" name="sekolah">
-							<label for="Sekolah">Sekolah</label>
+						<div class="row">
+							<div class="input-field col s12 pwh-bg">
+								<input disabled id="sekolah" type="text" class="validate">
+								<label for="sekolah">Sekolah</label>
+							</div>
 						</div>
 
 						<div id="save" class="input-field right-align" style="display: none">
-							<a id="cancel" href="#!" class="waves-effect waves-light btn-flat">Cancel</a>
-							<button type="submit" class="waves-effect waves-light btn rb-color-2">Simpan</button>
+							<a id="cancel" href="#!" class="waves-effect btn-flat btn-border-prim">
+								Cancel
+							</a>
+							<button type="submit" class="waves-effect waves-light btn btn-solid-prim">Simpan</button>
 						</div>	
 					</form>
-
 				</div>
 
 			</div>

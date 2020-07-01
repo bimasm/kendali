@@ -69,6 +69,24 @@
 
 /*BUTTON ICON TEXT*/
 
+/*BUTTON FLAT TEXT*/
+.btn-flattext-prim {
+	-webkit-box-shadow: none;
+	box-shadow: none;
+	background-color: transparent;
+	color: var(--dark);
+	cursor: pointer;
+	text-transform: capitalize;
+	-webkit-transition: background-color .2s;
+	transition: background-color .2s;
+	font-weight: 500;
+}
+
+.btn-flattext-prim:hover {
+	background-color: var(--darkbg);
+	box-shadow: none;
+}
+
 /*BUTTON FULL*/
 .btn.btn-full {
 	width: 100% !important

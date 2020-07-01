@@ -98,21 +98,25 @@ Dashboard - Siswa
 	</div>
 </section>
 {{-- END ================================================================================ LIST KELAS --}}
-<div id="modal-add-kelas" class="modal">
-	<div class="modal-content white">
-		<div class="row">
-			<h5>Tambah Kelas</h5>
-			<form action="{{route('JoinKelasSiswa')}}" method="post">
-				@csrf
-				<div class="input-field col s12">
+<div id="modal-add-kelas" class="modal modal-small">
+	<div class="modal-content">
+		<h5>Tambah Kelas</h5>
+		<form action="{{route('JoinKelasSiswa')}}" method="post">
+			@csrf
+			<div class="content row">
+				<div class="input-field col s12 pwh-bg">
 					<input id="kode-kelas" type="text" class="validate" name="kode">
 					<label for="kode-kelas">Kode Kelas</label>
 				</div>
-				<div class="input-field col s12 right-align">
-					<button type="submit" class="waves-effect waves-light btn"><i class="material-icons right">send</i>submit</button>
-				</div>
-			</form>
-		</div>
+			</div>
+			 <div class="modal-footer">
+				<a class="modal-close btn waves-effect btn-flattext-prim">Batal</a>
+
+				<button type="submit" class="waves-effect waves-light btn modal-trigger btn-solid-prim">
+					<i class="material-icons right">send</i>Submit
+				</button>
+			</div>
+		</form>
 	</div>
 </div>
 @endsection

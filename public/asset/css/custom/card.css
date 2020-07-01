@@ -162,3 +162,32 @@
 .card-icon-desc-btn .row {
 	margin: 0 !important
 }
+
+
+/*CARD ICON HOVER BORDER*/
+.card-hover-border {
+	border: 1px solid var(--darkbor);
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.3s;
+}
+
+.card-hover-border .card-header {
+	padding: 15px 20px; 
+	border-bottom: 1px solid var(--darkbor);
+}
+
+.card-hover-border .card-header span {
+	float: right; 
+	top: 13px; 
+	position: absolute; 
+	right: 20px
+}
+
+.trigger-card-hover-border:hover .card-hover-border {
+	border: 1px solid var(--colorut1);
+}
+
+.trigger-card-hover-border:hover .card-hover-border .card-header {
+	border-bottom: 1px solid var(--colorut1);
+}

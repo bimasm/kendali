@@ -1,0 +1,232 @@
+
+/*CHECKBOX*/
+span.text-cb {
+	position: absolute; 
+	left: 40px; 
+	inline-size: max-content;
+}
+
+/*INPUT WITH ICON KANAN*/
+.input-field .prefix.kanan {
+	position: absolute;
+	width: 3rem;
+	font-size: 2rem;
+	transition: color .2s;
+	top: 0px;
+	right: 0px;
+}
+
+.input-field .prefix.kanan.active {
+	color: #26a69a;
+}
+
+.input-field .prefix.kanan ~ input,
+.input-field .prefix.kanan ~ textarea,
+.input-field .prefix.kanan ~ label,
+.input-field .prefix.kanan ~ .validate ~ label,
+.input-field .prefix.kanan ~ .helper-text,
+.input-field .prefix.kanan ~ .autocomplete-content {
+	margin-right: 3rem !important;
+	margin-left: 0;
+	width: 92%;
+	width: calc(100% - 3rem);
+}
+
+.input-field .prefix.kanan ~ label {
+	margin-right: 3rem !important;
+	margin-left: 0
+}
+
+@media only screen and (max-width: 992px) {
+	.input-field .prefix.kanan ~ input {
+		width: 86%;
+		width: calc(100% - 3rem);
+	}
+}
+
+@media only screen and (max-width: 600px) {
+	.input-field .prefix.kanan ~ input {
+		width: 80%;
+		width: calc(100% - 3rem);
+	}
+}
+
+/*INPUT FILE*/
+.input-file-pw {
+	padding: 1rem 3rem 0 1rem;
+}
+
+.input-file-pw .file-path  {
+	height: 5rem !important;
+	background-color: var(--color-pen-lev4) !important;
+	border-radius: 8px !important;
+	padding: 1rem !important;
+	text-align: center;
+}
+
+.input-file-pw .file-path.valid {
+	border:0 !important;
+	box-shadow: none !important;
+	background-color: var(--color-succes-smoth) !important;
+	text-align: center;
+}
+
+/*INPUT KOYOK GOOGLE*/
+.pwh-in {
+	margin-left: -10px !important;
+}
+
+.pwh-in.end {
+	margin-left: 10px !important;
+}
+
+.pwh-in > input, .pwh-in > .select-wrapper > input {
+	border: 1px solid var(--color-pen-lev6) !important;
+	border-radius: 4px !important;
+	padding-left: 10px !important;
+	width: 100% !important;
+	margin:0 !important;
+}
+
+.pwh-in > textarea {
+	border: 1px solid var(--color-pen-lev6) !important;
+	border-radius: 4px !important;
+	padding-left: 10px !important;
+	width: 102% !important;
+	margin:0 !important;
+}
+
+.pwh-in > input:focus:not([readonly]), .pwh-in > textarea:focus:not([readonly]) {
+	border: 1px solid var(--color-ut-lev1) !important;
+	-webkit-box-shadow: 0 0 1px 1px var(--color-ut-lev1) !important;
+	box-shadow: 0 0 1px 1px var(--color-ut-lev1) !important;
+}
+
+.pwh-in > label {
+	padding-left: 10px !important
+}
+
+.pwh-in > label:not(.label-icon).active {
+	-webkit-transform: translateX(7px) translateY(-10px) scale(0.8);
+	transform: translateX(7px) translateY(-10px) scale(0.8);
+
+	-webkit-transform-origin: 0 0;
+	transform-origin: 0 0;
+	background-color: #fff;
+	width: max-content !important;
+	padding: 0 4px !important;
+
+	font-weight: 600
+}
+
+.pwh-in.pwh-select > label {
+	-webkit-transform: translateX(7px) translateY(15.5px);
+	transform: translateX(7px) translateY(15.5px);
+	-webkit-transform-origin: 0 0;
+
+	transform-origin: 0 0;
+	background-color: #fff;
+	width: max-content;
+	padding: 0 4px !important;
+	z-index: 1;
+
+	font-weight: 600
+}
+
+.pwh-in > input.valid:not(.browser-default) {
+	border: 1px solid #4CAF50 !important;
+	-webkit-box-shadow: 0 0 1px 1px #4CAF50 !important;
+	box-shadow: 0 0 1px 1px #4CAF50 !important;
+}
+
+.pwh-in > input.invalid:not(.browser-default) {
+	border: 1px solid #F44336 !important;
+	-webkit-box-shadow: 0 0 1px 1px #F44336 !important;
+	box-shadow: 0 0 1px 1px #F44336 !important;
+}
+
+/*INPUT KOYOK TWITTER*/
+.pwh-bg {
+	margin-left: -10px !important;
+}
+
+.pwh-bg.end {
+	margin-left: 10px !important;
+}
+
+.pwh-bg > input {
+	padding-right: 10px
+}
+
+.pwh-bg.pwh-textarea {
+	padding-right: 0px !important
+}
+
+.pwh-bg > input, .pwh-bg > .select-wrapper > input {
+	background-color: var(--color-pen-lev4) !important;
+	padding-left: 10px !important;
+	padding-top: 12px !important;
+	width: 100% !important;
+	margin:0 !important;
+}
+
+.pwh-bg > textarea {
+	background-color: var(--color-pen-lev4) !important;
+	padding-left: 10px !important;
+	padding-top: 20px !important;
+	width: 101.5% !important;
+	margin:0 !important;
+	height: 3.5rem
+}
+
+.pwh-bg > .select-wrapper > svg.caret {
+	z-index: 1;
+}
+
+.pwh-bg.pwh-select > label {
+	z-index: 1;
+}
+
+.pwh-bg.pwh-select > label:not(.label-icon) {
+	transform: translateY(30px) translateX(10px);
+}
+
+.pwh-bg > label:not(.label-icon).active {
+	-webkit-transform: translateY(8px) translateX(10px) scale(0.8);
+	transform: translateY(8px) translateX(10px) scale(0.8);
+}
+
+.pwh-bg > label:not(.label-icon) {
+	transform: translateY(19px) translateX(10px);
+}
+
+/*FORM BORDER RADIUS*/
+.pwh-in-radius input {
+	border-radius: 50px !important;
+}
+
+.pwh-in-radius button i {
+	border-bottom-right-radius: 50px !important;
+	border-top-right-radius: 50px !important;
+}
+
+/*FORM WITH BUTTON*/
+.btn-form {
+	background: transparent;
+	border: none;
+	cursor: pointer;
+}
+
+.btn-form i {
+	float: right;
+	background-color: #fff;
+	height: 2rem;
+	right: -11px;
+}
+
+.pwh-in-radius > button.btn-form i {
+	float: right;
+	background-color: #fff;
+	height: 2rem;
+	right: -0.6px;
+}

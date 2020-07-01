@@ -196,14 +196,16 @@
 		</li>
 		{{-- <li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li> --}}
 		<li class="pad-L-10"><div class="divider"></div></li>
-		{{-- <li class="
+		<li class="
 		{{ (request()->routeIs(
 
 			'SiswaTugasUjianSemua'
 
 			)) ? 'active' : '' }}
 			">
-			<a href="{{route('SiswaTugasUjianSemua')}}"><i class="material-icons">event_note</i>Semua Tugas & Ujian</a>
+			<a href="{{route('SiswaTugasUjianSemua')}}">
+				<i class="material-icons">event_note</i>Semua Tugas & Ujian
+			</a>
 		</li>
 		<li class="
 		{{ (request()->routeIs(
@@ -212,8 +214,10 @@
 
 			)) ? 'active' : '' }}
 			">
-			<a href="{{route('SiswaRekapNilai')}}"><i class="material-icons">insert_chart_outlined</i>Rekap Nilai</a>
-		</li> --}}
+			<a href="{{route('SiswaRekapNilai')}}">
+				<i class="material-icons">insert_chart_outlined</i>Rekap Nilai
+			</a>
+		</li>
 		<li><a class="subheader">Kelas Anda</a></li>
 		@foreach($kelas as $ks)
 		<li class="

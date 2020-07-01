@@ -1,0 +1,30 @@
+
+/*MODAL*/
+
+.modal-content {
+	background-color: var(--white) !important
+}
+
+.modal.modal-small {
+	width: 30% !important
+}
+
+.modal .modal-content .modal-footer {
+	background-color: var(--white) !important
+}
+
+.modal .modal-content .modal-footer .modal-close {
+	margin-right: 1rem
+}
+
+@media only screen and (max-width: 600px) {
+	.modal.modal-small {
+		width: 90% !important
+	}
+}
+
+@media only screen and (max-width: 768px) {
+	.modal.modal-small {
+		width: 60% !important
+	}
+}

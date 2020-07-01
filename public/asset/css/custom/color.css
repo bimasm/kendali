@@ -34,6 +34,9 @@
 
 
 
+
+
+/*COLOR RUMAH BELAJAR*/
 :root{
 
 	--colorut1: #3F9CD6 !important;
@@ -64,3 +67,76 @@
 .prim-1-text {color: var(--colorut1) !important;}
 .prim-2-text {color: var(--colorut2) !important;}
 .prim-3-text {color: var(--colorut3) !important;}
+
+
+
+
+
+
+
+/*COLOR FORM PWH*/
+:root {
+
+	/*warna utama*/
+	--color-ut-lev1: #7467ef;
+	--color-ut-lev2: #1967d2;
+	--color-ut-lev3: #E8F0FE;
+
+	/*warna pendukung*/
+	--color-pen-lev1: #3C4043;
+	--color-pen-lev2: #5F6368;
+	--color-pen-lev3: #9E9E9E;
+	--color-pen-lev4: #f5f5f5;
+	--color-pen-lev5: #fafafa;
+	--color-pen-lev6: #0000001f;
+	--color-pen-lev7: #e0e0e0;
+
+	/*warna penanda*/
+	--color-danger: #e53935;
+	--color-succes: #43a047;
+	--color-warning: #ffb300;
+
+	--color-succes-hv: #2e7d32;
+	--color-danger-hv: #c62828;
+	--color-warning-hv: #ff8f00;
+
+	--color-succes-smoth: #e8feec;
+	--color-danger-smoth: #fee8e8;
+	--color-warning-smoth: #fef7e8;
+
+
+
+	/*warna Hover*/
+	--color-ut-lev1-hv: #493BC5;
+	--color-ut-lev2-hv: #1967d2;
+	--color-ut-lev3-hv: #E8F0FE;
+
+
+	/*hover transparent*/
+	--color-hv-trans-lev3: rgba(232, 240, 254, 0.74);
+	--color-hv-trans-lev4: rgba(232, 240, 254, 0.5);
+	--color-hv-trans-lev3-1: #eef4fe !important;
+
+
+
+	/*warna tambahan*/
+	--color-modalbg : #fafafad1;
+}
+
+.cl-success { color: var(--color-succes) !important; }
+.cl-danger  { color: var(--color-danger) !important; }
+.cl-warning { color: var(--color-warning) !important; }
+
+.cl-ut-lev1 { color: var(--color-ut-lev1) !important }
+.cl-ut-lev2 { color: var(--color-ut-lev2) !important }
+.cl-ut-lev3 { color: var(--color-ut-lev3) !important }
+
+.bg-ut-lev1 { background-color: var(--color-ut-lev1) !important }
+.bg-ut-lev2 { background-color: var(--color-ut-lev2) !important }
+.bg-ut-lev3 { background-color: var(--color-ut-lev3) !important }
+
+.cl-pen-lev1 { color: var(--color-pen-lev1) !important }
+.cl-pen-lev2 { color: var(--color-pen-lev2) !important }
+.cl-pen-lev3 { color: var(--color-pen-lev3) !important }
+.cl-pen-lev4 { color: var(--color-pen-lev4) !important }
+.cl-pen-lev5 { color: var(--color-pen-lev5) !important }
