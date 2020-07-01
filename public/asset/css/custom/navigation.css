@@ -1,0 +1,141 @@
+/*NAVIGATION */
+
+
+/*--- START -------------------------------------------------------------------------------------------------- NAVBAR */
+.nav-rb {
+	background-color: #fff;
+	border-bottom: 1px solid #e0e0e0;
+	-webkit-transition : 0.2s ease;
+	transition: 0.2s ease;
+	-webkit-box-shadow: none;
+}
+
+.nav-rb-2 {
+	border-bottom: 0px;
+	-webkit-transition: 0.2s ease;
+	transition: 0.2s ease;
+	-webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
+	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3)
+}
+
+.nav-rb .container {
+	width: 95%;
+}
+
+.nav-rb .container .nav-wrapper ul li a.brand-logo {
+	position: relative;
+}
+
+/*--- START -------------------------------------------------------------------------------------------------- SECOND NAVABR */
+.second-navbar-rb {
+	margin: 0 350px;
+}
+
+.second-navbar-rb ul li.active {
+	font-weight: 600;
+	border-bottom: 4px solid var(--colorut1) !important;
+	height: 70px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.second-navbar-rb ul li a {
+	color: var(--dark);
+}
+
+.second-navbar-rb ul li {
+	width: 100px;
+}
+
+.second-navbar-rb ul li.active a {
+	color: var(--colorut1) !important;
+}
+
+.second-navbar-rb-mob {
+	margin: 0 2rem;
+}
+
+.second-navbar-rb-mob ul li a {
+	color: var(--dark)
+}
+
+.second-navbar-rb-mob ul li.active {
+	font-weight: 600;
+	border-bottom: 4px solid var(--colorut1) !important;
+	height: 70px;
+	border-bottom-right-radius: 3px;
+	border-bottom-left-radius: 3px;
+}
+
+.second-navbar-rb-mob ul li.active a {
+	color: var(--colorut1) !important
+}
+/*--- END -------------------------------------------------------------------------------------------------- SECOND NAVABR */
+
+
+
+/*--- START -------------------------------------------------------------------------------------------------- LEFTBAR */
+.rb-leftbar {
+	padding: 50px 10px 50px 0;
+}
+
+.rb-leftbar li a, .rb-leftbar li a i {
+	color: var(--dark) !important;
+}
+
+.rb-leftbar li.active {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	background-color: var(--colorut3);
+}
+
+.rb-leftbar li a:hover {
+	border-top-right-radius: 50px;
+	border-bottom-right-radius: 50px;
+	background-color: var(--colorut3-hv-sf) !important;
+}
+/*--- END -------------------------------------------------------------------------------------------------- LEFTBAR */
+
+/*--- END -------------------------------------------------------------------------------------------------- NAVBAR */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--- START -------------------------------------------------------------------------------------------------- DROPDOWN */
+.dropdown-content.dropdown-menu-nav {
+	width: 250px !important;
+	text-align: center !important;
+}
+
+.drop-akun {
+	color: var(--dark);
+	padding: 20px 20px 0 20px;
+}
+
+.drop-akun i {
+	font-size: 50px !important;
+	color: var(--colorut1);
+	text-align: center !important;
+}
+
+.drop-name {
+	margin-top: -20px;
+	text-align: center;
+	font-weight: bolder;
+	font-size: 15px;
+}
+
+.drop-dat {
+	margin-top: -50px;
+}
+/*--- END -------------------------------------------------------------------------------------------------- DROPDOWN */

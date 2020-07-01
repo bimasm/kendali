@@ -62,35 +62,42 @@ Dashboard - Siswa
 		<div class="row">
 
 			@foreach($kelas as $ks)
-
 			<div class="col s12 m12 l4">
-				<div class="card cont-dash white">
-					<div class="cont-head">
-						<span class="card-title">
-							<a href="siswa/kelas/{{ $ks->id }}">
-								<i class="cont-title-icon material-icons center">menu_book</i> {{ $ks->pelajaran }}
+				<div class="card card-icon-menu">
+					<div class="card-header">
+						<a class="title" href="siswa/kelas/{{ $ks->id }}">
+							<i class="material-icons">menu_book</i> 
+							<span>{{ $ks->pelajaran }}</span>
+						</a>
+						<span>
+							<a class="dropdown-trigger waves-effect btn-icon-flat" data-target='menu-card1-{{$ks->id}}'>
+								<i class="material-icons">more_vert</i>
 							</a>
 						</span>
 					</div>
-					{{-- <div class="card-content grey-text text-darken-2">
-						<div class="sub-titile">{{ \App\Guru::where('id', $ks->id_guru)->value('nama') }}</div>
-						<ul class="collection no-bor">
-							<li class="collection-item">Materi<div class="secondary-content">1</div></li>
-							<li class="collection-item">Ujian<div class="secondary-content">1</div></li>
-							<li class="collection-item">Diskusi<div class="secondary-content">1</div></li>
-							<li class="collection-item">Tugas<div class="secondary-content">1</div></li>
-						</ul>
-					</div> --}}
+					<div class="card-content">
+						By {{ \App\Guru::where('id', $ks->id_guru)->value('nama') }}
+					</div>
 				</div>
+				<ul id="menu-card1-{{$ks->id}}" class="dropdown-content dropdown-menu-card">
+					<li>
+						<a href="#!">
+							<i class="material-icons">assignment_ind</i>Record Anda
+						</a>
+					</li>
+					<li>
+						<a href="#!">
+							<i class="material-icons">meeting_room</i>Keluar
+						</a>
+					</li>
+				</ul>
 			</div>
-
 			@endforeach
 
 		</div>
 	</div>
 </section>
 {{-- END ================================================================================ LIST KELAS --}}
-
 <div id="modal-add-kelas" class="modal">
 	<div class="modal-content white">
 		<div class="row">

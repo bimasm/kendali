@@ -628,97 +628,7 @@ div.head-at-tugas-siswa > div.prop2 > div.row > div.prop > ul > li {
 }
 /*--- END -------------------------------------------------------------------------------------------------- CARD */
 
-/*--- START -------------------------------------------------------------------------------------------------- NAVBAR */
-.asu {
-	background-color: #fff;
-	border-bottom: 1px solid #e0e0e0;
-	-webkit-transition : 0.2s ease;
-	transition: 0.2s ease;
-	-webkit-box-shadow: none;
-}
 
-.asu2 {
-	border-bottom: 0px;
-	-webkit-transition: 0.2s ease;
-	transition: 0.2s ease;
-	-webkit-box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3);
-	box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.14), 0 1px 10px 0 rgba(0, 0, 0, 0.12), 0 2px 4px -1px rgba(0, 0, 0, 0.3)
-}
-
-.con-nav{
-	width: 95%;
-}
-
-.con-leftbar{
-	padding: 50px 10px 50px 0;
-}
-
-.menu-kelas {
-	width: 100px;
-}
-.nav-title-rb {
-	position: relative !important; 
-	padding-right: 100px;
-}
-
-.nav-mobile-kelas {
-	display: none;
-}
-
-.second-navbar-rb {
-	margin: 0 350px;
-}
-
-.second-navbar-rb-mb {
-	display: block;
-}
-
-.second-navbar-rb-mb-2 {
-	display: none;
-}
-
-.second-nav-menu {
-	display: block;
-}
-
-.second-nav-menu-mobile {
-	display: none;
-}
-
-@media only screen and (max-width: 600px) {
-	.second-nav-menu {
-		display: none;
-	}
-
-	.second-nav-menu-mobile {
-		display: block;
-	}
-
-	.menu-kelas {
-		width: 72px;
-	}
-
-	.nav-mobile-kelas {
-		display: block;
-	}
-
-	.nav-title-rb {
-		position: relative !important; 
-	}
-
-	.second-navbar-rb {
-		margin: 0 22px;
-	}
-
-	.second-navbar-rb-mb {
-		display: none;
-	}
-
-	.second-navbar-rb-mb-2 {
-		display: block;
-	}
-}
-/*--- END -------------------------------------------------------------------------------------------------- NAVBAR */
 ul#menu li {
 	display:inline;
 }
@@ -1037,25 +947,6 @@ div.con-but-mtabel > div.col {
 	}
 }
 /*--- END -------------------------------------------------------------------------------------------------- SLIDE */
-
-/*--- START -------------------------------------------------------------------------------------------------- DROPDOWN */
-.drop-akun{
-	color: #989a9c;
-	padding: 20px 20px 0 20px;
-}
-
-.drop-akun-icon{
-	font-size: 30px;
-}
-
-.drop-name{
-	margin-top: -20px;
-}
-
-.drop-dat{
-	margin-top: -50px;
-}
-/*--- END -------------------------------------------------------------------------------------------------- DROPDOWN */
 
 /*--- START -------------------------------------------------------------------------------------------------- MODAL */
 .m-ed.modal-overlay {

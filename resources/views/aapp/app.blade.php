@@ -21,8 +21,8 @@
 
   {{-- custom --}}
   <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/style.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/custom.css')}}">
-  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/color.css')}}">
+
+  <link rel="stylesheet" type="text/css" href="{{asset('asset/css/custom/aapp.css')}}">
 
 
   @yield('css-plus')
@@ -97,13 +97,13 @@
 
     $(window).scroll(function() {
       if ($(document).scrollTop() > 100) {
-        $('.asu').addClass('asu2');
+        $('.nav-rb').addClass('nav-rb-2');
         $('.col-menu').addClass('col-menu2');
-        $('.navbar-fixed .asu .nav-wrapper .brand-logo img').attr('src','asset/img/logo3.png');
+        $('.navbar-fixed .nav-rb .nav-wrapper .brand-logo img').attr('src','asset/img/logo3.png');
       } else {
-        $('.asu').removeClass('asu2');
+        $('.nav-rb').removeClass('nav-rb-2');
         $('.col-menu').removeClass('col-menu2');
-        $('.navbar-fixed .asu .nav-wrapper .brand-logo img').attr('src','asset/img/logo2.png');
+        $('.navbar-fixed .nav-rb .nav-wrapper .brand-logo img').attr('src','asset/img/logo2.png');
       }
     });
 

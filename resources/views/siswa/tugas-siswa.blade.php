@@ -23,26 +23,38 @@ Tugas - Siswa
 			{{-- START ================================================================================ CARD BELUM DIKERJAKAN --}}
 			@foreach($tugas as $tg)
 			<div class="col s12 m12 l12">
-				<div class="card cont-dash white">
-					<ul class="collapsible materi-cont-siswa">
+				<div class="card card-icon-collapsible">
+					<ul class="collapsible">
 						<li>
-							<div class="collapsible-header materi-cont-siswa-he">
-								<i class="material-icons materi-icon-siswa">assignment</i>{{ $tg->judul }}
-								<span class="cont-text-con">
+							<div class="collapsible-header">
+								<i class="material-icons title">assignment</i>
+
+								<div class="show-on-medium-and-down hide-on-large-only">
+									{!! Str::limit($tg->judul, 18, '...') !!}
+								</div>
+								<div class="show-on-large hide-on-med-and-down">
+									{!! Str::limit($tg->judul, 45, '...') !!}
+								</div>
+
+								<span class="text">
 									@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
 									Sudah dikerjakan
 									@else
 									Belum dikerjakan
 									@endif
 								</span>
-								<span class="cont-icon-con">
-									<a class="btn-floating btn-flat materi-icon-det">
-										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+								<span>
+									<a class="waves-effect btn-icon-flat">
+										<i class="material-icons">keyboard_arrow_down</i>
 									</a>
 								</span>
 							</div>
-							<div class="collapsible-body materi-cont-siswa-bo">
-								<h6>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }}, {{ date('H:i', strtotime($tg->deadline)) }}</h6>
+							<div class="collapsible-body">
+								<h6>
+									Batas pengumpulan : 
+									{{ date('j F Y', strtotime($tg->deadline)) }}, 
+									{{ date('H:i', strtotime($tg->deadline)) }}
+								</h6>
 								<br>
 								<div class="divider"></div>
 								<br>
@@ -60,7 +72,7 @@ Tugas - Siswa
 								<br>
 								<div class="row">
 									<div class="col s12 m12 l12 right-align">
-										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect waves-light btn btn-flat-2-rb">
+										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
 											<i class="material-icons right">arrow_forward</i>Detail Tugas
 										</a>
 									</div>
@@ -69,7 +81,9 @@ Tugas - Siswa
 						</li>
 					</ul>
 					<div class="card-action">
-						<b>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }}, {{ date('H:i', strtotime($tg->deadline)) }}
+						Batas pengumpulan : 
+						{{ date('j F Y', strtotime($tg->deadline)) }}, 
+						{{ date('H:i', strtotime($tg->deadline)) }}
 					</div>
 				</div>
 			</div>

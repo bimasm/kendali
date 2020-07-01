@@ -2506,7 +2506,7 @@ nav,
 blockquote {
     margin: 20px 0;
     padding-left: 1.5rem;
-    border-left: 5px solid #ffdda7
+    border-left: 5px solid var(--colorut1)
 }
 
 i {

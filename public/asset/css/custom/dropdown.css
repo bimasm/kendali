@@ -1,0 +1,13 @@
+
+/*DROPDOWN*/
+
+/*DROPDOWN MENU CARD*/
+.dropdown-content.dropdown-menu-card {
+	top: 45px !important;
+	padding: 1rem 0;
+	height: auto !important
+}
+
+.dropdown-menu-card li a {
+	color: var(--dark) !important;
+}

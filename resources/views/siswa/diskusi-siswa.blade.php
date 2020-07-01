@@ -22,28 +22,31 @@ Diskusi - Siswa
 
 			{{-- START ================================================================================ CARD BELUM DISKUSI --}}
 			<div class="col s12 m12 l12">
-				<div class="card cont-dash white">
-					<ul class="collapsible materi-cont-siswa">
+				<div class="card card-icon-collapsible">
+					<ul class="collapsible">
 						<li>
-							<div class="collapsible-header materi-cont-siswa-he">
-								<i class="material-icons materi-icon-siswa">people_alt</i>Forum Gaya
-								<span class="cont-text-con">
+							<div class="collapsible-header">
+								<i class="material-icons title">people_alt</i>
+								Forum Gaya
+								<span class="text">
 									Belum berdiskusi
 								</span>
-								<span class="cont-icon-con">
-									<a class="btn-floating btn-flat materi-icon-det">
-										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+								<span>
+									<a class="waves-effect btn-icon-flat">
+										<i class="material-icons">keyboard_arrow_down</i>
 									</a>
 								</span>
 							</div>
-							<div class="collapsible-body materi-cont-siswa-bo">
+							<div class="collapsible-body">
 								<div class="row">
 									<div class="col s12 m12 l12">
 										<h6 class="center">Peraturan Diskusi</h6>
 									</div>
 									<div class="col s12 m12 l12 center">
 										<br>
-										<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Diskusi sekarang</a>
+										<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
+											<i class="material-icons right">arrow_forward</i>Detail Diskusi
+										</a>
 									</div>
 								</div>
 							</div>
@@ -55,42 +58,6 @@ Diskusi - Siswa
 				</div>
 			</div>
 			{{-- END ================================================================================ CARD BELUM DISKUSI --}}
-
-			{{-- START ================================================================================ CARD PERNAH DISKUSI --}}
-			<div class="col s12 m12 l12">
-				<div class="card cont-dash white">
-					<ul class="collapsible materi-cont-siswa done">{{-- Jika pernah ditambahkan done pada class --}}
-						<li>
-							<div class="collapsible-header materi-cont-siswa-he done">{{-- Jika pernah ditambahkan done pada class --}}
-								<i class="material-icons materi-icon-siswa">people_alt</i>Forum Gaya
-								<span class="cont-text-con">
-									Terakhir berdiskusi, 23 June 2020 | 15:30
-								</span>
-								<span class="cont-icon-con">
-									<a class="btn-floating btn-flat materi-icon-det">
-										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
-									</a>
-								</span>
-							</div>
-							<div class="collapsible-body materi-cont-siswa-bo">
-								<div class="row">
-									<div class="col s12 m12 l12">
-										<h6 class="center">Peraturan Diskusi</h6>
-									</div>
-									<div class="col s12 m12 l12 center">
-										<br>
-										<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect waves-light rb-color-2 btn"><i class="material-icons right">arrow_forward</i>Diskusi sekarang</a>
-									</div>
-								</div>
-							</div>
-						</li>
-					</ul>
-					<div class="card-action">
-						<b>Heri</b>, 23 Juni 2020
-					</div>
-				</div>
-			</div>
-			{{-- END ================================================================================ CARD PERNAH DISKUSI --}}
 
 		</div>
 	</div>

@@ -11,24 +11,8 @@ Diskusi - Siswa
 @section('app-siswa')
 
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa-plus">
-	<div class="container">
-		<div class="row valign-wrapper-rb">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Forum Diskusi</h5>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>Gaya</h6>
-				<div class="divider"></div>
-				<h6>Heri, 23 Juni 2020</h6>
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>

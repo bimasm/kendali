@@ -12,33 +12,10 @@ Tugas - Siswa
 
 @section('app-siswa')
 
-{{-- START ================================================================================ HEADER --}}
 @foreach($tugas as $tg)
-<section class="head-cont-tugas-siswa-plus">
-	<div class="container">
-		<div class="row valign-wrapper-rb">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>{{ $tg->judul }}</h5>
-				<h6>Pelajaran {{ \App\Pelajaran::where(['id' => \App\Tugaskelas::where('id', $tg->id)->value('id_pelajaran')])->value('pelajaran') }}</h6>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa valign">
-				<h6>
-					@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
-					Anda sudah mengerjakan pada {{ date('j F Y', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}, {{ date('H:i', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}
-					@else
-					Anda belum mengerjakan
-					@endif
-				</h6>
-				<div class="divider"></div>
-				<h6>Batas pengumpulan : {{ date('j F Y', strtotime($tg->deadline)) }}, {{ date('H:i', strtotime($tg->deadline)) }}</h6>
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
-{{-- END ================================================================================ HEADER --}}
+{{-- START ================================================================================ HEADER --}}
+@include('siswa.app.header-siswa')
+{{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
@@ -56,9 +33,9 @@ Tugas - Siswa
 				</blockquote>
 			</div>
 			@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
-					
-					@else
-					<div class="col s12 m12 l12">
+
+			@else
+			<div class="col s12 m12 l12">
 				<div class="card cont-dash white" style="margin-top: 3rem">
 					<div class="cont-head">
 						<span class="card-title">
@@ -83,7 +60,7 @@ Tugas - Siswa
 					</div>
 				</div>
 			</div>
-					@endif
+			@endif
 			@endforeach
 
 		</div>

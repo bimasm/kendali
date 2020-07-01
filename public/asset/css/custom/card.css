@@ -1,0 +1,164 @@
+
+/*CARD*/
+
+:root {
+	--shadow-card-hover: 0 4px 4px 0 rgba(60,64,67,0.302), 0 8px 12px 6px rgba(60,64,67,0.149);
+}
+
+/*CARD WITH ICON, TITILE, MENU*/
+.card-icon-menu {
+	border: 1px solid var(--darkbor);
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.3s;
+}
+
+.card-icon-menu:hover {
+	box-shadow: var(--shadow-card-hover);
+	border: 1px solid var(--white);
+}
+
+.card-icon-menu .card-header {
+	padding: 15px 20px; 
+	border-bottom: 1px solid var(--darkbor);
+	font-size: 24px;
+	font-weight: 300
+}
+
+.card-icon-menu .card-header .title span {
+	position: absolute;
+	padding: 0.7rem 0;
+	margin-left: 1rem
+}
+
+.card-icon-menu .card-header .title i {
+	color: var(--dark);
+	background-color: var(--darkbg);
+	padding: 5px; 
+	border-radius: 50%; 
+	width: 40px; 
+	height: 40px; 
+	line-height: 30px;
+	text-align: center;
+}
+
+.card-icon-menu .card-header span {
+	float: right;
+}
+
+
+/*CARD WITH COLLAPSIBLE DATA*/
+.card-icon-collapsible {
+	border: 1px solid var(--darkbor);
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.3s;
+}
+
+.card-icon-collapsible:hover {
+	box-shadow: var(--shadow-card-hover);
+	border: 1px solid var(--white);
+}
+
+.card-icon-collapsible .collapsible {
+	border: 0 !important;
+	box-shadow: none !important;
+	margin: 0px !important;
+}
+
+.card-icon-collapsible .collapsible li .collapsible-header {
+	border-bottom: 1px solid transparent;
+	transition: .5s all;
+	line-height: 2.5;
+	font-size: 1.3rem;
+	background-color: transparent !important;
+}
+
+.card-icon-collapsible .collapsible li.active .collapsible-header {
+	border-bottom: 1px solid var(--darkbor) !important;
+}
+
+.card-icon-collapsible .collapsible li .collapsible-header span {
+	float: right; 
+	right: 30px; 
+	position: absolute;
+}
+
+.card-icon-collapsible .collapsible li .collapsible-header span.text {
+	font-size: 18px; 
+	color: var(--dark);
+	float: right; 
+	right: 90px; 
+	position: absolute
+}
+
+.card-icon-collapsible .collapsible li .collapsible-header span a i {
+	-ms-transform: rotate(0deg);
+	transform: rotate(0deg);
+	transition: all 0.3s;
+}
+
+.card-icon-collapsible .collapsible li.active .collapsible-header span a i {
+	-ms-transform: rotate(180deg);
+	transform: rotate(180deg);
+}
+
+.card-icon-collapsible .collapsible li .collapsible-header i.title {
+	background: var(--darkbg);
+	width: 50px !important;
+	height: 50px !important;
+	border-radius: 50%;
+	line-height: 50px;
+	font-size: 25px;
+	color: var(--dark);
+}
+
+.card-icon-collapsible .collapsible li .collapsible-body {
+	border: 0 !important;
+}
+
+@media only screen and (max-width: 600px) {
+	.card-icon-collapsible .collapsible li .collapsible-header span.text {
+		font-size: 15px;
+		color: var(--dark);
+		float: right;
+		left: 80px;
+		right: 90px;
+		position: absolute;
+		top: 43px;
+	}
+}
+
+
+
+/*CARD WITH ICON, TEXT DESCRIPTION, MENU*/
+.card-icon-desc-btn {
+	border: 1px solid var(--darkbor);
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.3s;
+	padding: 0.5rem;
+}
+
+.card-icon-desc-btn:hover {
+	background-color: var(--colorut3)
+}
+
+.card-icon-desc-btn .row .icon {
+	text-align: center !important;
+	padding: 0.5rem;
+}
+
+.card-icon-desc-btn .row .icon i {
+	font-size: 2rem
+}
+
+.card-icon-desc-btn .row .desc {
+	font-size: 1rem;
+	padding: 1rem;
+	color: var(--dark)
+}
+
+.card-icon-desc-btn .row {
+	margin: 0 !important
+}

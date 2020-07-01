@@ -1,5 +1,5 @@
 
-/* START --------------------------------------------------------------------------- HEADER GURU*/
+/* START --------------------------------------------------------------------------- HEADER CSRC*/
 .header-csrb {
 	margin-top: 30px;
 }
@@ -46,8 +46,9 @@
 		text-align: center;
 	}
 }
-/* EMD ----------------------------------------------------------------------------- HEADER GURU*/
+/* END ------------------------------------------------------------------------------- HEADER CSRC*/
 
+/* START ----------------------------------------------------------------------------- HEADER CSRB IMAGE*/
 .header-csrb-img {
 	margin-top: 50px;
 }
@@ -71,13 +72,21 @@
 }
 
 @media only screen and (max-width: 600px) {
+	.header-csrb-img {
+		margin-top: 0;
+	}
+
+	.header-csrb-img .slider {
+		height: 470px !important
+	}
+
 	.header-csrb-img.container {
 		width: 100%
 	}
 
 	.header-csrb-img > .slider > ul.slides {
 		border-radius: 0px;
-		height: 300px !important;
+		height: 350px !important;
 	}
 
 	.header-csrb-img > .slider > ul.slides > li > img {
@@ -90,3 +99,4 @@
 	}
 
 }
+/* END ----------------------------------------------------------------------------- HEADER CSRB IMAGE*/

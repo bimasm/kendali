@@ -31,3 +31,36 @@
 	color: #9e312f !important;
 }
 /*--- END -------------------------------------------------------------------------------------------------- BG COLOR */
+
+
+
+:root{
+
+	--colorut1: #3F9CD6 !important;
+	--colorut2: #1e88e5 !important;
+	--colorut3: #e3f2fd !important;
+
+	/*hover ut*/
+	--colorut1-hv: #2979ab !important;
+	--colorut3-hv-sf: #eef5fb !important;
+
+	--transparent: transparent !important;
+	--white: #fff !important;
+
+	--dark: #757575 !important;
+	--darkbg: #eeeeee !important;
+	--darkbor: #e0e0e0 !important;
+
+	--borderflat : #dadce0 !important;
+
+}
+
+.dark-text {color: var(--dark) !important;}
+
+.prim-1-bg {background-color: var(--colorut1) !important;}
+.prim-2-bg {background-color: var(--colorut2) !important;}
+.prim-3-bg {background-color: var(--colorut3) !important;}
+
+.prim-1-text {color: var(--colorut1) !important;}
+.prim-2-text {color: var(--colorut2) !important;}
+.prim-3-text {color: var(--colorut3) !important;}

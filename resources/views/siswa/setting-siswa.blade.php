@@ -11,20 +11,7 @@ Setting - Siswa
 @section('app-siswa')
 
 {{-- START ================================================================================ HEADER --}}
-<section class="head-cont-tugas-siswa">
-	<div class="container">
-		<div class="row">
-			<div class="col s12 m12 l6 head-title-tugas-siswa">
-				<h5>Setting Akun</h5>
-			</div>
-			<div class="col s12 m12 l6 head-at-tugas-siswa">
-			</div>
-		</div>
-		<br>
-		<div class="divider"></div>
-		<br>
-	</div>
-</section>
+@include('siswa.app.header-siswa')
 {{-- END ================================================================================ HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
@@ -60,7 +47,7 @@ Setting - Siswa
 							</div>
 						</div>
 						<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-							<input disabled value="{{ Auth::guard('siswa')->user()->password }}" id="Password" type="password" class="set validate" name="password">
+							<input disabled value="" id="Password" type="password" class="set validate" name="password">
 							<label for="Password">Password</label>
 						</div>
 						<div class="input-field col s12 m12 l12" style="margin-top: 2em">
