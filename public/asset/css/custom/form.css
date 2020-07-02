@@ -154,7 +154,18 @@ span.text-cb {
 	margin-left: 10px !important;
 }
 
+.pwh-bg.pwh-inicon input {
+	width: -webkit-fill-available !important;
+	padding-left: 3.6rem !important
+}
+
+.pwh-bg.pwh-inicon i {
+	top: .9rem !important;
+	left: 1.3rem !important
+}
+
 .pwh-bg > input {
+	width: -webkit-fill-available !important;
 	padding-right: 10px
 }
 
@@ -171,10 +182,10 @@ span.text-cb {
 }
 
 .pwh-bg > textarea {
+	width: -webkit-fill-available !important;
 	background-color: var(--color-pen-lev4) !important;
 	padding-left: 10px !important;
 	padding-top: 20px !important;
-	width: 101.5% !important;
 	margin:0 !important;
 	height: 3.5rem
 }

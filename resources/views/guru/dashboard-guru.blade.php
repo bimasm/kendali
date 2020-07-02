@@ -20,26 +20,35 @@ Dashboard - Guru
 
 			@foreach($data as $dt)
 			<div class="col s12 m12 l4">
-				<div class="card cont-dash white">
-					<div class="cont-head">
-						<a href="{{route('DetailKelas',$dt->id) }}">
-							<span class="card-title">
-								<i class="cont-title-icon material-icons center">menu_book</i> {{$dt->pelajaran}}
-							</span>
+				<div class="card card-icon-menu">
+					<div class="card-header">
+						<a class="title" href="{{route('DetailKelas',$dt->id) }}">
+							<i class="material-icons">menu_book</i> 
+							<span>{{$dt->pelajaran}}</span>
 						</a>
-						<span style="float: right;">
-							<a class="dropdown-trigger btn-floating btn-flat waves-effect cont-det-back" href='#' data-target='dropdown2'><i class="cont-det-icon material-icons">more_vert</i></a>
+						<span>
+							<a class="dropdown-trigger waves-effect btn-icon-flat" data-target='menu-card1-{{$dt->id}}'>
+								<i class="material-icons">more_vert</i>
+							</a>
 						</span>
 					</div>
 
-					<div class="card-content grey-text text-darken-2 con-card-cont-guru">
-						<p>Dibuat pada {{ date('j F Y', strtotime($dt->created_at)) }}, {{ date('H:i', strtotime($dt->created_at)) }}</p>
+					<div class="card-content">
+						Dibuat pada {{ date('j F Y', strtotime($dt->created_at)) }}, {{ date('H:i', strtotime($dt->created_at)) }}
 					</div>
 				</div>
 
-				<ul id='dropdown2' class='dropdown-content'>
-					<li><a class="menu-kelas-guru-dash" href="#!"><i class="material-icons">edit</i>Edit</a></li>
-					<li><a class="menu-kelas-guru-dash" href="#!"><i class="material-icons">delete</i>Hapus</a></li>
+				<ul id="menu-card1-{{$dt->id}}" class="dropdown-content dropdown-menu-card">
+					<li>
+						<a href="#!">
+							<i class="material-icons">created</i>Edit
+						</a>
+					</li>
+					<li>
+						<a href="#!">
+							<i class="material-icons">delete</i>Hapus
+						</a>
+					</li>
 				</ul>
 			</div>
 			@endforeach

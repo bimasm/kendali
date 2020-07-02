@@ -11,3 +11,15 @@
 .dropdown-menu-card li a {
 	color: var(--dark) !important;
 }
+
+
+/*DROPDOWN MENU TABLE*/
+.dropdown-content.dropdown-menu-table {
+/*	top: 45px !important;*/
+	padding: 1rem 0;
+	height: auto !important
+}
+
+.dropdown-menu-table li a {
+	color: var(--dark) !important;
+}

@@ -98,7 +98,7 @@ Dashboard - Siswa
 	</div>
 </section>
 {{-- END ================================================================================ LIST KELAS --}}
-<div id="modal-add-kelas" class="modal modal-small">
+<div id="modal-add-kelas" class="modal modal-small modal-center">
 	<div class="modal-content">
 		<h5>Tambah Kelas</h5>
 		<form action="{{route('JoinKelasSiswa')}}" method="post">
@@ -109,10 +109,10 @@ Dashboard - Siswa
 					<label for="kode-kelas">Kode Kelas</label>
 				</div>
 			</div>
-			 <div class="modal-footer">
+			<div class="modal-footer">
 				<a class="modal-close btn waves-effect btn-flattext-prim">Batal</a>
 
-				<button type="submit" class="waves-effect waves-light btn modal-trigger btn-solid-prim">
+				<button type="submit" class="waves-effect waves-light btn btn-solid-prim">
 					<i class="material-icons right">send</i>Submit
 				</button>
 			</div>

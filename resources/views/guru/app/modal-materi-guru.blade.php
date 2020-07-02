@@ -3,44 +3,37 @@
 @foreach($materi as $mt)
 @foreach($mt->komponen as $k)
 <div id="modal-edit-materi{{ $k->id }}" class="modal">
-	<div class="modal-content white">
-		<div class="row">
-			<form action="" method="">
-				@csrf
-				<div class="col s12 m12 l12">
-					<h5>kelas</h5>
+	<div class="modal-content">
+		<h5>Edit Materi</h5>
+		<form action="" method="post" enctype="multipart/form-data">
+			@csrf
+			<div class="content row">
+				<div class="input-field col s12 pwh-bg">
+					<input id="judul" type="text" class="validate" name="judul" value="{{ $k->judul }}">
+					<label for="judul">Judul Materi</label>
 				</div>
-				<div class="col s12 m12 l12">
-					<hr>
-					<br>
-				</div>
-				<div class="col s12 m12 l12">
-					<div class="input-field">
-						<input id="last_name" type="text" class="validate" value="{{ $k->judul }}">
-						<label for="last_name">Judul Materi</label>
+				<div class="file-field input-field col s12">
+					<div>
+						{{--<span>File</span> --}}
+						<input type="file" name="filemateri" multiple>
+					</div>
+					<div class="file-path-wrapper input-file-pw">
+						@foreach($data as $dt)
+						<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+						@endforeach
+						<input type="hidden" name="id_materi" value="{{ $mt->id }}">
+						<input class="file-path validate" type="text" placeholder="Upload one or more files">
 					</div>
 				</div>
-				<div class="col s12 m12 l12">
-					<br>
-				</div>
-				<div class="row" style="padding: 0 60px;">
-					<div class="row">
-						<div class="file-field input-field col s12">
-							<div class="btn-up btn no-shads">
-								<i class="material-icons">add_circle</i>
-								<input type="file" multiple>
-							</div>
-							<div class="file-path-wrapper">
-								<input class="file-path validate" type="text" placeholder="File Materi">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Simpan Perubahan</button>
-				</div>
-			</form>
-		</div>
+			</div>
+			<div class="modal-footer">
+				<a class="modal-close btn waves-effect btn-flattext-prim">Batal</a>
+
+				<button type="submit" class="waves-effect waves-light btn btn-solid-prim">
+					<i class="material-icons right">send</i>Submit
+				</button>
+			</div>
+		</form>
 	</div>
 </div>
 @endforeach
@@ -50,41 +43,37 @@
 {{-- START ================================================================================ ADD FILE MATERI --}}
 @foreach($materi as $mt)
 <div id="modal-add-file{{ $mt->id }}" class="modal">
-	<div class="modal-content white">
-		<div class="row">
-			<form action="{{ route('addfilemateri') }}" method="post" enctype="multipart/form-data">
-				@csrf
-				<div class="col s12 m12 l12 fot-card-left">
-					<div class="input-field">
-						<input id="last_name" type="text" name="judul" class="validate">
-						<label for="last_name">Judul Materi</label>
+	<div class="modal-content">
+		<h5>Tambah File Materi</h5>
+		<form action="{{ route('addfilemateri') }}" method="post" enctype="multipart/form-data">
+			@csrf
+			<div class="content row">
+				<div class="input-field col s12 pwh-bg">
+					<input id="judul" type="text" class="validate" name="judul">
+					<label for="judul">Judul Materi</label>
+				</div>
+				<div class="file-field input-field col s12">
+					<div>
+						{{--<span>File</span> --}}
+						<input type="file" name="filemateri" multiple>
+					</div>
+					<div class="file-path-wrapper input-file-pw">
+						@foreach($data as $dt)
+						<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
+						@endforeach
+						<input type="hidden" name="id_materi" value="{{ $mt->id }}">
+						<input class="file-path validate" type="text" placeholder="Upload one or more files">
 					</div>
 				</div>
+			</div>
+			<div class="modal-footer">
+				<a class="modal-close btn waves-effect btn-flattext-prim">Batal</a>
 
-				<div class="row" style="padding: 0 60px;">
-					<div class="row">
-						<div class="file-field input-field col s12">
-							<div class="btn-up btn no-shads">
-								<i class="material-icons">add_circle</i>
-								<input type="file" name="filemateri" multiple>
-							</div>
-							<div class="file-path-wrapper">
-								@foreach($data as $dt)
-								<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
-								@endforeach
-
-								<input type="hidden" name="id_materi" value="{{ $mt->id }}">
-
-								<input class="file-path validate" type="text" placeholder="File Materi pdf/jpg/png">
-							</div>
-						</div>
-					</div>
-				</div>
-				<div class="input-field col s12 center">
-					<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
-				</div>
-			</form>
-		</div>
+				<button type="submit" class="waves-effect waves-light btn btn-solid-prim">
+					<i class="material-icons right">send</i>Submit
+				</button>
+			</div>
+		</form>
 	</div>
 </div>
 @endforeach
@@ -93,17 +82,23 @@
 {{-- START ================================================================================ HAPUS MATERI --}}
 @foreach($materi as $mt)
 @foreach($mt->komponen as $k)
-<div id="modal-hapus{{ $k->id }}" class="modal m-hapus">
-	<div class="modal-content white">
+<div id="modal-hapus-materi{{ $k->id }}" class="modal modal-small modal-center">
+	<div class="modal-content">
 		<div class="row">
 			<form action="" method="">
 				@csrf
-				<div class="col s12 center">
-					<h5>Apakah anda yakin ?</h5>
-					<p>Hapus {{ $k->judul }}</p>
+				<div class="content row">
+					<div class="col s12 center">
+						<h5>Apakah anda yakin ?</h5>
+						<h6>Hapus {{ $k->judul }}</h6>
+					</div>
 				</div>
-				<div class="input-field col s12 center">
-					<a class="waves-effect waves-light btn red darken-2"><i class="material-icons right">delete</i>Hapus</a>
+				<div class="modal-footer">
+					<a class="modal-close btn waves-effect btn-flattext-prim">Batal</a>
+
+					<button type="submit" class="waves-effect waves-light btn btn-solid-prim">
+						Hapus
+					</button>
 				</div>
 			</form>
 		</div>

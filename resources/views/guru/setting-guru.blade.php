@@ -17,56 +17,53 @@ Setting - Guru
 {{-- START ================================================================================ CONTENT --}}
 <section>
 	<div class="container container-60" style="margin-bottom: 100px">
-		<div class="row">
-			<div class="col s12 m12 l12">
-				
-				<div class="ya">
-					<div class="card cont-set white">
 
-						<div class="cont-head">
-							<span class="card-title">
-								<h6>Profile Anda</h6>
-							</span>
-							<span class="icon-edit">
-								<a id="clicker" class="btn-floating btn-flat waves-effect cont-det-back">
-									<i class="cont-det-icon material-icons" style="display: block">edit</i>
-								</a>
-							</span>
+		<div class="trigger-card-hover-border">
+			<div class="card card-hover-border">
+
+				<div class="card-header">
+					<h6>Profile Anda</h6>
+					<span>
+						<a id="clicker" class="waves-effect btn-icon-flat">
+							<i class="material-icons" style="display: block">edit</i>
+						</a>
+					</span>
+				</div>
+
+				<div class="card-content grey-text text-darken-2 con-card-cont row">
+					<form action="" method="POST" class="col s12">
+						@csrf
+						<div class="row">
+							<div class="input-field col s12 pwh-bg">
+								<input disabled id="Nama_Lengkap" type="text" class="validate">
+								<label for="Nama_Lengkap">Nama Lengkap</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 pwh-bg">
+								<input disabled id="Password" type="password" class="validate">
+								<label for="Password">Password</label>
+							</div>
+						</div>
+						<div class="row">
+							<div class="input-field col s12 pwh-bg">
+								<input disabled id="sekolah" type="text" class="validate">
+								<label for="sekolah">Sekolah</label>
+							</div>
 						</div>
 
-						<div class="card-content grey-text text-darken-2 con-card-cont">
-
-							<form action="" method="">
-								@csrf
-								<div class="row">
-									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-										<input disabled value="{{ Auth::guard('guru')->user()->nama }}" id="Nama_Lengkap" type="text" class="set validate" name="nama_lengkap">
-										<label for="Nama_Lengkap">Nama Lengkap</label>
-									</div>
-									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-										<input disabled value="{{ Auth::guard('guru')->user()->password }}" id="Password" type="password" class="set validate" name="password">
-										<label for="Password">Password</label>
-									</div>
-									<div class="input-field col s12 m12 l12" style="margin-top: 2em">
-										<input disabled value="{{ \App\Sekolah::where(['id' => Auth::guard('guru')->user()->id_sekolah])->value('nama') }}" id="Sekolah" type="text" class="set validate" name="sekolah">
-										<label for="Sekolah">Sekolah</label>
-									</div>
-
-									<div id="save" class="input-field right-align" style="display: none">
-										<a id="cancel" href="#!" class="waves-effect waves-light btn-flat">Cancel</a>
-										<button type="submit" class="waves-effect waves-light btn rb-color-2">Simpan</button>
-									</div>
-								</div>	
-							</form>
-
-						</div>
-
-					</div>
+						<div id="save" class="input-field right-align" style="display: none">
+							<a id="cancel" href="#!" class="waves-effect btn-flat btn-border-prim">
+								Cancel
+							</a>
+							<button type="submit" class="waves-effect waves-light btn btn-solid-prim">Simpan</button>
+						</div>	
+					</form>
 				</div>
 
 			</div>
-
 		</div>
+
 	</div>
 </section>
 {{-- END ================================================================================== CONTENT --}}

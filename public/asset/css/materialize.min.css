@@ -5719,7 +5719,7 @@ body.keyboard-focused .dropdown-content li:focus {
     right: 0;
     height: 125%;
     width: 100%;
-    background: #fff;
+    background: rgba(32,33,36,0.6);
     display: none;
     opacity: 0.95 !important;
     will-change: opacity

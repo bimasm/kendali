@@ -191,3 +191,16 @@
 .trigger-card-hover-border:hover .card-hover-border .card-header {
 	border-bottom: 1px solid var(--colorut1);
 }
+
+/*CARD POLOS*/
+.card-polos {
+	border: 1px solid var(--darkbor);
+	border-radius: 8px;
+	box-shadow: none;
+	transition: all 0.3s;
+}
+
+.card-polos:hover {
+	box-shadow: var(--shadow-card-hover);
+	border: 1px solid var(--white);
+}

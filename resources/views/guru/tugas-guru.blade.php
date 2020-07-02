@@ -19,56 +19,74 @@ Tugas - Guru
 		@foreach($tugas as $tg)
 		<div class="row">
 			<div class="col s12 m12 l12">
-				<div class="card cont-dash white">
-					<ul class="collapsible materi-cont-siswa">
+				<div class="card card-icon-collapsible">
+					<ul class="collapsible">
 						<li>
-							{{-- START ==================================================================== HEAD TITLE --}}
-							<div class="collapsible-header materi-cont-siswa-he materi">
-								<i class="material-icons materi-icon-siswa">assignment</i>{{ $tg->judul }}
-								<span class="cont-icon-con">
-									<a class="btn-floating btn-flat materi-icon-det">
-										<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+							<div class="collapsible-header">
+								<i class="material-icons title">assignment</i>
+								{{ $tg->judul }}
+								<span>
+									<a class="waves-effect btn-icon-flat">
+										<i class="material-icons">keyboard_arrow_down</i>
 									</a>
 								</span>
 							</div>
-							{{-- END ==================================================================== HEAD TITLE --}}
-
-							{{-- START ==================================================================== BODY TUGAS --}}
-							<div class="collapsible-body materi-cont-siswa-bo">
-								<br>
-								<h6><b>Detail Tugas</b></h6>
-								<blockquote>
-									<div class="tugas-text">
-										<p>{{ $tg->tugas }}</p>
+							<div class="collapsible-body">
+								<div class="row valign-wrapper">
+									<div class="col s10">
+										<h6><b>Detail Tugas</b></h6>
+										<blockquote>
+											<div class="tugas-text">
+												<p>{{ $tg->tugas }}</p>
+											</div>
+										</blockquote>
 									</div>
-								</blockquote>
-								<br>
+									<div class="col s2 center valign">
+										<span>
+											<a class="dropdown-trigger waves-effect btn-icon-flat" data-target="dropdownmenumat{{ $tg->id }}">
+												<i class="material-icons">more_vert</i>
+											</a>
+										</span>
+										<ul id="dropdownmenumat{{ $tg->id }}" class="dropdown-content dropdown-menu-table">
+											<li>
+												<a href="#modal-edit-tugas{{ $tg->id }}" class="modal-trigger">
+													<i class="material-icons">edit</i>Edit
+												</a>
+											</li>
+											<li>
+												<a href="#modal-hapus-tugas{{ $tg->id }}" class="modal-trigger">
+													<i class="material-icons">delete</i>Hapus
+												</a>
+											</li>
+										</ul>
+									</div>
+								</div>
+								<div class="divider"></div>
 								<blockquote>
 									<table>
 										<tbody>
 											<tr>
 												<th>Siswa Mengumpulkan</th>
-												<td>{{ \App\Jawabantugas::where(['id_tugas' => $tg->id])->count()}} Siswa</td>
+												<td>
+													{{ \App\Jawabantugas::where(['id_tugas' => $tg->id])->count()}} Siswa
+												</td>
 											</tr>
 											<tr>
 												<th>Siswa Belum Mengumpulkan</th>
 												@foreach($data as $dt)
-												<td>{{ \App\Relation::where('id_pelajaran', $dt->id)->count()-\App\Jawabantugas::where(['id_tugas' => $tg->id])->count() }} Siswa</td>
+												<td>
+													{{ \App\Relation::where('id_pelajaran', $dt->id)->count()-\App\Jawabantugas::where(['id_tugas' => $tg->id])->count() }} Siswa
+												</td>
 												@endforeach
 											</tr>
 										</tbody>
 									</table>
 								</blockquote>
 								<br>
-								<div class="row">
-									<div class="col s12 m12 l6">
-										<a href="#modal-tugas-edit" class="waves-effect waves-light btn modal-trigger blue darken-1"><i class="material-icons left">edit</i>Edit</a>
-
-										<a href="#modal-tugas-hapus" class="waves-effect waves-light btn modal-trigger red darken-2"><i class="material-icons left">delete</i>Hapus</a>	
-									</div>
-									<div class="col s12 m12 l6 fot-card-right">
-										<a href="{{route('GuruTugasDetail', $tg->id)}}" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">arrow_forward</i>Detail</a>
-									</div>
+								<div class="right-align">
+									<a href="{{route('GuruTugasDetail', $tg->id)}}" class="waves-effect btn-flat btn-border-prim">
+										<i class="material-icons right">arrow_forward</i>Detail Tugas
+									</a>
 								</div>
 							</div>
 							{{-- END ==================================================================== BODY TUGAS --}}
@@ -90,41 +108,43 @@ Tugas - Guru
 {{-- START ================================================================================ TAMBAH TUGAS --}}
 <section id="detail" style="display: none">
 	<div class="container container-60" style="margin-bottom: 100px">
-		<div class="card cont-dash white">
-			<div class="card-content grey-text text-darken-2 con-card-cont">
+		<div class="card card-polos">
+			<div class="card-content">
 
 				<form action="{{ route('addtugas') }}" method="post">
 					@csrf
-					<div class="col s12 m12 l12 fot-card-left">
-						<div class="input-field">
-							<input id="last_name" type="text" name="judul" class="validate">
-							<label for="last_name">Judul Tugas</label>
-						</div>
-					</div>
-
-					<div class="row con-form-60">
-						<div class="input-field col s12">
-							<textarea id="textarea1" name="tugas" class="materialize-textarea"></textarea>
-							<label for="textarea1">Deskripsi Soal</label>
-						</div>
+					<div class="row">
 						@foreach($data as $dt)
 						<input type="hidden" name="id_pelajaran" value="{{ $dt->id }}">
 						@endforeach
-						<div class="row">
-							<div class="input-field col s12 m12 l6">
-								<i class="material-icons prefix">date_range</i>
-								<input type="text" name="tgl" class="datepicker">
-								<label for="textarea1">Tanggal Jatuh Tempo</label>
-							</div>
-							<div class="input-field col s12 m12 l6">
-								<i class="material-icons prefix">access_time</i>
-								<input type="text" name="jam" class="timepicker">
-								<label for="textarea1">Waktu Jatuh Tempo</label>
-							</div>
+
+						<div class="input-field col s12 pwh-bg">
+							<input id="judul" type="text" class="validate" name="judul">
+							<label for="judul">Judul Tugas</label>
+						</div>
+
+						<div class="input-field col s12 pwh-bg pwh-textarea">
+							<textarea id="tugas" class="materialize-textarea" name="tugas">
+							</textarea>
+							<label for="tugas">Textarea</label>
+						</div>
+
+						<div class="input-field col s12 m12 l6 pwh-bg pwh-inicon">
+							<i class="material-icons prefix">date_range</i>
+							<input type="text" class="datepicker" name="tgl">
+							<label for="textarea1">Tanggal Jatuh Tempo</label>
+						</div>
+						<div class="input-field col s12 m12 l6  pwh-bg pwh-inicon end">
+							<i class="material-icons prefix">access_time</i>
+							<input type="text" class="timepicker" name="jam">
+							<label for="textarea1">Waktu Jatuh Tempo</label>
 						</div>
 					</div>
+
 					<div class="input-field col s12 center">
-						<button type="submit" class="waves-effect waves-light btn rb-color-2"><i class="material-icons right">send</i>Submit</button>
+						<button type="submit" class="waves-effect waves-light btn btn-solid-prim">
+							<i class="material-icons right">send</i>Submit
+						</button>
 					</div>
 				</form>
 

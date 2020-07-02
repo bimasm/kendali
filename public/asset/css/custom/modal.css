@@ -5,8 +5,12 @@
 	background-color: var(--white) !important
 }
 
-.modal.modal-small {
-	width: 30% !important
+.modal-content .row {
+	margin:0 !important;
+}
+
+.modal-footer {
+	margin-top: 2rem
 }
 
 .modal .modal-content .modal-footer {
@@ -15,6 +19,17 @@
 
 .modal .modal-content .modal-footer .modal-close {
 	margin-right: 1rem
+}
+
+
+/*MODAL SMALL*/
+.modal.modal-small {
+	width: 30% !important
+}
+
+/*MODAL CENTER*/
+.modal.modal-center {
+	top: 25% !important
 }
 
 @media only screen and (max-width: 600px) {
