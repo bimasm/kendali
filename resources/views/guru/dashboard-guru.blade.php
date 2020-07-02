@@ -14,7 +14,7 @@ Dashboard - Guru
 {{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section>
+<section class="mt-1">
 	<div class="container container-75" style="margin-bottom: 100px">
 		<div class="row">
 

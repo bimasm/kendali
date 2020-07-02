@@ -15,7 +15,7 @@ Setting - Siswa
 {{-- END ================================================================================ HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section>
+<section class="mt-1">
 	<div class="container container-60" style="margin-bottom: 100px">
 
 		<div class="trigger-card-hover-border">

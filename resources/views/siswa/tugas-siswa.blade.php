@@ -16,7 +16,7 @@ Tugas - Siswa
 {{-- END ================================================================================== SLIDE --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section>
+<section class="mt-1">
 	<div class="container container-60-t" style="margin-bottom: 100px">
 		<div class="row">
 

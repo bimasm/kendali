@@ -24,7 +24,17 @@ class GuruController extends Controller
 
 	public function Guru_SemuaTugas()
 	{
-		return view('guru.semuatugas-guru');
+		$guru=Auth::guard('guru')->user()->get();
+		$pelajaran=Pelajaran::whereIn('id_guru', $guru)->get();
+		$arr = array();
+
+		foreach ($pelajaran as $s) {
+			array_push($arr, $s->id);
+		}
+
+		$data=Tugaskelas::whereIn('id_pelajaran', $arr)->orderBy('created_at','desc')->get();
+
+		return view('guru.semuatugas-guru', compact('data'));
 	}
 
 	public function Guru_Tugas_Detail($id)
@@ -40,7 +50,7 @@ class GuruController extends Controller
 	{
 		return view('guru.semuaujian-guru');
 	}
- 
+
 	public function Detail_Kelas($id)
 	{
 		$data=Pelajaran::where('id',$id)->get();

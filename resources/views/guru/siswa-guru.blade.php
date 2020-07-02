@@ -14,7 +14,7 @@ Siswa - Guru
 {{-- END ================================================================================ HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section>
+<section class="mt-1">
 	<div class="container container-60" style="margin-bottom: 100px">
 		<div class="row">
 			<div class="col s12 m12 l12">

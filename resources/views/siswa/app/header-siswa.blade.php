@@ -53,7 +53,7 @@
 		@endif
 
 		@if(request()->routeIs('SiswaTugasUjianSemua'))
-		<h5>Semua Tugas & Ujian</h5>
+		<h5>Semua Pekerjaan</h5>
 		@endif
 
 		@if(request()->routeIs('SiswaSetting'))
@@ -64,15 +64,14 @@
 
 	<div class="col s12 m12 l6 right">
 		@if(request()->routeIs('SiswaTugasUjianSemua'))
-		<h6>1 Tugas belum dikerjakan</h6>
+		{{-- <h6>1 Tugas belum dikerjakan</h6>
 		<div class="divider"></div>
-		<h6>1 Ujian belum dikerjakan</h6>
+		<h6>1 Ujian belum dikerjakan</h6> --}}
 		@endif
 	</div>
 </div>
 <div class="divider"></div>
 </section>
-<br>
 @endif
 {{-- END =================================================================================== HEADER WITH MONITORING DATA --}}
 
@@ -125,7 +124,6 @@
 	</div>
 	<div class="divider"></div>
 </section>
-<br>
 @endif
 
 {{-- END =================================================================================== HEADER DETAIL MONITORING DATA --}}

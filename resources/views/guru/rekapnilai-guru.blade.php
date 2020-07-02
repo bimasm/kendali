@@ -14,7 +14,7 @@ Rekap Nilai - Guru
 {{-- END ================================================================================== HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section>
+<section class="mt-1">
 	<div class="container container-60" style="margin-bottom: 100px">
 		<br>
 		<div class="row">

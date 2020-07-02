@@ -14,7 +14,7 @@ Diskusi - Siswa
 @include('guru.app.header-guru')
 {{-- END ================================================================================== HEADER --}}
 
-<section>
+<section class="mt-1">
 	<div class="container">
 		<div class="row">
 			

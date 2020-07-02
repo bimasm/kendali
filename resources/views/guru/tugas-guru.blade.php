@@ -14,7 +14,7 @@ Tugas - Guru
 {{-- END ================================================================================ HEADER --}}
 
 {{-- START ================================================================================ CONTENT --}}
-<section id="tab">
+<section id="tab" class="mt-1">
 	<div class="container container-60" style="margin-bottom: 100px">
 		@foreach($tugas as $tg)
 		<div class="row">
@@ -153,8 +153,9 @@ Tugas - Guru
 	</div>
 </section>
 {{-- END ================================================================================ TAMBAH TUGAS --}}
-
+@foreach($tugas as $tg)
 @include('guru.app.modal-tugas-guru')
+@endforeach
 @endsection
 
 @section('js-plus')

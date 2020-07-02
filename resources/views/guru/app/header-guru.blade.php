@@ -130,4 +130,3 @@
 </div>
 <div class="divider"></div>
 </section>
-<br>

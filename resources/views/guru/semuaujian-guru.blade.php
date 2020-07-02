@@ -15,46 +15,31 @@ Semua Ujian - Guru
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
-	<div class="container container-75" style="margin-bottom: 100px">
+	<div class="container container-60" style="margin-bottom: 100px">
 		<br>
 		<div class="row">
-			{{-- START ================================================================================ BAR KELAS --}}
-			<div class="col s12 m12 l4">
-				<div class="collection n-bor">
-					<h5>Kelas</h5>
-					<div class="divider"></div>
-					<a href="#!" class="collection-item n-bor">Alvin</a>
-					<a href="#!" class="collection-item n-bor active">Alvin</a>
-					<a href="#!" class="collection-item n-bor">Alvin</a>
-					<a href="#!" class="collection-item n-bor">Alvin</a>
-				</div>
-			</div>
-			{{-- END ================================================================================ BAR KELAS --}}
-
 			{{-- START ================================================================================ LIST UJIAN --}}
-			<div class="col s12 m12 l8">
+			<div class="col s12 m12 l12">
 				<div class="row">
 
 					<div class="col s12 m12 l12">
-						<div class="card cont-dash white">
-							<ul class="collapsible materi-cont-siswa">
+						<div class="card card-icon-collapsible">
+							<ul class="collapsible">
 								<li>
-									{{-- START ======================================================================== HEAD TITILE --}}
-									<div class="collapsible-header materi-cont-siswa-he">
-										<i class="material-icons materi-icon-siswa">list_alt</i>Judul Ujian
-										<span class="cont-text-con">
+									<div class="collapsible-header">
+										<i class="material-icons title">list_alt</i>
+										Judul Ujian
+										<span class="text">
 											Fisika
 										</span>
-										<span class="cont-icon-con">
-											<a class="btn-floating btn-flat materi-icon-det">
-												<i class="cont-det-icon material-icons">keyboard_arrow_down</i>
+										<span>
+											<a class="waves-effect btn-icon-flat">
+												<i class="material-icons">keyboard_arrow_down</i>
 											</a>
 										</span>
 									</div>
-									{{-- END ======================================================================== HEAD TITILE --}}
 
-									{{-- START ======================================================================== BODY UJIAN --}}
-									<div class="collapsible-body materi-cont-siswa-bo">
+									<div class="collapsible-body">
 										<h6><b>Detail Ujian</b></h6>
 										<blockquote>
 											<table>

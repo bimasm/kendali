@@ -16,130 +16,195 @@ Semua Tugas & Ujian - Siswa
 
 {{-- START ================================================================================ CONTENT --}}
 <section>
-	<div class="container container-60" style="margin-bottom: 100px">
+	<div class="container container-75" style="margin-bottom: 100px">
 		<div class="row">
-
-			{{-- START ================================================================================ CARD--}}
-			<div class="col s12 m12 l12">
-				<div class="card card-icon-collapsible">
-					<ul class="collapsible">
-						<li>
-							<div class="collapsible-header">
-								<i class="material-icons title">assignment</i>
-								Gaya
-								<span class="text">
-									Belum diekrjakan
-								</span>
-								<span>
-									<a class="waves-effect btn-icon-flat">
-										<i class="material-icons">keyboard_arrow_down</i>
-									</a>
-								</span>
-							</div>
-							<div class="collapsible-body">
-								<h6>
-									Batas pengumpulan : 
-									24 June 2020 | 23:59
-								</h6>
-								<br>
-								<div class="divider"></div>
-								<br>
-								<h6><b>Detail Tugas</b></h6>
-								<blockquote>
-									<div class="tugas-text">
-										<p>
-											Buatlah program android sederhana yang terdiri dari 2 activity (bebas nama activity) yang activity 1 dapat berpindah ke activity 2. Kirim file Java dan XML serta video capture hasil aplikasi (bisa dari emulator/HP). Dan tambahkan file TXT dengan format NIM_NAMA
-										</p>
-									</div>
-								</blockquote>
-								{{-- <br>
-								<h6>Pekerjaan Anda</h6>
-								<blockquote>
-									Belum ada file
-								</blockquote> --}}
-								<br>
-								<div class="row">
-									<div class="col s12 m12 l12 right-align">
-										<a href="" class="waves-effect btn-flat btn-border-prim">
-											<i class="material-icons right">arrow_forward</i>Detail Tugas
-										</a>
-									</div>
-								</div>
-
-							</div>
-						</li>
-					</ul>
-					<div class="card-action">
-						<b>Batas Pengumpulan : </b>23 Juni 2020
-					</div>
-				</div>
+			<div class="col s12" style="margin-bottom: 2rem">
+				<ul class="tabs">
+					<li class="tab col s4"><a class="active" href="#tugas">Tugas</a></li>
+					<li class="tab col s4"><a href="#ujian">Ujian</a></li>
+					<li class="tab col s4"><a href="#diskusi">Diskusi</a></li>
+				</ul>
 			</div>
-			{{-- END ================================================================================ CARD--}}
+			<div id="tugas" class="col s12">
 
+				<div class="container container-75">
+					<div class="row">
 
-			{{-- START ================================================================================ CARD BELUM DIKERJAKAN --}}
-			<div class="col s12 m12 l12">
-				<div class="card card-icon-collapsible">
-					<ul class="collapsible">
-						<li>
-							<div class="collapsible-header">
-								<i class="material-icons title">list_alt</i>
-								Gaya
-								<span class="text">
-									Belum Dikerjakan
-								</span>
-								<span>
-									<a class="waves-effect btn-icon-flat">
-										<i class="material-icons">keyboard_arrow_down</i>
-									</a>
-								</span>
-							</div>
-							<div class="collapsible-body">
-								<h6><b>Detail Ujian</b></h6>
-								<blockquote>
-									<div class="row">
-										<div class="col s12 m12 l12">
-											<table>
-												<tbody>
-													<tr>
-														<th>Jenis Ujian</th>
-														<td>Ulangan Harian</td>
-													</tr>
-													<tr>
-														<th>Jumlah Soal</th>
-														<td>50 Soal</td>
-													</tr>
-													<tr>
-														<th>Waktu</th>
-														<td>90 menit</td>
-													</tr>
-													<tr>
-														<th>Nilai</th>
-														<td>Belum Dikerjakan</td>
-													</tr>
-												</tbody>
-											</table>
+						@foreach($tugas as $tg)
+						<div class="col s12 m12 l12">
+							<div class="card card-icon-collapsible">
+								<ul class="collapsible">
+									<li>
+										<div class="collapsible-header">
+											<i class="material-icons title">assignment</i>
+											<div class="show-on-medium-and-down hide-on-large-only">
+												{!! Str::limit($tg->judul, 18, '...') !!}
+											</div>
+											<div class="show-on-large hide-on-med-and-down">
+												{!! Str::limit($tg->judul, 45, '...') !!}
+											</div>
+											<span class="text">
+												{{ \App\Pelajaran::where(['id' => $tg->id_pelajaran])->value('pelajaran')}}
+											</span>
+											<span>
+												<a class="waves-effect btn-icon-flat">
+													<i class="material-icons">keyboard_arrow_down</i>
+												</a>
+											</span>
 										</div>
-									</div>
-								</blockquote>
-								<br>
-								<div class="row">
-									<div class="col s12 m12 l12 right-align">
-										<a href="" class="waves-effect btn-flat btn-border-prim">
-											<i class="material-icons right">arrow_forward</i>Kerjakan Sekarang
-										</a>
-									</div>
+										<div class="collapsible-body">
+											<h6>
+												Batas pengumpulan : 
+												{{ date('j F Y', strtotime($tg->deadline)) }}, 
+												{{ date('H:i', strtotime($tg->deadline)) }}
+											</h6>
+											<br>
+											<div class="divider"></div>
+											<br>
+											<h6><b>Detail Tugas</b></h6>
+											<blockquote>
+												<div class="tugas-text">
+													<p>{{ $tg->tugas }}</p>
+												</div>
+											</blockquote>
+											<br>
+											<div class="row">
+												<div class="col s12 m12 l12 right-align">
+													<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
+														<i class="material-icons right">arrow_forward</i>Detail Tugas
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="card-action">
+									Batas pengumpulan : 
+									{{ date('j F Y', strtotime($tg->deadline)) }}, 
+									{{ date('H:i', strtotime($tg->deadline)) }}
 								</div>
-
 							</div>
-						</li>
-					</ul>
-					<div class="card-action">
-						<b>Heri</b>, 23 Juni 2020
+						</div>
+						@endforeach
+
 					</div>
 				</div>
+
 			</div>
-			{{-- END ================================================================================ CARD BELUM DIKERJAKAN --}}
+			<div id="ujian" class="col s12">
+
+				<div class="container container-75">
+					<div class="row">
+						<div class="col s12 m12 l12">
+							<div class="card card-icon-collapsible">
+								<ul class="collapsible">
+									<li>
+										<div class="collapsible-header">
+											<i class="material-icons title">list_alt</i>
+											Gaya
+											<span class="text">
+												Belum Dikerjakan
+											</span>
+											<span>
+												<a class="waves-effect btn-icon-flat">
+													<i class="material-icons">keyboard_arrow_down</i>
+												</a>
+											</span>
+										</div>
+										<div class="collapsible-body">
+											<h6><b>Detail Ujian</b></h6>
+											<blockquote>
+												<div class="row">
+													<div class="col s12 m12 l12">
+														<table>
+															<tbody>
+																<tr>
+																	<th>Jenis Ujian</th>
+																	<td>Ulangan Harian</td>
+																</tr>
+																<tr>
+																	<th>Jumlah Soal</th>
+																	<td>50 Soal</td>
+																</tr>
+																<tr>
+																	<th>Waktu</th>
+																	<td>90 menit</td>
+																</tr>
+																<tr>
+																	<th>Nilai</th>
+																	<td>Belum Dikerjakan</td>
+																</tr>
+															</tbody>
+														</table>
+													</div>
+												</div>
+											</blockquote>
+											<br>
+											<div class="row">
+												<div class="col s12 m12 l12 right-align">
+													<a href="" class="waves-effect btn-flat btn-border-prim">
+														<i class="material-icons right">arrow_forward</i>Kerjakan Sekarang
+													</a>
+												</div>
+											</div>
+
+										</div>
+									</li>
+								</ul>
+								<div class="card-action">
+									<b>Heri</b>, 23 Juni 2020
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+			<div id="diskusi" class="col s12">
+				
+				<div class="container container-75">
+					<div class="row">
+						<div class="col s12 m12 l12">
+							<div class="card card-icon-collapsible">
+								<ul class="collapsible">
+									<li>
+										<div class="collapsible-header">
+											<i class="material-icons title">people_alt</i>
+											Forum Gaya
+											<span class="text">
+												Belum berdiskusi
+											</span>
+											<span>
+												<a class="waves-effect btn-icon-flat">
+													<i class="material-icons">keyboard_arrow_down</i>
+												</a>
+											</span>
+										</div>
+										<div class="collapsible-body">
+											<div class="row">
+												<div class="col s12 m12 l12">
+													<h6 class="center">Peraturan Diskusi</h6>
+												</div>
+												<div class="col s12 m12 l12 center">
+													<br>
+													<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
+														<i class="material-icons right">arrow_forward</i>Detail Diskusi
+													</a>
+												</div>
+											</div>
+										</div>
+									</li>
+								</ul>
+								<div class="card-action">
+									<b>Heri</b>, 23 Juni 2020
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			</div>
+
 		</div>
 	</div>
 </section>

@@ -17,7 +17,7 @@
 @include('guru.app.header-guru')
 {{-- END ================================================================================== HEADER --}}
 
-<section style="margin-top: 5px">
+<section class="mt-1">
 	<div class="container">
 		<div class="row">
 			<div class="col s12 m12 l7">

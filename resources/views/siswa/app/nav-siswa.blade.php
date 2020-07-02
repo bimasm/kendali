@@ -204,7 +204,7 @@
 			)) ? 'active' : '' }}
 			">
 			<a href="{{route('SiswaTugasUjianSemua')}}">
-				<i class="material-icons">event_note</i>Semua Tugas & Ujian
+				<i class="material-icons">event_note</i>Semua Pekerjaan
 			</a>
 		</li>
 		<li class="

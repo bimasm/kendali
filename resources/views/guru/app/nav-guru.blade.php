@@ -219,7 +219,7 @@
 			</a>
 		</li>
 		{{-- <li><a href="#!"><i class="material-icons">date_range</i>Kalender Akademik</a></li> --}}
-		{{-- <br>
+		<br>
 		<li class="pad-L-10"><div class="divider"></div></li>
 		<li><a class="subheader">Monitoring</a></li>
 		<li class="
@@ -254,7 +254,7 @@
 			<a href="{{route('GuruRekapNilai')}}">
 				<i class="material-icons">insert_chart_outlined</i>Rekap Nilai
 			</a>
-		</li> --}}
+		</li>
 		<br>
 		<li class="pad-L-10"><div class="divider">
 		</div></li>

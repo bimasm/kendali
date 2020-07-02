@@ -34,7 +34,7 @@ class SiswaController extends Controller
         $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
         $kelas=Pelajaran::where('id',$siswa)->get();
 
-    	return view('siswa.ujian-siswa', compact('data','kelas'));
+        return view('siswa.ujian-siswa', compact('data','kelas'));
     }
 
     public function Siswa_Diskusi($id)
@@ -43,7 +43,7 @@ class SiswaController extends Controller
         $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
         $kelas=Pelajaran::where('id',$siswa)->get();
 
-    	return view('siswa.diskusi-siswa', compact('data','kelas'));
+        return view('siswa.diskusi-siswa', compact('data','kelas'));
     }
 
     public function Siswa_Diskusi_detail()
@@ -75,10 +75,19 @@ class SiswaController extends Controller
 
     public function Siswa_Semua_TugasUjian()
     {
-        $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
+        $siswaid=Auth::guard('siswa')->user()->id;
+        $siswa=Relation::where('id_siswa', $siswaid)->value('id_pelajaran');
         $kelas=Pelajaran::where('id',$siswa)->get();
 
-    	return view('siswa.tugasujian-siswa-semua', compact('kelas'));
+        $sis=Auth::guard('siswa')->user()->get();
+        $pelajaran=Relation::whereIn('id_siswa', $sis)->get();
+        $arr = array();
+        foreach ($pelajaran as $s) {
+            array_push($arr, $s->id);
+        }
+        $tugas=Tugaskelas::whereIn('id_pelajaran', $arr)->orderBy('created_at','desc')->get();
+
+        return view('siswa.tugasujian-siswa-semua', compact('kelas','tugas'));
     }
 
     public function Siswa_RekapNilai()
@@ -86,7 +95,7 @@ class SiswaController extends Controller
         $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
         $kelas=Pelajaran::where('id',$siswa)->get();
 
-    	return view('siswa.rekapnilai-siswa', compact('kelas'));
+        return view('siswa.rekapnilai-siswa', compact('kelas'));
     }
 
     public function Siswa_Setting()
@@ -94,6 +103,6 @@ class SiswaController extends Controller
         $siswa=Relation::where('id_siswa', Auth::guard('siswa')->user()->id)->value('id_pelajaran');
         $kelas=Pelajaran::where('id',$siswa)->get();
 
-    	return view('siswa.setting-siswa', compact('kelas'));
+        return view('siswa.setting-siswa', compact('kelas'));
     }
 }

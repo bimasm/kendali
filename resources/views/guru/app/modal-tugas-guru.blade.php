@@ -1,4 +1,4 @@
-@foreach($tugas as $tg)
+
 {{-- START ================================================================================ EDIT TUGAS --}}
 <div id="modal-edit-tugas{{ $tg->id }}" class="modal">
 	<div class="modal-content">
@@ -60,4 +60,3 @@
 	</div>
 </div>
 {{-- END ================================================================================ HAPUS TUGAS --}}
-@endforeach

@@ -11,7 +11,7 @@ Dashboard - Siswa
 @section('app-siswa')
 
 {{-- START ================================================================================ SLIDE --}}
-<section>
+<section class="mt-1">
 	<div class="container container-75">
 		<div class="carousel carousel-slider dash">
 
