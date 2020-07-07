@@ -29,6 +29,10 @@ Kelas - Siswa
 							<div class="collapsible-header">
 								<i class="material-icons title">description</i>
 								{{ $mt->materi }}
+								<span class="text">
+									Dibuat: 
+									{{ date('j F Y', strtotime($mt->created_at)) }}
+								</span>
 								<span>
 									<a class="waves-effect btn-icon-flat">
 										<i class="material-icons">keyboard_arrow_down</i>
@@ -36,22 +40,26 @@ Kelas - Siswa
 								</span>
 							</div>
 							<div class="collapsible-body">
-								<h6><b>Materi</b></h6>
-								<blockquote>
-									<div class="row">
-										@foreach( $mt->komponen as $k)
-										<div class="col s12 m12 l6">
+								<div class="card-content">
+									<h6><b>Materi</b></h6>
+									<blockquote>
+										<div class="row">
+											@foreach( $mt->komponen as $k)
+											<div class="col s12 m12 l6">
 
-											<a href="{{ route('welcome')}}/file/{{ $k->file}}">
-												<div class="card card-icon-desc-btn">
-													<div class="row">
-														<div class="col s12 m12 l2 icon">
-															<i class="material-icons">
-																description
-															</i> 
-														</div>
-														<div class="col s12 m12 l10 desc">
-															{{ $k->file }} 
+												<a href="{{ route('welcome')}}/file/{{ $k->file}}">
+													<div class="card card-icon-desc-btn">
+														<div class="row">
+															<div class="col s12 m12 l2 icon">
+																<i class="material-icons">
+																	description
+																</i> 
+															</div>
+															<div class="col s12 m12 l10 desc">
+																{{ $k->file }}
+																<div class="divider-m"></div>
+																{{ date('j F Y', strtotime($k->created_at)) }}
+															</span> 
 														</div>
 													</div>
 												</div>
@@ -64,45 +72,45 @@ Kelas - Siswa
 
 								<br>
 
-								{{-- <h6><b>Latihan Soal</b></h6>
-								<blockquote>
-									<table>
-										<tbody>
-											<tr>
-												<td>Nama Latihan</td>
-												<td>90 menit</td>
-												<td>50 soal</td>
-												<td class="center">
-													<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Nama Latihan</td>
-												<td>90 menit</td>
-												<td>50 soal</td>
-												<td class="center">
-													<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
-												</td>
-											</tr>
-											<tr>
-												<td>Nama Latihan</td>
-												<td>90 menit</td>
-												<td>50 soal</td>
-												<td class="center">
-													<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
-												</td>
-											</tr>
-										</tbody>
-									</table>
-								</blockquote> --}}
-								
+{{-- 									<h6><b>Latihan Soal</b></h6>
+									<blockquote>
+										<table>
+											<tbody>
+												<tr>
+													<td>Nama Latihan</td>
+													<td>90 menit</td>
+													<td>50 soal</td>
+													<td class="center">
+														<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
+													</td>
+												</tr>
+												<tr>
+													<td>Nama Latihan</td>
+													<td>90 menit</td>
+													<td>50 soal</td>
+													<td class="center">
+														<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
+													</td>
+												</tr>
+												<tr>
+													<td>Nama Latihan</td>
+													<td>90 menit</td>
+													<td>50 soal</td>
+													<td class="center">
+														<a href="" class="waves-effect btn-flat btn-border-prim"><i class="material-icons right">arrow_forward</i>Mulai</a>
+													</td>
+												</tr>
+											</tbody>
+										</table>
+									</blockquote> --}}
+								</div>
+								{{-- <div class="card-actions">
+
+								</div> --}}
 							</div>
 						</li>
 					</ul>
-					<div class="card-action">
-						{{ date('j F Y', strtotime($mt->created_at)) }}, 
-						{{ date('H:i', strtotime($mt->created_at)) }}
-					</div>
+
 				</div>
 			</div>
 			@endforeach

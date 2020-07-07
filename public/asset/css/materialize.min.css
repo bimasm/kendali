@@ -2503,6 +2503,13 @@ nav,
     background-color: #e0e0e0
 }
 
+.divider-m {
+    height: 1px;
+    overflow: hidden;
+    background-color: #e0e0e0;
+    margin: 0.5rem 0
+}
+
 blockquote {
     margin: 20px 0;
     padding-left: 1.5rem;

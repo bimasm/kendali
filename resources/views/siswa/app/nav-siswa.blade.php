@@ -232,7 +232,7 @@
 
 			)) ? 'active' : '' }}
 			">
-			<a href="siswa/kelas/{{ $ks->id }}">
+			<a href="{{route('DetailKelasSiswa', $ks->id)}}">
 				<i class="material-icons">menu_book</i>{{ $ks->pelajaran }}
 			</a>
 		</li>

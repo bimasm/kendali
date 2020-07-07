@@ -29,7 +29,7 @@ Diskusi - Siswa
 								<i class="material-icons title">people_alt</i>
 								Forum Gaya
 								<span class="text">
-									Belum berdiskusi
+									Dibuat: 23 June 2020
 								</span>
 								<span>
 									<a class="waves-effect btn-icon-flat">
@@ -38,23 +38,25 @@ Diskusi - Siswa
 								</span>
 							</div>
 							<div class="collapsible-body">
-								<div class="row">
-									<div class="col s12 m12 l12">
-										<h6 class="center">Peraturan Diskusi</h6>
+								<div class="card-content">
+									<div class="row">
+										<div class="col s12 m12 l12">
+											<h6 class="center">Peraturan Diskusi</h6>
+										</div>
 									</div>
-									<div class="col s12 m12 l12 center">
-										<br>
-										<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
-											<i class="material-icons right">arrow_forward</i>Detail Diskusi
-										</a>
+								</div>
+								<div class="card-actions">
+									<div class="row">
+										<div class="col s12 m12 l12 right-align">
+											<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
+												<i class="material-icons right">arrow_forward</i>Diskusi Sekarang
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</li>
 					</ul>
-					<div class="card-action">
-						<b>Heri</b>, 23 Juni 2020
-					</div>
 				</div>
 			</div>
 			{{-- END ================================================================================ CARD BELUM DISKUSI --}}

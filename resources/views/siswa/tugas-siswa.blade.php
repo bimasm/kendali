@@ -37,11 +37,9 @@ Tugas - Siswa
 								</div>
 
 								<span class="text">
-									@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
-									Sudah dikerjakan
-									@else
-									Belum dikerjakan
-									@endif
+									Batas: 
+									{{ date('j F Y', strtotime($tg->deadline)) }}, 
+									{{ date('H:i', strtotime($tg->deadline)) }}
 								</span>
 								<span>
 									<a class="waves-effect btn-icon-flat">
@@ -50,41 +48,40 @@ Tugas - Siswa
 								</span>
 							</div>
 							<div class="collapsible-body">
-								<h6>
-									Batas pengumpulan : 
-									{{ date('j F Y', strtotime($tg->deadline)) }}, 
-									{{ date('H:i', strtotime($tg->deadline)) }}
-								</h6>
-								<br>
-								<div class="divider"></div>
-								<br>
-								<h6><b>Detail Tugas</b></h6>
-								<blockquote>
-									<div class="tugas-text">
-										<p>{{ $tg->tugas }}</p>
+								<div class="card-content">
+									<div class="center">
+										<h6>
+											@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
+											Sudah dikerjakan ({{ date('j F Y', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}, {{ date('H:i', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }})
+											@else
+											Belum dikerjakan
+											@endif
+										</h6>
 									</div>
-								</blockquote>
-								{{-- <br>
-								<h6><b>Pekerjaan Anda</b></h6>
-								<blockquote>
-									Belum ada file
-								</blockquote> --}}
-								<br>
-								<div class="row">
-									<div class="col s12 m12 l12 right-align">
-										<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
-											<i class="material-icons right">arrow_forward</i>Detail Tugas
-										</a>
+									<br>
+									<div class="divider"></div>
+									<br>
+									<h6><b>Detail Tugas</b></h6>
+									{{ \App\Guru::where('id', \App\Pelajaran::where('id', \App\Tugaskelas::where('id', $tg->id)->value('id_pelajaran'))->value('id_guru'))->value('nama') }}, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}
+									<blockquote>
+										<div class="tugas-text">
+											<p>{{ $tg->tugas }}</p>
+										</div>
+									</blockquote>
+									<br>
+								</div>
+								<div class="card-actions">
+									<div class="row">
+										<div class="col s12 m12 l12 right-align">
+											<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
+												<i class="material-icons right">arrow_forward</i>Detail Tugas
+											</a>
+										</div>
 									</div>
 								</div>
 							</div>
 						</li>
 					</ul>
-					<div class="card-action">
-						Batas pengumpulan : 
-						{{ date('j F Y', strtotime($tg->deadline)) }}, 
-						{{ date('H:i', strtotime($tg->deadline)) }}
-					</div>
 				</div>
 			</div>
 			@endforeach

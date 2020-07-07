@@ -85,10 +85,11 @@
 }
 
 .card-icon-collapsible .collapsible li .collapsible-header span.text {
-	font-size: 18px; 
+	font-size: 16px; 
 	color: var(--dark);
 	float: right; 
 	right: 90px; 
+	line-height: 3.5rem;
 	position: absolute
 }
 
@@ -115,9 +116,24 @@
 
 .card-icon-collapsible .collapsible li .collapsible-body {
 	border: 0 !important;
+	padding: 0 !important
 }
 
-@media only screen and (max-width: 600px) {
+.card-icon-collapsible .collapsible li .collapsible-body .card-content {
+	padding: 2rem
+}
+
+.card-icon-collapsible .collapsible li .collapsible-body .card-actions {
+	border-top: 1px solid rgba(160, 160, 160, 0.2);
+	position: relative;
+	padding: 16px 24px;
+}
+
+.card-icon-collapsible .collapsible li .collapsible-body .card-actions .row {
+	margin:0 !important;
+}
+
+@media only screen and (max-width: 992px){
 	.card-icon-collapsible .collapsible li .collapsible-header span.text {
 		font-size: 15px;
 		color: var(--dark);
@@ -126,6 +142,11 @@
 		right: 90px;
 		position: absolute;
 		top: 43px;
+		line-height: 1.5rem;
+	}
+
+	.card-icon-collapsible .collapsible li .collapsible-header {
+		line-height: 1.5rem
 	}
 }
 

@@ -53,26 +53,35 @@ Semua Tugas & Ujian - Siswa
 											</span>
 										</div>
 										<div class="collapsible-body">
-											<h6>
-												Batas pengumpulan : 
-												{{ date('j F Y', strtotime($tg->deadline)) }}, 
-												{{ date('H:i', strtotime($tg->deadline)) }}
-											</h6>
-											<br>
-											<div class="divider"></div>
-											<br>
-											<h6><b>Detail Tugas</b></h6>
-											<blockquote>
-												<div class="tugas-text">
-													<p>{{ $tg->tugas }}</p>
+											<div class="card-content">
+												<div class="center">
+													<h6>
+														@if(\App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->count()>0)
+														Sudah dikerjakan ({{ date('j F Y', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }}, {{ date('H:i', strtotime( \App\Jawabantugas::where('id_tugas', $tg->id)->where('id_siswa',Auth::guard('siswa')->user()->id)->value('updated_at'))) }})
+														@else
+														Belum dikerjakan
+														@endif
+													</h6>
 												</div>
-											</blockquote>
-											<br>
-											<div class="row">
-												<div class="col s12 m12 l12 right-align">
-													<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
-														<i class="material-icons right">arrow_forward</i>Detail Tugas
-													</a>
+												<br>
+												<div class="divider"></div>
+												<br>
+												<h6><b>Detail Tugas</b></h6>
+												{{ \App\Guru::where('id', \App\Pelajaran::where('id', \App\Tugaskelas::where('id', $tg->id)->value('id_pelajaran'))->value('id_guru'))->value('nama') }}, {{ date('j F Y', strtotime($tg->created_at)) }}, {{ date('H:i', strtotime($tg->created_at)) }}
+												<blockquote>
+													<div class="tugas-text">
+														<p>{{ $tg->tugas }}</p>
+													</div>
+												</blockquote>
+												<br>
+											</div>
+											<div class="card-actions">
+												<div class="row">
+													<div class="col s12 m12 l12 right-align">
+														<a href="/siswa/tugas/{{$tg->id_pelajaran}}/detail/{{$tg->id}}" class="waves-effect btn-flat btn-border-prim">
+															<i class="material-icons right">arrow_forward</i>Detail Tugas
+														</a>
+													</div>
 												</div>
 											</div>
 										</div>
@@ -103,7 +112,7 @@ Semua Tugas & Ujian - Siswa
 											<i class="material-icons title">list_alt</i>
 											Gaya
 											<span class="text">
-												Belum Dikerjakan
+												Biologi
 											</span>
 											<span>
 												<a class="waves-effect btn-icon-flat">
@@ -112,47 +121,51 @@ Semua Tugas & Ujian - Siswa
 											</span>
 										</div>
 										<div class="collapsible-body">
-											<h6><b>Detail Ujian</b></h6>
-											<blockquote>
+											<div class="card-content">
+												<h6><b>Detail Ujian</b></h6>
+												Heri, 23 June 2020, 02:50
+												<blockquote>
+													<div class="row">
+														<div class="col s12 m12 l12">
+															<table>
+																<tbody>
+																	<tr>
+																		<th>Jenis Ujian</th>
+																		<td>Ulangan Harian</td>
+																	</tr>
+																	<tr>
+																		<th>Jumlah Soal</th>
+																		<td>50 Soal</td>
+																	</tr>
+																	<tr>
+																		<th>Waktu</th>
+																		<td>90 menit</td>
+																	</tr>
+																	<tr>
+																		<th>Nilai</th>
+																		<td>Belum Dikerjakan</td>
+																	</tr>
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</blockquote>
+												<br>
+											</div>
+											<div class="card-actions">
 												<div class="row">
-													<div class="col s12 m12 l12">
-														<table>
-															<tbody>
-																<tr>
-																	<th>Jenis Ujian</th>
-																	<td>Ulangan Harian</td>
-																</tr>
-																<tr>
-																	<th>Jumlah Soal</th>
-																	<td>50 Soal</td>
-																</tr>
-																<tr>
-																	<th>Waktu</th>
-																	<td>90 menit</td>
-																</tr>
-																<tr>
-																	<th>Nilai</th>
-																	<td>Belum Dikerjakan</td>
-																</tr>
-															</tbody>
-														</table>
+													<div class="col s12 m12 l12 right-align">
+														<a href="" class="waves-effect btn-flat btn-border-prim">
+															<i class="material-icons right">arrow_forward</i>Kerjakan Sekarang
+														</a>
 													</div>
 												</div>
-											</blockquote>
-											<br>
-											<div class="row">
-												<div class="col s12 m12 l12 right-align">
-													<a href="" class="waves-effect btn-flat btn-border-prim">
-														<i class="material-icons right">arrow_forward</i>Kerjakan Sekarang
-													</a>
-												</div>
 											</div>
-
 										</div>
 									</li>
 								</ul>
 								<div class="card-action">
-									<b>Heri</b>, 23 Juni 2020
+									Batas: 23 Juni 2020, 16:30
 								</div>
 							</div>
 						</div>
@@ -172,7 +185,7 @@ Semua Tugas & Ujian - Siswa
 											<i class="material-icons title">people_alt</i>
 											Forum Gaya
 											<span class="text">
-												Belum berdiskusi
+												Biologi
 											</span>
 											<span>
 												<a class="waves-effect btn-icon-flat">
@@ -181,23 +194,25 @@ Semua Tugas & Ujian - Siswa
 											</span>
 										</div>
 										<div class="collapsible-body">
-											<div class="row">
-												<div class="col s12 m12 l12">
-													<h6 class="center">Peraturan Diskusi</h6>
+											<div class="card-content">
+												<div class="row">
+													<div class="col s12 m12 l12">
+														<h6 class="center">Peraturan Diskusi</h6>
+													</div>
 												</div>
-												<div class="col s12 m12 l12 center">
-													<br>
-													<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
-														<i class="material-icons right">arrow_forward</i>Detail Diskusi
-													</a>
+											</div>
+											<div class="card-actions">
+												<div class="row">
+													<div class="col s12 m12 l12 right-align">
+														<a href="{{route('SiswaDiskusiDetail')}}" class="waves-effect btn-flat btn-border-prim">
+															<i class="material-icons right">arrow_forward</i>Diskusi Sekarang
+														</a>
+													</div>
 												</div>
 											</div>
 										</div>
 									</li>
 								</ul>
-								<div class="card-action">
-									<b>Heri</b>, 23 Juni 2020
-								</div>
 							</div>
 						</div>
 					</div>

@@ -33,6 +33,9 @@ Kelas - Guru
 								</span>
 							</div>
 							<div class="collapsible-body">
+								<div class="card-content">
+									
+								</div>
 								<h6><b>File</b></h6>
 								<blockquote>
 									@foreach($mt->komponen as $k)
